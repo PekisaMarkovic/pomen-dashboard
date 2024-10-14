@@ -8,8 +8,9 @@ import OrderIcon from './OrderIcon'
 import QRIcon from './QRIcon'
 import TributeIcon from './TributeIcon'
 
+export type NavigationIconType = 'City' | 'Order' | 'Getherings' | 'Dashboard' | 'Country' | 'Certificate' | 'QR' | 'Cemetery' | 'Tribute'
 interface Props extends React.SVGProps<SVGSVGElement> {
-  type: 'City' | 'Order' | 'Getherings' | 'Dashboard' | 'Country' | 'Certificate' | 'QR' | 'Cemetery' | 'Tribute'
+  type: NavigationIconType
 }
 
 const NavigationIcons = ({ type, ...rest }: Props) => {

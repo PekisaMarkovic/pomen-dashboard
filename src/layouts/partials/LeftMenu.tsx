@@ -4,6 +4,7 @@ import NavigationLink from '../../components/core/navigation/NavigationLink'
 import Heading from '../../components/core/typography/Heading'
 import { LEFT_SIDE_MENU_LINKS } from '../../constatns/navigation'
 import { checkIsLinkActiv } from '../../utils/route'
+import NavigationIcons from '../../icons/navigation'
 
 const LeftMenu = () => {
   const { t } = useTranslation(['static'])
@@ -21,7 +22,7 @@ const LeftMenu = () => {
               href={link}
               text={t(`static:navigation.leftSide.${text}`)}
               variant="side"
-              leftIcon={icon}
+              leftIcon={<NavigationIcons type={icon} />}
               key={index}
             />
           ))}
