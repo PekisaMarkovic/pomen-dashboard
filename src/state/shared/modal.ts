@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ModalTypes, Nullable } from '../../interfaces/general'
+import { Nullable } from '../../interfaces/general'
 import { State as AppState } from '../store'
+import { ModalEnums } from '../../enum/modal'
 
 type State = {
-  modal: Nullable<ModalTypes>
+  modal: Nullable<ModalEnums>
 }
 
 const initialState: State = {
@@ -15,7 +16,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     initializeModal: () => initialState,
-    setModal: (state, action: PayloadAction<ModalTypes>) => {
+    setModal: (state, action: PayloadAction<ModalEnums>) => {
       state.modal = action.payload
     },
     removeModal: (state) => {

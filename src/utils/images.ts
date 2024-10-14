@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
-import { IImage } from '../interfaces/image'
-import ImageApis from '../api/images'
+import { IFile } from '../interfaces/image'
+import FileApis from '../api/files'
 
 const toBase64 = (file: File) =>
   new Promise((resolve, reject) => {
@@ -17,7 +17,7 @@ export const onSingleFileInput = async (api: AxiosInstance, file: File) => {
 
   formData.append('file', base64)
 
-  return api.post<IImage>(ImageApis.single(), formData)
+  return api.post<IFile>(FileApis.single(), formData)
 }
 
 export const onMultyFileInput = async (api: AxiosInstance, files: File[]) => {
@@ -32,7 +32,7 @@ export const onMultyFileInput = async (api: AxiosInstance, files: File[]) => {
       formData.append(`files[${i}]`, file)
     })
 
-    return api.post<IImage[]>(ImageApis.multy(), formData)
+    return api.post<IFile[]>(FileApis.multy(), formData)
   } catch (error) {
     console.error('Error uploading files:', error)
     throw error

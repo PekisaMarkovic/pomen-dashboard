@@ -10,7 +10,7 @@ import { onSingleFileInput } from '../../../utils/images'
 import ErrorMessage from '../typography/ErrorMessage'
 import { style } from './InputFileStyle'
 import customToast from '../toast/CustomToast'
-import { IImage } from '../../../interfaces/image'
+import { IFile } from '../../../interfaces/image'
 
 type Props = {
   placeholderGreen?: string
@@ -35,7 +35,7 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   const api = useApi()
   const { t } = useTranslation(['g'])
   const hidden = useRef<HTMLInputElement | null>(null)
-  const file = useWatch({ name }) as IImage
+  const file = useWatch({ name }) as IFile
   const {
     register,
     setValue,

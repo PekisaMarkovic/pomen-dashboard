@@ -10,7 +10,7 @@ import { onMultyFileInput } from '../../../utils/images'
 import ErrorMessage from '../typography/ErrorMessage'
 import { style } from './InputFileStyle'
 import customToast from '../toast/CustomToast'
-import { IImage } from '../../../interfaces/image'
+import { IFile } from '../../../interfaces/image'
 import GeneralIcons from '../../../icons/general'
 
 type Props = {
@@ -37,7 +37,7 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
   const api = useApi()
   const { t } = useTranslation(['g'])
   const hidden = useRef<HTMLInputElement | null>(null)
-  const files = (useWatch({ name }) as IImage[]) || []
+  const files = (useWatch({ name }) as IFile[]) || []
   const removeIds = (useWatch({ name: removeName }) as string[]) || []
   const {
     register,
@@ -67,7 +67,7 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
   const handleOnClickRemoveImage = (index: number, imageId?: number) => {
     setValue(
       name,
-      files.filter((_: IImage, ind: number) => ind !== index),
+      files.filter((_: IFile, ind: number) => ind !== index),
     )
 
     if (imageId) {
@@ -124,7 +124,7 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
         />
       </div>
       <div className="flex flex-wrap gap-4 mt-2">
-        {files.map(({ url, imageId }, index: number) => (
+        {files.map(({ url, fileId }, index: number) => (
           <div key={index} className="h-20 w-40 overflow-hidden rounded-sm relative">
             <img
               src={url}
@@ -137,7 +137,7 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
             <GeneralIcons
               type="TrashWhite"
               className="absolute top-2 right-2 cursor-pointer"
-              onClick={() => handleOnClickRemoveImage(index, imageId)}
+              onClick={() => handleOnClickRemoveImage(index, fileId)}
             />
           </div>
         ))}
