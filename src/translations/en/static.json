@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "leftSide": {
+      "title": "navigation",
+      "dashboard": "Dashboard",
+      "cemeteries": "Cemeteries",
+      "certificates": "Certificates",
+      "cities": "Cities",
+      "countries": "Countries",
+      "getherings": "Getherings",
+      "tributes": "Tributes",
+      "qrcodes": "Qrcodes",
+      "orders": "Orders",
+      "contacts": "Contacts"
+    },
+    "leftSidePage": {
+      "title": "navigation",
+      "new-certificate": "New Certificate",
+      "new-certificate-management": "New Certificate",
+      "dashboard": "Dashboard",
+      "tributes": "Tributes",
+      "getherings": "Getherings",
+      "countries": "Countries",
+      "cemeteries": "Cemeteries",
+      "certificates": "Certificates",
+      "qrcodes": "Qrcodes",
+      "cities": "Cities",
+      "orders": "Orders",
+      "contacts": "Contacts"
+    }
+  },
+  "welcome": "Welcome to dashboard, {{name}}."
+}

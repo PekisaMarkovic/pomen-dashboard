@@ -1,0 +1,24 @@
+{
+  "table": {
+    "name": "Name",
+    "iso": "iso",
+    "code": "code",
+    "slug": "slug",
+    "country": "country"
+  },
+  "add": {
+    "title": "Add a Country",
+    "editTitle": "Edit a Country",
+
+    "fields": {
+      "name": "Name",
+      "namePlh": "Enter a name",
+
+      "iso": "Iso",
+      "isoPlh": "Enter a iso",
+
+      "code": "Code",
+      "codePlh": "Enter a code"
+    }
+  }
+}

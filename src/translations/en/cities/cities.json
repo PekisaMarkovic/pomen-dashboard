@@ -1,0 +1,23 @@
+{
+  "table": {
+    "name": "Name",
+    "code": "Code",
+    "country": "Country",
+    "slug": "Slug"
+  },
+  "add": {
+    "title": "Add a City",
+    "editTitle": "Edit a City",
+
+    "fields": {
+      "name": "Name",
+      "namePlh": "Enter a name",
+
+      "code": "Code",
+      "codePlh": "Enter a code",
+
+      "country": "Country",
+      "countryPlh": "Select a Country"
+    }
+  }
+}

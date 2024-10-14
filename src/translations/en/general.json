@@ -1,0 +1,47 @@
+{
+  "button": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "okey": "OK",
+    "addNew": "Add New",
+    "edit": "Edit",
+    "delete": "Delete",
+    "next": "Next",
+    "upload": "Upload",
+    "addAnother": "Add another",
+    "setFeatured": "Set as Featured",
+    "goBack": "Go Back",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "addCemetery": "Add Cemetery",
+    "addCertificate": "Add Certificate",
+    "addCountry": "Add Country",
+    "addTribute": "Add Tribute",
+    "addGethering": "Add Gethering",
+    "addCity": "Add City",
+    "continue": "CONTINUE",
+    "view": "VIEW",
+    "back": "Back",
+    "leave": "Leave",
+    "confirm": "Confirm",
+    "download": "Download",
+    "inProgress": "Delivering",
+    "returned": "returned",
+    "canceled": "canceled",
+    "failed": "failed",
+    "delivered": "delivered",
+    "shareLead": "Share Lead",
+    "or": "or"
+  },
+  "fields": {
+    "maxChar": "Max. Characters: {{numberOfChars}}",
+    "maxCharError": "You have exceeded the maximum number of characters"
+  },
+
+  "errorMessage": "Something went wrong. Please try again later.",
+  "profile": "Profile",
+  "logout": "Log out"
+}

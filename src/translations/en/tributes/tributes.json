@@ -1,0 +1,27 @@
+{
+  "table": {
+    "name": "Name",
+    "description": "Description",
+    "email": "Email",
+    "certificate": "certificate",
+    "status": "status"
+  },
+  "add": {
+    "title": "Add a Tribute",
+    "editTitle": "Edit a Tribute",
+
+    "fields": {
+      "firstName": "First name",
+      "firstNamePlh": "Enter a first mame",
+
+      "lastName": "Last name",
+      "lastNamePlh": "Enter a last mame",
+
+      "description": "Description",
+      "descriptionPlh": "Enter a description",
+
+      "email": "Email",
+      "emailPlh": "Select a email"
+    }
+  }
+}

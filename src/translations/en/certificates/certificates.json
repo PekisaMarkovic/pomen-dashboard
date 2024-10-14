@@ -1,0 +1,72 @@
+{
+  "table": {
+    "name": "Name",
+    "born": "Born",
+    "died": "Died",
+    "cemetery": "Cemetery",
+    "biography": "Biography"
+  },
+  "cemetery": {
+    "title": "Cemetery Details",
+    "subtitle": "Tell us more about cemetery location.",
+    "fields": {
+      "cemetery": "Cemetery",
+      "cemeteryPlh": "Select a Cemetery",
+
+      "city": "City",
+      "cityPlh": "Select a City"
+    },
+    "tooltip": "Enter details about your place of berial, city options are used to filter cemeteries."
+  },
+  "life": {
+    "title": "Life Details",
+    "subtitle": "Tell us more about loved one.",
+    "fields": {
+      "firstName": "First name",
+      "firstNamePlh": "Enter a first name",
+
+      "lastName": "Last name",
+      "lastNamePlh": "Enter a last name",
+
+      "status": "Status",
+      "statusPlh": "Select Status",
+
+      "dateOfBirth": "Date of birth",
+      "dateOfBirthPlh": "Select a date of birth",
+
+      "placeOfBirth": "Place of birth",
+      "placeOfBirthPlh": "Select a place of birth",
+
+      "dateOfDeath": "Date of death",
+      "dateOfDeathPlh": "Select a date of death",
+
+      "placeOfDeath": "Place of death",
+      "placeOfDeathPlh": "Select a place of death",
+
+      "biography": "Biography",
+      "biographyPlh": "Enter a biography"
+    },
+    "tooltip": "Enter details about personal life of lived one."
+  },
+  "order": {
+    "title": "Order Details",
+    "subtitle": "Tell us more about place where to deliver.",
+    "fields": {
+      "firstNameNewUser": "Delivery person first name",
+      "firstNameNewUserPlh": "Enter a first name for delivery",
+
+      "lastNameNewUser": "Delivery person last name",
+      "lastNameNewUserPlh": "Enter a last name for delivery",
+
+      "emailNewUser": "Delivery person email",
+      "emailNewUserPlh": "Enter a email for delivery",
+
+      "addressOrder": "Delivery person address",
+      "addressOrderPlh": "Enter a address for delivery",
+
+      "phoneNewUser": "Delivery person phone",
+      "phoneNewUserPlh": "Enter a phone for delivery"
+    },
+    "tooltip": "Enter details where order will be deliverd, and contact person."
+  }
+}

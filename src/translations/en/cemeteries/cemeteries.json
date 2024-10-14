@@ -1,0 +1,23 @@
+{
+  "table": {
+    "name": "Name",
+    "address": "address",
+    "city": "City",
+    "slug": "Slug"
+  },
+  "add": {
+    "title": "Add a Cemetery",
+    "editTitle": "Edit a Cemetery",
+
+    "fields": {
+      "name": "Name",
+      "namePlh": "Enter a name",
+
+      "address": "Address",
+      "addressPlh": "Enter a address",
+
+      "city": "City",
+      "cityPlh": "Select a City"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "table": {
+    "address": "Delivery address",
+    "name": "Delivery name",
+    "phone": "Delivery phone",
+    "slug": "Certificate",
+    "status": "Status",
+    "createdAt": "Created"
+  },
+
+  "order-status": {
+    "failed": "Failed",
+    "canceled": "Canceled",
+    "returned": "Returned",
+    "delivered": "Delivered",
+    "in.progress": "Sended",
+    "pending": "Pending"
+  }
+}

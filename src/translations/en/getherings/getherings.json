@@ -1,0 +1,30 @@
+{
+  "table": {
+    "date": "date",
+    "address": "address",
+    "hour": "hour",
+    "certificate": "certificate"
+  },
+
+  "add": {
+    "title": "Add a Gethering",
+    "editTitle": "Edit a Gethering",
+
+    "fields": {
+      "date": "Date",
+      "datePlh": "Select a date",
+
+      "certificate": "Certificate",
+      "certificatePlh": "Select a certificate",
+
+      "hour": "Hour",
+      "hourPlh": "Enter a hour",
+
+      "address": "Address",
+      "addressPlh": "Enter a address",
+
+      "city": "City",
+      "cityPlh": "Select a city"
+    }
+  }
+}

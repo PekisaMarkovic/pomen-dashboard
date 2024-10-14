@@ -1,0 +1,9 @@
+{
+  "title": "Sign in to your account",
+  "fields": {
+    "email": "E-Mail",
+    "emailPlh": "Enter an E-mail..",
+    "password": "Password",
+    "passwordPlh": "Enter an password"
+  }
+}
