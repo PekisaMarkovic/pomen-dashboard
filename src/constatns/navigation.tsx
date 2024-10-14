@@ -1,7 +1,13 @@
 import { NavigationIconType } from '../icons/navigation'
 import { ROUTE_NAMES } from './a-routes'
 
-export const LEFT_SIDE_MENU_LINKS: { text: string; icon: NavigationIconType; link: string }[] = [
+interface IMenuLink {
+  text: string
+  icon: NavigationIconType
+  link: string
+}
+
+export const LEFT_SIDE_MENU_LINKS: IMenuLink[] = [
   { text: 'dashboard', icon: 'Dashboard', link: ROUTE_NAMES.dashboard },
   { text: 'orders', icon: 'Order', link: ROUTE_NAMES.orderes },
   { text: 'certificates', icon: 'Certificate', link: ROUTE_NAMES.certificates },

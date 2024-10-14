@@ -18,6 +18,7 @@ import SingleCertificatePage from '../pages/certificates/SingleCertificatePage'
 import NewCertificatePage from '../pages/certificates/NewCertificatePage'
 import NewCertificateManagementPage from '../pages/certificates/NewCertificateManagementPage'
 import { Route } from 'react-router-dom'
+import { Routes as Switch } from 'react-router-dom'
 
 const ALL_ROLES = [RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -167,11 +168,15 @@ const AppRoutes = () => {
     },
   ]
 
-  return appRoutes.map((route) => (
-    <Route key={route.path} path={route.path} element={route.element}>
-      {route.children?.map((childRoute) => <Route key={childRoute.path} path={childRoute.path} element={childRoute.element} />)}
-    </Route>
-  ))
+  return (
+    <Switch>
+      {appRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={route.element}>
+          {route.children?.map((childRoute) => <Route key={childRoute.path} path={childRoute.path} element={childRoute.element} />)}
+        </Route>
+      ))}
+    </Switch>
+  )
 }
 
 export default AppRoutes
