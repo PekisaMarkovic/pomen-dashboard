@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --port 4000"
+    "preview": "vite preview --port 10000"
   },
   "dependencies": {
     "@cloudinary/react": "^1.13.0",
