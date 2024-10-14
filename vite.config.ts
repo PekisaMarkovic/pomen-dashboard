@@ -7,7 +7,7 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   plugins: [react(), tsConfigPaths(), svgr({ svgrOptions: { expandProps: 'end' } })],
   server: {
-    host: '0.0.0.0', // Expose the server to external connections
-    port: 5173, // Ensure the correct port is being used
+    host: '0.0.0.0',
+    port: 4000,
   },
 })
