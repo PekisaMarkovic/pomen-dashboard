@@ -6,6 +6,10 @@ import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   plugins: [react(), tsConfigPaths(), svgr({ svgrOptions: { expandProps: 'end' } })],
+  build: {
+    minify: 'esbuild', // Ensures minification and optimizes for production
+    sourcemap: false, // You can disable sourcemaps in production
+  },
   server: {
     host: '0.0.0.0',
     port: 4000,
