@@ -5,6 +5,7 @@ export interface IFile {
   height: number
   publicId: string
   wight: number
+  fileExtension: string
   url: string
   type: FileTypeEnum
 }

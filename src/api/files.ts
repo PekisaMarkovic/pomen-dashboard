@@ -1,7 +1,7 @@
 const base = 'files'
 
-const single = () => `${base}`
-const multy = () => `${base}`
+const single = () => `${base}/single`
+const multy = () => `${base}/multy`
 
 const FileApis = {
   multy,

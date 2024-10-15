@@ -6,12 +6,15 @@ import { useTranslation } from 'react-i18next'
 import { useApi } from '../../../hooks/use-api'
 import InputIcon from '../../../icons/input'
 import { Spacing } from '../../../interfaces/general'
-import { onMultyFileInput } from '../../../utils/images'
+import { onMultyFileInput } from '../../../utils/files'
 import ErrorMessage from '../typography/ErrorMessage'
 import { style } from './InputFileStyle'
 import customToast from '../toast/CustomToast'
 import { IFile } from '../../../interfaces/image'
 import GeneralIcons from '../../../icons/general'
+import { FileTypeEnum } from '../../../enum/file'
+import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
+import { handleAllowSave, handleDisableSave } from '../../../state/shared/behaviours'
 
 type Props = {
   placeholderGreen?: string
@@ -21,9 +24,10 @@ type Props = {
   name: string
   mt?: Spacing
   mb?: Spacing
+  fileType?: FileTypeEnum
 }
 
-const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name, mb, mt }: Props) => {
+const MultyInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name, mb, mt, fileType = FileTypeEnum.IMAGE }: Props) => {
   let marginTop = ''
   let marginBottom = ''
 
@@ -33,6 +37,7 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
   if (mb) {
     marginBottom = `mt-${mb}`
   }
+  const dispatch = useAppDispatch()
   const removeName = `${name}IdsToRemove`
   const api = useApi()
   const { t } = useTranslation(['g'])
@@ -46,22 +51,31 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
   } = useFormContext()
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
+    dispatch(handleDisableSave())
+
     try {
       if (acceptedFiles.length === 0) return
 
-      const { data } = await onMultyFileInput(api, acceptedFiles)
+      const { data } = await onMultyFileInput(api, acceptedFiles, fileType)
 
       setValue(name, [...files, ...data])
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave())
     }
   }, [])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: {
-      'image/*': [],
-    },
+    accept:
+      fileType === FileTypeEnum.VIDEO
+        ? {
+            'video/*': [],
+          }
+        : {
+            'image/*': [],
+          },
   })
 
   const handleOnClickRemoveImage = (index: number, imageId?: number) => {
@@ -80,14 +94,18 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
   const error = errorObj && errorObj.message ? (errorObj.message as string) : null
 
   const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(handleDisableSave())
+
     try {
       if (!e.target.files) return
 
-      const { data } = await onMultyFileInput(api, Array.from(e.target.files))
+      const { data } = await onMultyFileInput(api, Array.from(e.target.files), fileType)
 
       setValue(name, [...files, ...data])
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave())
     }
   }
 
@@ -118,32 +136,53 @@ const MultyImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequi
           autoComplete="off"
           className="hidden h-0 w-0"
           type="file"
+          accept={fileType === FileTypeEnum.VIDEO ? 'video/*' : 'image/*'}
           onChange={handleInput}
           {...getInputProps()}
           multiple
         />
       </div>
       <div className="flex flex-wrap gap-4 mt-2">
-        {files.map(({ url, fileId }, index: number) => (
-          <div key={index} className="h-20 w-40 overflow-hidden rounded-sm relative">
-            <img
-              src={url}
-              alt={`${name} ${placeholderGreen} ${placeholderGrey} ${index}`}
-              key={index}
-              height={80}
-              width={140}
-              style={{ height: '80px', width: '140px', objectFit: 'fill' }}
-            />
-            <GeneralIcons
-              type="TrashWhite"
-              className="absolute top-2 right-2 cursor-pointer"
-              onClick={() => handleOnClickRemoveImage(index, fileId)}
-            />
-          </div>
-        ))}
+        {fileType === FileTypeEnum.IMAGE ? (
+          <>
+            {files.map(({ url, fileId }, index: number) => (
+              <div key={index} className="h-20 w-40 overflow-hidden rounded-sm relative">
+                <img
+                  src={url}
+                  alt={`${name} ${placeholderGreen} ${placeholderGrey} ${index}`}
+                  key={index}
+                  height={80}
+                  width={140}
+                  style={{ height: '80px', width: '140px', objectFit: 'fill' }}
+                />
+                <GeneralIcons
+                  type="TrashWhite"
+                  className="absolute top-2 right-2 cursor-pointer"
+                  onClick={() => handleOnClickRemoveImage(index, fileId)}
+                />
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            {files.map(({ url, fileId, fileExtension }, index: number) => (
+              <div key={index} className="h-20 w-40 overflow-hidden rounded-sm relative">
+                <video controls style={{ height: '80px', width: '140px' }}>
+                  <source src={url} type={`video/${fileExtension}`} />
+                </video>
+
+                <GeneralIcons
+                  type="TrashWhite"
+                  className="absolute top-2 right-2 cursor-pointer"
+                  onClick={() => handleOnClickRemoveImage(index, fileId)}
+                />
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </div>
   )
 }
 
-export default MultyImageInputFile
+export default MultyInputFile

@@ -7,6 +7,7 @@ export const ROUTE_NAMES = {
   orderes: '/orderes',
   getherings: '/getherings',
   qrcodes: '/qrcodes',
+  previews: '/previews',
   tributes: '/tributes',
   newCerificate: '/new-certificate',
   newCerificateManagement: '/new-certificate-management',

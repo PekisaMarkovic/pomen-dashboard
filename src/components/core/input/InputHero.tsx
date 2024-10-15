@@ -7,6 +7,7 @@ import { useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import ErrorMessage from '../typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
+import { FileTypeEnum } from '../../../enum/file'
 
 type Props = {
   placeholderGreen?: string
@@ -17,9 +18,10 @@ type Props = {
   supportedFormat?: string
   name: string
   foldersPath: string
+  fileType?: FileTypeEnum
 }
 
-const InputHero = ({ label, placeholderGreen, placeholderGrey, isRequired, name }: Props) => {
+const InputHero = ({ label, placeholderGreen, placeholderGrey, isRequired, name, fileType = FileTypeEnum.IMAGE }: Props) => {
   const { t } = useTranslation(['g'])
   const hidden = useRef<HTMLInputElement | null>(null)
   const image = useWatch({ name })
@@ -108,11 +110,11 @@ const InputHero = ({ label, placeholderGreen, placeholderGrey, isRequired, name 
         {...register(name)}
         className="hidden h-0 w-0"
         type="file"
+        accept={fileType === FileTypeEnum.VIDEO ? 'video/*' : 'image/*'}
         onChange={handleInput}
         {...getInputProps()}
         ref={hidden}
         multiple={false}
-        accept="image/*"
       />
     </div>
   )

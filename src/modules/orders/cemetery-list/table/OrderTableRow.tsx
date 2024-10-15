@@ -7,6 +7,12 @@ import { CustomDropdown } from '../../../../interfaces/dropdown'
 import { IOrder } from '../../../../interfaces/orders'
 import { formatDateYearMonthDay } from '../../../../utils/date'
 import OrderTableStatus from './OrderTableStatus'
+import customToast from '../../../../components/core/toast/CustomToast'
+import { useApi } from '../../../../hooks/use-api'
+import OrdersApis from '../../../../api/orders'
+import { OrderStatusEnum } from '../../../../enum/order'
+import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
+import { updateOrderStatus } from '../../../../state/shared/orders'
 
 type Props = {
   order: IOrder
@@ -15,10 +21,21 @@ type Props = {
 const OrderTableRow = ({ order }: Props) => {
   const { t } = useTranslation(['g', 'order'])
   const [open, setOpen] = useState<boolean>(false)
-  const { address, city, createdAt, status, firstName, lastName, phoneNumber, certificate } = order
+  const dispatch = useAppDispatch()
+  const api = useApi()
+  const { address, city, createdAt, status, firstName, lastName, phoneNumber, certificate, orderId } = order
 
   const handleOnClick = () => setOpen(!open)
   const handleClose = () => setOpen(false)
+
+  const handleUpdateOrderStatus = async (status: OrderStatusEnum) => {
+    try {
+      await api.patch(OrdersApis.patchOrder(order.orderId), { status })
+      dispatch(updateOrderStatus({ orderId, status }))
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -27,7 +44,7 @@ const OrderTableRow = ({ order }: Props) => {
           type: 'button',
           text: t('order:order-status.delivered'),
           onClick: () => {
-            console.log(order)
+            handleUpdateOrderStatus(OrderStatusEnum.DELIVERED)
           },
         },
         textColor: 'green',
@@ -38,7 +55,7 @@ const OrderTableRow = ({ order }: Props) => {
           type: 'button',
           text: t('order:order-status.in.progress'),
           onClick: () => {
-            console.log(order)
+            handleUpdateOrderStatus(OrderStatusEnum.IN_PROGRESS)
           },
         },
         textColor: 'orange',
@@ -49,7 +66,7 @@ const OrderTableRow = ({ order }: Props) => {
           type: 'button',
           text: t('order:order-status.returned'),
           onClick: () => {
-            console.log(order)
+            handleUpdateOrderStatus(OrderStatusEnum.RETURNED)
           },
         },
         textColor: 'red',
@@ -60,7 +77,7 @@ const OrderTableRow = ({ order }: Props) => {
           type: 'button',
           text: t('order:order-status.failed'),
           onClick: () => {
-            console.log(order)
+            handleUpdateOrderStatus(OrderStatusEnum.FAILED)
           },
         },
         textColor: 'red',
@@ -71,7 +88,7 @@ const OrderTableRow = ({ order }: Props) => {
           type: 'button',
           text: t('order:order-status.canceled'),
           onClick: () => {
-            console.log(order)
+            handleUpdateOrderStatus(OrderStatusEnum.CANCELED)
           },
         },
         textColor: 'red',

@@ -21,3 +21,8 @@ export interface IOrder {
   userId: number
   user: Nullable<User>
 }
+
+export interface IUpdateOrderStatus {
+  orderId: number
+  status: OrderStatusEnum
+}

@@ -8,6 +8,7 @@ import Elipse from '../../../../public/images/case-study/client.png'
 import get from 'lodash.get'
 import ErrorMessage from '../typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
+import { FileTypeEnum } from '../../../enum/file'
 
 type Props = {
   maxSize: number
@@ -15,9 +16,10 @@ type Props = {
   name: string
   foldersPath: string
   type: 'ELIPSE'
+  fileType?: FileTypeEnum
 }
 
-const InputFileCustomPlh = ({ maxSize, supportedFormat, name, type }: Props) => {
+const InputFileCustomPlh = ({ maxSize, supportedFormat, name, type, fileType = FileTypeEnum.IMAGE }: Props) => {
   const { t } = useTranslation(['g'])
   const hidden = useRef<HTMLInputElement | null>(null)
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
@@ -103,6 +105,7 @@ const InputFileCustomPlh = ({ maxSize, supportedFormat, name, type }: Props) => 
         {...register(name)}
         ref={hidden}
         type="file"
+        accept={fileType === FileTypeEnum.VIDEO ? 'video/*' : 'image/*'}
         onChange={handleFile}
         {...getInputProps()}
         multiple={false}

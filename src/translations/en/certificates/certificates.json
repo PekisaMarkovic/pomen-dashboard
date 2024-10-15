@@ -6,6 +6,26 @@
     "cemetery": "Cemetery",
     "biography": "Biography"
   },
+  "tabs": {
+    "life": "Life",
+    "getherings": "Getherings",
+    "tributes": "Tributes"
+  },
+  "files": {
+    "title": "Images, videos and memories",
+    "subtitle": "Upload images, videos and more.",
+    "fields": {
+      "profileImage": "Profile Image",
+      "images": "Image Galery",
+      "videos": "Video Galery",
+
+      "greenPlh": "Click to upload images",
+      "greyPlh": "or drag and drop",
+
+      "greenPlhV": "Click to upload videos"
+    },
+    "tooltip": "Add memories that you want to be saved"
+  },
   "cemetery": {
     "title": "Cemetery Details",
     "subtitle": "Tell us more about cemetery location.",

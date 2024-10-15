@@ -1,24 +1,25 @@
 import type { ReactNode } from 'react'
 
+import { Route, Routes as Switch } from 'react-router-dom'
 import { ROUTE_NAMES } from '../constatns/a-routes'
 import { RoleEnums } from '../enum/user'
+import CemeteriesPage from '../pages/cemeteries/CemeteriesPage'
+import CertificatesPage from '../pages/certificates/CertificatesPage'
+import NewCertificateManagementPage from '../pages/certificates/NewCertificateManagementPage'
+import NewCertificatePage from '../pages/certificates/NewCertificatePage'
+import SingleCertificateGetheringsPage from '../pages/certificates/SingleCertificateGetheringsPage'
+import SingleCertificatePage from '../pages/certificates/SingleCertificatePage'
+import SingleCertificateTributesPage from '../pages/certificates/SingleCertificateTributesPage'
+import CitiesPage from '../pages/cities/CitiesPage'
+import CountriesPage from '../pages/countries/CountriesPage'
+import DashboardPage from '../pages/dashboard/DashboardPage'
+import GetheringsPage from '../pages/getherings/GetheringsPage'
 import LogInPage from '../pages/log-in/LogInPage'
 import NotFoundPage from '../pages/not-found/NotFoundPage'
-import ProtectedRoute from './ProtectedRoute'
-import CountriesPage from '../pages/countries/CountriesPage'
-import CitiesPage from '../pages/cities/CitiesPage'
-import CemeteriesPage from '../pages/cemeteries/CemeteriesPage'
-import DashboardPage from '../pages/dashboard/DashboardPage'
-import QRcodesPage from '../pages/qrcodes/QRcodesPage'
 import OrdersPage from '../pages/order/OrdersPage'
+import QRcodesPage from '../pages/qrcodes/QRcodesPage'
 import TributesPage from '../pages/tributes/TributesPage'
-import GetheringsPage from '../pages/getherings/GetheringsPage'
-import CertificatesPage from '../pages/certificates/CertificatesPage'
-import SingleCertificatePage from '../pages/certificates/SingleCertificatePage'
-import NewCertificatePage from '../pages/certificates/NewCertificatePage'
-import NewCertificateManagementPage from '../pages/certificates/NewCertificateManagementPage'
-import { Route } from 'react-router-dom'
-import { Routes as Switch } from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 
 const ALL_ROLES = [RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -137,6 +138,33 @@ const AppRoutes = () => {
 
     {
       path: ROUTE_NAMES.certificateById,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <SingleCertificatePage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: `${ROUTE_NAMES.certificateById}${ROUTE_NAMES.tributes}`,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <SingleCertificateTributesPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: `${ROUTE_NAMES.certificateById}${ROUTE_NAMES.getherings}`,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <SingleCertificateGetheringsPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: `${ROUTE_NAMES.certificateById}${ROUTE_NAMES.previews}`,
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <SingleCertificatePage />

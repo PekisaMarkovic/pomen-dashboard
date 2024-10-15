@@ -6,11 +6,14 @@ import { useTranslation } from 'react-i18next'
 import { useApi } from '../../../hooks/use-api'
 import InputIcon from '../../../icons/input'
 import { Spacing } from '../../../interfaces/general'
-import { onSingleFileInput } from '../../../utils/images'
+import { onSingleFileInput } from '../../../utils/files'
 import ErrorMessage from '../typography/ErrorMessage'
 import { style } from './InputFileStyle'
 import customToast from '../toast/CustomToast'
 import { IFile } from '../../../interfaces/image'
+import { FileTypeEnum } from '../../../enum/file'
+import { handleAllowSave, handleDisableSave } from '../../../state/shared/behaviours'
+import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
 
 type Props = {
   placeholderGreen?: string
@@ -20,9 +23,10 @@ type Props = {
   name: string
   mt?: Spacing
   mb?: Spacing
+  fileType?: FileTypeEnum
 }
 
-const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name, mb, mt }: Props) => {
+const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name, mb, mt, fileType = FileTypeEnum.IMAGE }: Props) => {
   let marginTop = ''
   let marginBottom = ''
 
@@ -32,6 +36,7 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   if (mb) {
     marginBottom = `mt-${mb}`
   }
+  const dispatch = useAppDispatch()
   const api = useApi()
   const { t } = useTranslation(['g'])
   const hidden = useRef<HTMLInputElement | null>(null)
@@ -44,22 +49,31 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
+    dispatch(handleDisableSave())
+
     try {
       if (acceptedFiles.length === 0) return
 
-      const { data } = await onSingleFileInput(api, acceptedFiles[0])
+      const { data } = await onSingleFileInput(api, acceptedFiles[0], fileType)
 
       setValue(name, data)
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave())
     }
   }, [])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: {
-      'image/*': [],
-    },
+    accept:
+      fileType === FileTypeEnum.VIDEO
+        ? {
+            'video/*': [],
+          }
+        : {
+            'image/*': [],
+          },
   })
 
   const errorObj = get(errors, name)
@@ -70,14 +84,17 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   const handleOnMouseLeave = () => setShowOverlay(false)
 
   const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(handleDisableSave())
     try {
       if (!e.target.files) return
 
-      const { data } = await onSingleFileInput(api, e.target.files[0])
+      const { data } = await onSingleFileInput(api, e.target.files[0], fileType)
 
       setValue(name, data)
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave())
     }
   }
 
@@ -99,13 +116,23 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
         <div className={style()}>
           {file ? (
             <>
-              <img
-                src={file.url}
-                alt={`${name} ${placeholderGreen} ${placeholderGrey}`}
-                width={80}
-                height={140}
-                style={{ objectFit: 'fill', height: '90px', width: '90px' }}
-              />
+              {fileType === FileTypeEnum.IMAGE ? (
+                <>
+                  <img
+                    src={file.url}
+                    alt={`${name} ${placeholderGreen} ${placeholderGrey}`}
+                    width={80}
+                    height={140}
+                    style={{ objectFit: 'fill', height: '80px', width: '140px' }}
+                  />
+                </>
+              ) : (
+                <>
+                  <video controls style={{ height: '80px', width: '140px' }}>
+                    <source src={file.url} type="video/*" />
+                  </video>
+                </>
+              )}
               {showOverlay && (
                 <div className="absolute top-0 left-0 right-0 bottom-0 bg-black flex items-center justify-center gap-x-1 rounded-xs opacity-80">
                   <InputIcon type="Replace" />
@@ -131,6 +158,7 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
           autoComplete="off"
           className="hidden h-0 w-0"
           type="file"
+          accept={fileType === FileTypeEnum.VIDEO ? 'video/*' : 'image/*'}
           onChange={handleInput}
           {...getInputProps()}
           multiple={false}
@@ -140,4 +168,4 @@ const ImageInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   )
 }
 
-export default ImageInputFile
+export default InputFile

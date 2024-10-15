@@ -9,14 +9,18 @@ import customToast from '../../../components/core/toast/CustomToast'
 import { ROUTE_NAMES } from '../../../constatns/a-routes'
 import { useApi } from '../../../hooks/use-api'
 import GeneralLayout from '../../../layouts/GeneralLayout'
-import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
 import { setCemeteryDropdownOptions } from '../../../state/shared/cemeteries'
 import { setCityDropdownOptions } from '../../../state/shared/cities'
 import { formatDateYearMonthDay } from '../../../utils/date'
 import CertificateCemeteryDetails from './partials/CertificateCemeteryDetails'
 import CertificateLifeDetails from './partials/CertificateLifeDetails'
+import CertificateFiles from './partials/CertificateFiles'
+import { selectCertificates } from '../../../state/shared/certificates'
+import CertificateTabs from './partials/CertificateTabs'
 
 const SingleCertificate = () => {
+  const { toEditCertificate } = useAppSelector(selectCertificates)
   const { t } = useTranslation(['g'])
   const dispatch = useAppDispatch()
   const api = useApi()
@@ -64,6 +68,8 @@ const SingleCertificate = () => {
 
   return (
     <GeneralLayout type="GENERAL_FORM" submit={onSubmit}>
+      <CertificateTabs id={`${toEditCertificate?.certificateId}`} />
+      <CertificateFiles />
       <CertificateLifeDetails />
       <CertificateCemeteryDetails />
     </GeneralLayout>
