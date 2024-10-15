@@ -1,10 +1,10 @@
 import { FileTypeEnum } from '../enum/file'
 
 export interface IFile {
-  fileId: number
+  fileId?: number
   height: number
   publicId: string
-  wight: number
+  width: number
   fileExtension: string
   url: string
   type: FileTypeEnum
@@ -35,14 +35,23 @@ export interface IImageCloundinary {
 
 export interface CreateImageDto {
   imageId?: number
-  wight: number
+  width: number
   url: string
   smallHeight: number
-  smallWight: number
+  smallSidth: number
   publicId: string
   smallUrl: string
   bigHeight: number
   height: number
-  bigWight: number
+  bigSidth: number
   bigUrl: string
+}
+
+export interface ICreateFile {
+  height: number
+  width: number
+  url: string
+  fileExtension: string
+  publicId: string
+  type: FileTypeEnum
 }

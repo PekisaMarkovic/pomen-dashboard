@@ -11,11 +11,18 @@ import CitiesApis from '../../api/cities'
 import { selectCities, setCityDropdownOptions } from '../../state/shared/cities'
 import CertificatesApis from '../../api/certificates'
 import { useParams } from 'react-router-dom'
-import { removeToEditCertificate, selectCertificates, setToEditCertificate } from '../../state/shared/certificates'
+import {
+  removeToEditCertificate,
+  removetoEditCertificateFiles,
+  selectCertificates,
+  setToEditCertificate,
+  setToEditCertificateFiles,
+} from '../../state/shared/certificates'
 import { mapCertificateToEdit } from '../../mapper/certificate'
+import FileApis from '../../api/files'
 
 const SingleCertificatePage = () => {
-  const { toEditCertificate } = useAppSelector(selectCertificates)
+  const { toEditCertificate, toEditCertificateFiles } = useAppSelector(selectCertificates)
 
   const dispatch = useAppDispatch()
   const { t } = useTranslation(['g'])
@@ -49,25 +56,43 @@ const SingleCertificatePage = () => {
     }
   }, [])
 
+  const fetchDataFiles = useCallback(async () => {
+    try {
+      const { data } = await api.get(FileApis.getFilesByCertificateId(Number(id)))
+      dispatch(setToEditCertificateFiles(data))
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [])
+
   useEffect(() => {
     fetchData()
     fetchCemeteryDropdownOptions()
     fetchCityDropDown()
+    fetchDataFiles()
 
     return () => {
       dispatch(removeToEditCertificate())
+      dispatch(removetoEditCertificateFiles())
     }
   }, [])
 
-  return <>{toEditCertificate ? <SingleCertificateForm /> : null}</>
+  return <>{toEditCertificate && toEditCertificateFiles ? <SingleCertificateForm /> : null}</>
 }
 
 const SingleCertificateForm = () => {
   const { dropdownOptions: citiesOptions } = useAppSelector(selectCities)
   const { dropdownOptions: cemeteriesOptions } = useAppSelector(selectCemeteries)
-  const { toEditCertificate } = useAppSelector(selectCertificates)
+  const { toEditCertificate, toEditCertificateFiles } = useAppSelector(selectCertificates)
 
-  const methods = useForm({ defaultValues: mapCertificateToEdit(toEditCertificate!, citiesOptions.options, cemeteriesOptions.options) })
+  const methods = useForm({
+    defaultValues: mapCertificateToEdit({
+      certificate: toEditCertificate!,
+      citiesOptions: citiesOptions.options,
+      cemeteriesOptions: cemeteriesOptions.options,
+      certificateFile: toEditCertificateFiles!,
+    }),
+  })
 
   return (
     <FormProvider {...methods}>

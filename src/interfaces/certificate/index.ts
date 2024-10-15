@@ -35,6 +35,13 @@ export interface ICertificate {
   files: IFile[]
 }
 
+export interface ICertificateFile {
+  profile: IFile
+  images: IFile[]
+  videos: IFile[]
+  document: IFile[]
+}
+
 export interface ICertificateOption {
   certificateId: number
   name: string

@@ -1,10 +1,21 @@
 import { ICemeteryOption } from '../interfaces/cemeteries'
-import { ICertificate } from '../interfaces/certificate'
+import { ICertificate, ICertificateFile } from '../interfaces/certificate'
 import { ICityOption } from '../interfaces/cities'
+import { mapCemeteryDropdownToSelectOptions } from './options'
 
-export const mapCertificateToEdit = (certificate: ICertificate, citiesOptions: ICityOption[], cemeteriesOptions: ICemeteryOption[]) => {
-  const foundCity = citiesOptions.find((city) => city.cityId === certificate.cemetery?.cityId)
+export const mapCertificateToEdit = ({
+  cemeteriesOptions,
+  certificate,
+  certificateFile,
+}: {
+  certificate: ICertificate
+  citiesOptions: ICityOption[]
+  cemeteriesOptions: ICemeteryOption[]
+  certificateFile: ICertificateFile
+}) => {
   const foundCemetery = cemeteriesOptions.find((cemetery) => cemetery.cemeteryId === certificate.cemeteryId)
+
+  console.log(foundCemetery)
 
   return {
     firstName: certificate.firstName,
@@ -14,7 +25,10 @@ export const mapCertificateToEdit = (certificate: ICertificate, citiesOptions: I
     dateOfDeath: certificate.dateOfDeath,
     placeOfDeath: certificate.placeOfDeath,
     biography: certificate.biography,
-    city: foundCity || '',
-    cemetery: foundCemetery || '',
+    city: '',
+    cemetery: foundCemetery ? mapCemeteryDropdownToSelectOptions([foundCemetery])[0] : '',
+    profileImage: certificate.profileImage,
+    videos: certificateFile.videos,
+    images: certificateFile.images,
   }
 }
