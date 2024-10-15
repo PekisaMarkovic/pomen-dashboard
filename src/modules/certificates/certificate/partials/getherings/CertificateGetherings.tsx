@@ -3,18 +3,19 @@ import { useTranslation } from 'react-i18next'
 
 import { useSearchParams } from 'react-router-dom'
 import { useApi } from '../../../../../hooks/use-api'
-import { useAppDispatch } from '../../../../../state/redux-hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../../../state/redux-hooks/reduxHooks'
 import GetheringsApis from '../../../../../api/getherings'
 import { setGetherings } from '../../../../../state/shared/getherings'
 import customToast from '../../../../../components/core/toast/CustomToast'
 import CertificatesApis from '../../../../../api/certificates'
-import { setCertificateDropdownOptions } from '../../../../../state/shared/certificates'
+import { selectCertificates, setCertificateDropdownOptions } from '../../../../../state/shared/certificates'
 import CitiesApis from '../../../../../api/cities'
 import { setCityDropdownOptions } from '../../../../../state/shared/cities'
 import GetheringsTop from '../../../../getherings/gethering-list/partials/GetheringsTop'
 import GetheringsTable from '../../../../getherings/gethering-list/table/GetheringsTable'
 
 const CertificateGetherings = () => {
+  const { toEditCertificate } = useAppSelector(selectCertificates)
   const [searchParams] = useSearchParams()
   const page = searchParams.get('page') || '1'
   const api = useApi()
@@ -23,7 +24,7 @@ const CertificateGetherings = () => {
 
   const fetchData = useCallback(async (page: string) => {
     try {
-      const { data } = await api.get(GetheringsApis.getGetherings(), { params: { page } })
+      const { data } = await api.get(GetheringsApis.getGetheringsByCertificateId(toEditCertificate!.certificateId), { params: { page } })
       dispatch(setGetherings(data))
     } catch {
       customToast.error(t('g:errorMessage'))
