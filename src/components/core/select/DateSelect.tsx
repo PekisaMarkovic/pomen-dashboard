@@ -7,6 +7,7 @@ import ReactDatePicker from 'react-datepicker'
 import GeneralIcons from '../../../icons/general'
 import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
 import { handleAllowScroll, handleDisableScroll } from '../../../state/shared/behaviours'
+import { useClickAway } from '../../../hooks/use-click-outside'
 
 type Props = {
   placeholder?: string
@@ -46,6 +47,8 @@ const DateSelect = ({ label, placeholder, isRequired, name, isDisabled, dateForm
     dispatch(handleAllowScroll())
   }
 
+  const clickAwayRef = useClickAway<HTMLDivElement>({ clickAwayCallback: handleClose })
+
   const outlineStyle = () => {
     if (error) return 'border-red border-solid'
     if (open) return 'border-green border-solid'
@@ -60,7 +63,7 @@ const DateSelect = ({ label, placeholder, isRequired, name, isDisabled, dateForm
   }
 
   return (
-    <div className="flex flex-col relative cursor-pointer" onClick={handleOpen} onMouseLeave={handleClose}>
+    <div className="flex flex-col relative cursor-pointer" onClick={handleOpen} ref={clickAwayRef}>
       <Label htmlFor={name} label={label} isRequired={isRequired} />
 
       <div className={`flex items-center jusfity-between bg-white py-3 px-4 block w-full rounded-xs-plus border-1 ${outlineStyle()}`}>

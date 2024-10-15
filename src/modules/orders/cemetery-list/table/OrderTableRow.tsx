@@ -1,20 +1,18 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import CustomDropdowns from '../../../../components/core/dropdowns/CustomDropdowns'
+import { Link } from 'react-router-dom'
+import OrdersApis from '../../../../api/orders'
+import customToast from '../../../../components/core/toast/CustomToast'
 import Paragraph from '../../../../components/core/typography/Paragraph'
-import GeneralIcons from '../../../../icons/general'
+import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
+import { ROUTE_NAMES } from '../../../../constatns/a-routes'
+import { OrderStatusEnum } from '../../../../enum/order'
+import { useApi } from '../../../../hooks/use-api'
 import { CustomDropdown } from '../../../../interfaces/dropdown'
 import { IOrder } from '../../../../interfaces/orders'
-import { formatDateYearMonthDay } from '../../../../utils/date'
-import OrderTableStatus from './OrderTableStatus'
-import customToast from '../../../../components/core/toast/CustomToast'
-import { useApi } from '../../../../hooks/use-api'
-import OrdersApis from '../../../../api/orders'
-import { OrderStatusEnum } from '../../../../enum/order'
 import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { updateOrderStatus } from '../../../../state/shared/orders'
-import { Link } from 'react-router-dom'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
+import { formatDateYearMonthDay } from '../../../../utils/date'
+import OrderTableStatus from './OrderTableStatus'
 
 type Props = {
   order: IOrder
@@ -22,13 +20,9 @@ type Props = {
 
 const OrderTableRow = ({ order }: Props) => {
   const { t } = useTranslation(['g', 'order'])
-  const [open, setOpen] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   const api = useApi()
   const { address, city, createdAt, status, firstName, lastName, phoneNumber, certificate, orderId } = order
-
-  const handleOnClick = () => setOpen(!open)
-  const handleClose = () => setOpen(false)
 
   const handleUpdateOrderStatus = async (status: OrderStatusEnum) => {
     try {
@@ -100,10 +94,7 @@ const OrderTableRow = ({ order }: Props) => {
   }
 
   return (
-    <div
-      className={`relative pl-4 pr-6 grid grid-cols-10 border-b-1 border-b-light-grey-alt border-solid ${open ? 'z-4' : 'z-2'}`}
-      onClick={() => {}}
-    >
+    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
       <div className="col-span-3 flex gap-x-2 py-3">
         <Paragraph text={`${firstName} ${lastName}, ${phoneNumber}`} size="sm" color="black" noWrap />
       </div>
@@ -125,14 +116,7 @@ const OrderTableRow = ({ order }: Props) => {
       <div className="flex">
         <Paragraph text={formatDateYearMonthDay(createdAt)} size="sm" color="black" noWrap />
       </div>
-
-      <div className={`absolute top-1/2 -translate-y-2/4 right-2 ${open ? 'z-4' : 'z-2'}`} onMouseLeave={handleClose}>
-        <div className="relative">
-          <GeneralIcons type="MoreIcon" className="cursor-pointer z-1" onClick={handleOnClick} />
-          {open && <CustomDropdowns dropdownOptions={checkOptions()} />}
-        </div>
-      </div>
-    </div>
+    </DefaultTableRowContainer>
   )
 }
 

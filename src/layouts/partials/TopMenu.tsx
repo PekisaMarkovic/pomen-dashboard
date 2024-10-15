@@ -15,6 +15,7 @@ import { removeUserData, selectAuthUser } from '../../state/user/authSlice'
 import { extractFirstLetters } from '../../utils/string'
 import { clearLocalStorageTokens } from '../../utils/token'
 import { selectCertificates } from '../../state/shared/certificates'
+import { useClickAway } from '../../hooks/use-click-outside'
 
 type Props = {
   backButton?: {
@@ -37,6 +38,8 @@ const TopMenu = ({ backButton }: Props) => {
 
   const handleToggle = () => setOpen(!open)
   const handleClose = () => setOpen(false)
+
+  const clickAwayRef = useClickAway<HTMLDivElement>({ clickAwayCallback: handleClose })
 
   const handleLogout = useCallback(async () => {
     try {
@@ -100,7 +103,7 @@ const TopMenu = ({ backButton }: Props) => {
 
       {user && (
         <div className="flex gap-x-6 items-center relative">
-          <div className="flex items-center cursor-pointer" onClick={handleToggle} onMouseLeave={handleClose}>
+          <div className="flex items-center cursor-pointer" onClick={handleToggle} ref={clickAwayRef}>
             <div className="relative inline-flex items-center justify-center w-12 h-12 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
               {user.profileImage ? (
                 <img src={user.profileImage} alt={fullName} width={80} height={80} />

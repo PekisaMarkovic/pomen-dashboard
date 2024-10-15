@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import CustomDropdowns from '../../../../components/core/dropdowns/CustomDropdowns'
 import Paragraph from '../../../../components/core/typography/Paragraph'
+import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
 import { ROUTE_NAMES } from '../../../../constatns/a-routes'
 import GeneralIcons from '../../../../icons/general'
 import { ICertificate } from '../../../../interfaces/certificate'
@@ -15,13 +14,9 @@ type Props = {
 
 const CertificateTableRow = ({ certificate }: Props) => {
   const { t } = useTranslation(['g:button'])
-  const [open, setOpen] = useState<boolean>(false)
   const { biography, dateOfBirth, dateOfDeath, placeOfBirth, placeOfDeath, firstName, lastName, cemetery, location, profileImage, certificateId } =
     certificate
   const linkTo = `${ROUTE_NAMES.certificates}/${certificateId}`
-
-  const handleOnClick = () => setOpen(!open)
-  const handleClose = () => setOpen(false)
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -40,7 +35,7 @@ const CertificateTableRow = ({ certificate }: Props) => {
   }
 
   return (
-    <div className={`relative pl-4 pr-6 grid grid-cols-9 border-b-1 border-b-light-grey-alt border-solid ${open ? 'z-4' : 'z-2'}`}>
+    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
       <Link to={linkTo} className="col-span-2 py-3 flex">
         {profileImage?.url ? (
           <img
@@ -71,14 +66,7 @@ const CertificateTableRow = ({ certificate }: Props) => {
       <Link to={linkTo} className="col-span-2 gap-x-2 py-4">
         <Paragraph text={biography} size="sm" color="black" noWrap />
       </Link>
-
-      <div className={`absolute top-1/2 -translate-y-2/4 right-2 ${open ? 'z-4' : 'z-2'}`} onMouseLeave={handleClose}>
-        <div className="relative">
-          <GeneralIcons type="MoreIcon" className="cursor-pointer z-1" onClick={handleOnClick} />
-          {open && <CustomDropdowns dropdownOptions={checkOptions()} />}
-        </div>
-      </div>
-    </div>
+    </DefaultTableRowContainer>
   )
 }
 

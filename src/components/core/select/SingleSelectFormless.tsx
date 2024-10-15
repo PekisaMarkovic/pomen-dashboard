@@ -5,6 +5,7 @@ import SingleOption from './partials/SingleOption'
 import Label from '../typography/Label'
 import ErrorMessage from '../typography/ErrorMessage'
 import { Nullable, SelectOption } from '../../../interfaces/general'
+import { useClickAway } from '../../../hooks/use-click-outside'
 
 type Props = {
   placeholder?: string
@@ -49,6 +50,8 @@ const SingleSelectFormless = ({
     setOpen(false)
   }
 
+  const clickAwayRef = useClickAway<HTMLDivElement>({ clickAwayCallback: handleClose })
+
   const handleOnChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setSelected(null)
     setInputvalue(e.target.value)
@@ -63,7 +66,7 @@ const SingleSelectFormless = ({
   }
 
   return (
-    <div className={`flex flex-col relative ${!disabled && 'cursor-pointer'}`} onMouseLeave={handleClose}>
+    <div className={`flex flex-col relative ${!disabled && 'cursor-pointer'}`} ref={clickAwayRef}>
       <Label htmlFor={name} label={label} isRequired={isRequired} />
 
       <div
