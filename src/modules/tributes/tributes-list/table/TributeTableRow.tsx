@@ -9,6 +9,8 @@ import { ITribute } from '../../../../interfaces/tributes'
 import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { setModal } from '../../../../state/shared/modal'
 import { setToEditTribute } from '../../../../state/shared/tributes'
+import { ROUTE_NAMES } from '../../../../constatns/a-routes'
+import { Link } from 'react-router-dom'
 
 type Props = {
   tribute: ITribute
@@ -61,8 +63,13 @@ const TributeTableRow = ({ tribute }: Props) => {
         <Paragraph text={email} size="sm" color="black" noWrap />
       </div>
 
-      <div className="col-span-2 gap-x-2 py-3">
-        <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+      <div className="col-span-2 gap-x-2">
+        <Link
+          to={`${ROUTE_NAMES.certificates}/${certificate?.certificateId}${ROUTE_NAMES.tributes}`}
+          className="flex gap-x-3 py-4 items-center truncate"
+        >
+          <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+        </Link>
       </div>
 
       <div className="flex">

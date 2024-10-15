@@ -10,6 +10,8 @@ import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { setToEditGethering } from '../../../../state/shared/getherings'
 import { setModal } from '../../../../state/shared/modal'
 import { formatDateYearMonthDay } from '../../../../utils/date'
+import { Link } from 'react-router-dom'
+import { ROUTE_NAMES } from '../../../../constatns/a-routes'
 
 type Props = {
   gethering: IGethering
@@ -62,8 +64,13 @@ const GetheringTableRow = ({ gethering }: Props) => {
         <Paragraph text={address} size="sm" color="black" noWrap />
       </div>
 
-      <div className="col-span-2 gap-x-2 py-3">
-        <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+      <div className="col-span-2 gap-x-2">
+        <Link
+          to={`${ROUTE_NAMES.certificates}/${certificate?.certificateId}${ROUTE_NAMES.getherings}`}
+          className="flex gap-x-3 py-4 items-center truncate"
+        >
+          <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+        </Link>
       </div>
 
       <div className={`absolute top-1/2 -translate-y-2/4 right-2 ${open ? 'z-4' : 'z-2'}`} onMouseLeave={handleClose}>

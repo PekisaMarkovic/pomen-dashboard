@@ -13,6 +13,8 @@ import OrdersApis from '../../../../api/orders'
 import { OrderStatusEnum } from '../../../../enum/order'
 import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { updateOrderStatus } from '../../../../state/shared/orders'
+import { Link } from 'react-router-dom'
+import { ROUTE_NAMES } from '../../../../constatns/a-routes'
 
 type Props = {
   order: IOrder
@@ -110,8 +112,10 @@ const OrderTableRow = ({ order }: Props) => {
         <Paragraph text={`${address}, ${city?.code}, ${city?.name}`} size="sm" color="black" noWrap />
       </div>
 
-      <div className="col-span-2 py-3">
-        <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+      <div className="col-span-2">
+        <Link to={`${ROUTE_NAMES.certificates}/${certificate?.certificateId}`} className="flex gap-x-3 py-4 items-center truncate">
+          <Paragraph text={certificate?.slug || ''} size="sm" color="black" noWrap />
+        </Link>
       </div>
 
       <div className="py-3">
