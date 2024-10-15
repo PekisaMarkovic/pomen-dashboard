@@ -4,8 +4,9 @@ import ErrorMessage, { Variant } from '../../../components/core/typography/Error
 import get from 'lodash.get'
 import { ChangeEventHandler } from 'react'
 import { Spacing } from '../../../interfaces/general'
+import { inputTextStyle } from './InputTextStyle'
 
-type Varaint = 'default' | 'simple'
+export type InputVaraint = 'default' | 'simple'
 
 type Props = {
   typeHtml?: 'text' | 'password'
@@ -15,7 +16,7 @@ type Props = {
   isRequired?: boolean
   name: string
   initValue?: string
-  variant?: Varaint
+  variant?: InputVaraint
   disabled?: boolean
   textCenter?: boolean
   mt?: Spacing
@@ -63,24 +64,6 @@ const InputText = ({
     clearErrors(name)
   }
 
-  const style = () => {
-    switch (variant) {
-      case 'simple':
-        return `font-poppins bg-white border-none ${
-          textCenter ? 'text-center' : ''
-        } text-sm text-black placeholder:text-text-grey focus:ring-green focus:border-green focus:outline-none focus-visible:ring-green block ${
-          disabled ? 'cursor-not-allowed' : ''
-        }`
-
-      default:
-        return `font-poppins bg-white border-1 ${
-          error ? 'border-red border-solid' : 'border-grey border-solid'
-        } text-sm text-black placeholder:text-text-grey py-3.5 px-4 focus:ring-green focus:border-green focus:outline-none focus-visible:ring-green block w-full rounded-xs-plus ${
-          disabled ? 'cursor-not-allowed' : ''
-        }`
-    }
-  }
-
   return (
     <div className={`flex flex-col relative ${marginTop} ${marginBottom}`}>
       {variant === 'default' && label && <Label htmlFor={name} label={label} isRequired={isRequired} />}
@@ -90,7 +73,7 @@ const InputText = ({
         {...register(name, { value: initValue || '' })}
         type={typeHtml}
         placeholder={placeholder}
-        className={style()}
+        className={inputTextStyle({ error, textCenter, variant, disabled })}
         disabled={disabled}
         onChange={handleInputChange}
       />
