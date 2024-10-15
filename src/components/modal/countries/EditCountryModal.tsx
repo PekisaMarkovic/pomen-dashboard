@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import CountriesApis from '../../../api/countries'
 import { useApi } from '../../../hooks/use-api'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
-import { addNewCountry, selectCountry } from '../../../state/shared/countries'
+import { removeToEditCountry, selectCountry, updateCountry } from '../../../state/shared/countries'
 import { removeModal } from '../../../state/shared/modal'
 import { CREATE_COUNTRY_VALIDATION } from '../../../validations/countries/create-country'
 import MainButton from '../../core/buttons/MainButton'
@@ -36,8 +36,9 @@ const EditCountryModalForm = () => {
     try {
       const { data } = await api.patch(CountriesApis.patchCountry(toEditCountry!.countryId), { ...values })
 
-      dispatch(addNewCountry(data))
+      dispatch(updateCountry(data))
       dispatch(removeModal())
+      dispatch(removeToEditCountry())
     } catch {
       customToast.error(t('g:errorMessage'))
     }

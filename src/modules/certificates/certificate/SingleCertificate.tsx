@@ -6,7 +6,6 @@ import CemeteriesApis from '../../../api/cemeteries'
 import CertificatesApis from '../../../api/certificates'
 import CitiesApis from '../../../api/cities'
 import customToast from '../../../components/core/toast/CustomToast'
-// import { ROUTE_NAMES } from '../../../constatns/a-routes'
 import { useApi } from '../../../hooks/use-api'
 import GeneralLayout from '../../../layouts/GeneralLayout'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
@@ -21,10 +20,12 @@ import CertificateTabs from './partials/CertificateTabs'
 import FileApis from '../../../api/files'
 import { ICreateFile, IFile } from '../../../interfaces/image'
 import { FileTypeEnum } from '../../../enum/file'
+import { handleAllowSave, handleDisableSave } from '../../../state/shared/behaviours'
+import { SaveDisabledEnums } from '../../../enum/behaviour'
 
 const SingleCertificate = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)
-  const { t } = useTranslation(['g'])
+  const { t } = useTranslation(['g', 'certificate'])
   const dispatch = useAppDispatch()
   const api = useApi()
   const navigate = useNavigate()
@@ -62,6 +63,8 @@ const SingleCertificate = () => {
     } = values
 
     try {
+      dispatch(handleDisableSave(SaveDisabledEnums.EDIT_CERTIFICATE))
+
       await api.patch(CertificatesApis.patchCertificate(toEditCertificate!.certificateId), {
         cemeteryId: Number(cemetery.id),
         ...rest,
@@ -116,8 +119,11 @@ const SingleCertificate = () => {
       if (filesToAdd.length || filesToRemove.length) {
         await api.patch(FileApis.uploadCertificateFiles(toEditCertificate!.certificateId), { filesToAdd, filesToRemove })
       }
+      customToast.success(t('certificate:successfully'))
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave(SaveDisabledEnums.EDIT_CERTIFICATE))
     }
   }
 
@@ -132,7 +138,7 @@ const SingleCertificate = () => {
 
   return (
     <GeneralLayout type="GENERAL_FORM" submit={onSubmit} backButton={{ onClick: handleGoBack }}>
-      <CertificateTabs id={`${toEditCertificate?.certificateId}`} />
+      <CertificateTabs />
       <CertificateFiles />
       <CertificateLifeDetails />
       <CertificateCemeteryDetails />

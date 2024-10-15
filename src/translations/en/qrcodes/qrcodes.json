@@ -4,5 +4,6 @@
     "name": "Name",
     "createAt": "Created",
     "slug": "Slug"
-  }
+  },
+  "scan": "Scan qrcode"
 }

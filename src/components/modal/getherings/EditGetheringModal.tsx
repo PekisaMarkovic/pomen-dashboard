@@ -4,7 +4,7 @@ import GetheringsApis from '../../../api/getherings'
 import { TIME_OPTIONS } from '../../../constatns/select'
 import { useApi } from '../../../hooks/use-api'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
-import { addNewGethering, selectGetherings } from '../../../state/shared/getherings'
+import { removeToEditGethering, selectGetherings, updateGethering } from '../../../state/shared/getherings'
 import { removeModal } from '../../../state/shared/modal'
 import { formatDateYearMonthDay } from '../../../utils/date'
 import { UPDATE_GETHERING_VALIDATION } from '../../../validations/getherings/update-gethering'
@@ -52,8 +52,9 @@ const EditGetheringModalForm = () => {
         hour: Number(selectedHour.value),
       })
 
-      dispatch(addNewGethering(data))
+      dispatch(updateGethering(data))
       dispatch(removeModal())
+      dispatch(removeToEditGethering())
     } catch {
       customToast.error(t('g:errorMessage'))
     }

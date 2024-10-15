@@ -6,12 +6,16 @@ import { setModal } from '../../../../state/shared/modal'
 import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { ModalEnums } from '../../../../enum/modal'
 
-const TributesTop = () => {
+interface TributesTopProps {
+  type: ModalEnums.ADD_TRIBUTE | ModalEnums.ADD_TRIBUTE_FOR_CERTIFICATE
+}
+
+const TributesTop = ({ type }: TributesTopProps) => {
   const { t } = useTranslation(['g', 'tl'])
   const dispatch = useAppDispatch()
 
   const handleAddNew = useCallback(() => {
-    dispatch(setModal(ModalEnums.ADD_TRIBUTE))
+    dispatch(setModal(type))
   }, [])
 
   return (

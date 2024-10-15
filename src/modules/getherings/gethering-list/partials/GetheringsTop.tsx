@@ -6,12 +6,16 @@ import { setModal } from '../../../../state/shared/modal'
 import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
 import { ModalEnums } from '../../../../enum/modal'
 
-const GetheringsTop = () => {
+interface GetheringsTopProps {
+  type: ModalEnums.ADD_GETHERING | ModalEnums.ADD_GETHERING_FOR_CERTIFICAT
+}
+
+const GetheringsTop = ({ type }: GetheringsTopProps) => {
   const { t } = useTranslation(['g', 'tl'])
   const dispatch = useAppDispatch()
 
   const handleAddNew = useCallback(() => {
-    dispatch(setModal(ModalEnums.ADD_GETHERING))
+    dispatch(setModal(type))
   }, [])
 
   return (

@@ -11,6 +11,9 @@
     "editTitle": "Edit a Tribute",
 
     "fields": {
+      "certificate": "Certificate",
+      "certificatePlh": "Select a first mame",
+
       "firstName": "First name",
       "firstNamePlh": "Enter a first mame",
 
@@ -23,5 +26,10 @@
       "email": "Email",
       "emailPlh": "Select a email"
     }
+  },
+  "tribute-status": {
+    "allowed": "Allowed",
+    "denied": "Denied",
+    "pending": "Pending"
   }
 }

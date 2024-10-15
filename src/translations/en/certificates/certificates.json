@@ -11,6 +11,16 @@
     "getherings": "Getherings",
     "tributes": "Tributes"
   },
+  "getherings": {
+    "title": "Gathering to share stories",
+    "subtitle": "A time to remember and reflect.",
+    "tooltip": "Add memorial gathering, a time for Togetherness, honoring the Life and Memories"
+  },
+  "tributes": {
+    "title": "A tribute to a life full of meaning",
+    "subtitle": "In tribute to a life of love and kindness.",
+    "tooltip": "Add time and memories shared, honoring the Influence, a legacy that lives on"
+  },
   "files": {
     "title": "Images, videos and memories",
     "subtitle": "Upload images, videos and more.",
@@ -88,5 +98,6 @@
       "phoneNewUserPlh": "Enter a phone for delivery"
     },
     "tooltip": "Enter details where order will be deliverd, and contact person."
-  }
+  },
+  "successfully": "Certificate updated successfully!"
 }

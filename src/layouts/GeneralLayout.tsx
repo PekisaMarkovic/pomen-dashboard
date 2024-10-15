@@ -18,37 +18,38 @@ type GeneralLayoutProps = {
   }
 }
 
-const GeneralLayoutDiv = ({ backButton, children, cancelButton, isBottomHidden }: PropsWithChildren<GeneralLayoutProps>) => {
+const GeneralLayoutContent = ({ backButton, children, cancelButton, isBottomHidden }: PropsWithChildren<GeneralLayoutProps>) => {
   const { isScrollDisabled } = useAppSelector(selectBehaviours)
 
   return (
-    <div className="relative flex flex-row h-full w-full">
+    <>
       <div className="w-1/5 h-full flex">
         <LeftMenu />
       </div>
-      <div className="relative w-full general-layout-content bg-light-grey-transparent">
+      <div className={`relative w-full general-layout-content ${isBottomHidden ? 'general-layout-content--buttom-0' : ''} bg-light-grey-transparent`}>
         <TopMenu backButton={backButton} />
         <div className={`${isScrollDisabled ? 'overflow-hidden' : 'overflow-y-scroll'} h-full pt-5 px-8`}>{children}</div>
         {!isBottomHidden && <BottomMenu cancelButton={cancelButton} />}
       </div>
+    </>
+  )
+}
+
+const GeneralLayoutDiv = (props: PropsWithChildren<GeneralLayoutProps>) => {
+  return (
+    <div className="relative flex flex-row h-full w-full">
+      <GeneralLayoutContent {...props} />
     </div>
   )
 }
 
-const GeneralLayoutForm = ({ backButton, children, cancelButton, isBottomHidden, submit }: PropsWithChildren<GeneralLayoutProps>) => {
-  const { isScrollDisabled } = useAppSelector(selectBehaviours)
+const GeneralLayoutForm = (props: PropsWithChildren<GeneralLayoutProps>) => {
+  const { submit } = props
   const { handleSubmit } = useFormContext()
 
   return (
     <form className="relative flex flex-row h-full w-full" onSubmit={submit ? handleSubmit(submit) : undefined}>
-      <div className="w-1/5 h-full flex">
-        <LeftMenu />
-      </div>
-      <div className="relative w-full general-layout-content bg-light-grey-transparent">
-        <TopMenu backButton={backButton} />
-        <div className={`${isScrollDisabled ? 'overflow-hidden' : 'overflow-y-scroll'} h-full pt-5 px-8`}>{children}</div>
-        {!isBottomHidden && <BottomMenu cancelButton={cancelButton} />}
-      </div>
+      <GeneralLayoutContent {...props} />
     </form>
   )
 }

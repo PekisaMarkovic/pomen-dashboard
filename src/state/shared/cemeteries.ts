@@ -26,31 +26,49 @@ const cemeterySlice = createSlice({
   initialState,
   reducers: {
     initializeCemeteries: () => initialState,
+
     setCemeteries: (state, action: PayloadAction<Paginated<ICemetery>>) => {
       state.cemeteries = action.payload
     },
+
     addNewCemetery: (state, action: PayloadAction<ICemetery>) => {
       if (state.cemeteries) {
         state.cemeteries.items = [action.payload, ...state.cemeteries.items]
       }
     },
+
     setToEditCemetery: (state, action: PayloadAction<ICemetery>) => {
       state.toEditCemetery = action.payload
     },
+
     setCemeteryDropdownOptions: (state, action: PayloadAction<ICemeteryOption[]>) => {
       state.dropdownOptions = {
         isLoad: true,
         options: action.payload,
       }
     },
+
     removeToEditCemetery: (state) => {
       state.toEditCemetery = null
     },
+
     removeCemeteries: (state) => {
       state.cemeteries = null
     },
+
     removeCemeteryDropdownOptions: (state) => {
       state.dropdownOptions = { isLoad: false, options: [] }
+    },
+
+    updateCemetery: (state, action: PayloadAction<Partial<ICemetery>>) => {
+      if (state.cemeteries && action.payload.cemeteryId) {
+        state.cemeteries.items = state.cemeteries.items.map((cemetery) => {
+          if (cemetery.cemeteryId === cemetery.cemeteryId) {
+            return { ...cemetery, ...action.payload }
+          }
+          return cemetery
+        })
+      }
     },
   },
 })
@@ -64,6 +82,7 @@ export const {
   removeToEditCemetery,
   removeCemeteryDropdownOptions,
   setCemeteryDropdownOptions,
+  updateCemetery,
 } = cemeterySlice.actions
 
 export default cemeterySlice.reducer

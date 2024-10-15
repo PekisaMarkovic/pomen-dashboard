@@ -1,14 +1,17 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import CustomDropdowns from '../../../../components/core/dropdowns/CustomDropdowns'
 import Paragraph from '../../../../components/core/typography/Paragraph'
+import { ROUTE_NAMES } from '../../../../constatns/a-routes'
 import GeneralIcons from '../../../../icons/general'
 import { CustomDropdown } from '../../../../interfaces/dropdown'
 import { IQRcode } from '../../../../interfaces/qrcode'
 import { formatDateYearMonthDay } from '../../../../utils/date'
-import QRcodeTableImage from './QRcodeTableImage'
-import { Link } from 'react-router-dom'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
+import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
+import { setModal } from '../../../../state/shared/modal'
+import { setToEditQRcode } from '../../../../state/shared/qrcodes'
+import { ModalEnums } from '../../../../enum/modal'
 
 type Props = {
   qrcode: IQRcode
@@ -17,7 +20,7 @@ type Props = {
 const QRcodeTableRow = ({ qrcode }: Props) => {
   const { t } = useTranslation(['g:button'])
   const [open, setOpen] = useState<boolean>(false)
-  const [isShown, setIsShown] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
 
   const { value, createdAt, certificate } = qrcode
 
@@ -25,13 +28,10 @@ const QRcodeTableRow = ({ qrcode }: Props) => {
 
   const handleClose = () => setOpen(false)
 
-  const handleIsShown = useCallback(() => {
-    setIsShown(true)
-  }, [])
-
-  const handleIsHide = useCallback(() => {
-    setIsShown(false)
-  }, [])
+  const handleOpenQRcodeModal = () => {
+    dispatch(setToEditQRcode(qrcode))
+    dispatch(setModal(ModalEnums.SHOW_QRCODE))
+  }
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -50,14 +50,13 @@ const QRcodeTableRow = ({ qrcode }: Props) => {
   }
 
   return (
-    <div className={`relative pl-4 pr-6 grid grid-cols-6 border-b-1 border-b-light-grey-alt border-solid ${open || isShown ? 'z-4' : 'z-2'}`}>
+    <div className={`relative pl-4 pr-6 grid grid-cols-6 border-b-1 border-b-light-grey-alt border-solid ${open ? 'z-4' : 'z-2'}`}>
       <div className="flex gap-x-2 py-3">
-        <QRcodeTableImage
-          isShown={isShown}
-          url={value}
+        <img
+          src={value}
+          className="h-8 w-8 cursor-pointer"
+          onClick={handleOpenQRcodeModal}
           alt={`${certificate?.firstName} ${certificate?.lastName} ${certificate?.slug}`}
-          handleIsHide={handleIsHide}
-          handleIsShown={handleIsShown}
         />
       </div>
 

@@ -12,6 +12,7 @@ import GetheringsTable from './table/GetheringsTable'
 import { setCityDropdownOptions } from '../../../state/shared/cities'
 import CitiesApis from '../../../api/cities'
 import { useSearchParams } from 'react-router-dom'
+import { ModalEnums } from '../../../enum/modal'
 
 const AllGetherings = () => {
   const [searchParams] = useSearchParams()
@@ -58,7 +59,7 @@ const AllGetherings = () => {
 
   return (
     <form className="bg-white rounded-sm border-1 border-light-grey-alt border-solid p-6">
-      <GetheringsTop />
+      <GetheringsTop type={ModalEnums.ADD_GETHERING} />
       <GetheringsTable />
     </form>
   )

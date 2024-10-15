@@ -26,31 +26,49 @@ const countrySlice = createSlice({
   initialState,
   reducers: {
     initializeCountries: () => initialState,
+
     setCountries: (state, action: PayloadAction<Paginated<ICountry>>) => {
       state.countries = action.payload
     },
+
     addNewCountry: (state, action: PayloadAction<ICountry>) => {
       if (state.countries) {
         state.countries.items = [action.payload, ...state.countries.items]
       }
     },
+
     setToEditCountry: (state, action: PayloadAction<ICountry>) => {
       state.toEditCountry = action.payload
     },
+
     setCountryDropdownOptions: (state, action: PayloadAction<ICountryOption[]>) => {
       state.dropdownOptions = {
         isLoad: true,
         options: action.payload,
       }
     },
+
     removeToEditCountry: (state) => {
       state.toEditCountry = null
     },
+
     removeCountries: (state) => {
       state.countries = null
     },
+
     removeCountryDropdownOptions: (state) => {
       state.dropdownOptions = { isLoad: false, options: [] }
+    },
+
+    updateCountry: (state, action: PayloadAction<Partial<ICountry>>) => {
+      if (state.countries && action.payload.countryId) {
+        state.countries.items = state.countries.items.map((country) => {
+          if (country.countryId === country.countryId) {
+            return { ...country, ...action.payload }
+          }
+          return country
+        })
+      }
     },
   },
 })
@@ -64,6 +82,7 @@ export const {
   removeToEditCountry,
   removeCountryDropdownOptions,
   setCountryDropdownOptions,
+  updateCountry,
 } = countrySlice.actions
 
 export default countrySlice.reducer

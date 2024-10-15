@@ -1,35 +1,43 @@
 import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import TributesApis from '../../../api/tributes'
+import { TributeStatusEnum } from '../../../enum/tribute'
 import { useApi } from '../../../hooks/use-api'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
 import { selectCertificates } from '../../../state/shared/certificates'
 import { removeModal } from '../../../state/shared/modal'
 import { addNewTribute } from '../../../state/shared/tributes'
-import { mapCertificateDropdownToSelectOptions } from '../../../mapper/options'
 import { CREATE_TRIBUTE_VALIDATION } from '../../../validations/tributes/create-tribute'
 import MainButton from '../../core/buttons/MainButton'
 import InputText from '../../core/input/InputText'
 import InputTextarea from '../../core/input/InputTextarea'
-import SingleSelect from '../../core/select/SingleSelect'
 import customToast from '../../core/toast/CustomToast'
 import Heading from '../../core/typography/Heading'
-import { TributeStatusEnum } from '../../../enum/tribute'
 
-const AddTributesModal = () => {
-  const methods = useForm({ resolver: CREATE_TRIBUTE_VALIDATION })
+const AddTributesForCertificatModal = () => {
+  const { toEditCertificate } = useAppSelector(selectCertificates)
+
+  const methods = useForm({
+    resolver: CREATE_TRIBUTE_VALIDATION,
+    defaultValues: {
+      certificate: {
+        id: `${toEditCertificate?.certificateId}`,
+        value: toEditCertificate!.slug,
+        name: `${toEditCertificate?.firstName} ${toEditCertificate?.lastName}`,
+      },
+    },
+  })
 
   return (
     <FormProvider {...methods}>
-      <AddTributesModalForm />
+      <AddTributesForCertificatModalForm />
     </FormProvider>
   )
 }
 
-const AddTributesModalForm = () => {
+const AddTributesForCertificatModalForm = () => {
   const { t } = useTranslation(['tribute', 'g'])
   const { handleSubmit } = useFormContext()
-  const { dropdownOptions: certificateDropdownOptions } = useAppSelector(selectCertificates)
   const api = useApi()
   const dispatch = useAppDispatch()
 
@@ -54,15 +62,6 @@ const AddTributesModalForm = () => {
     <>
       <Heading text={t('tribute:add.title')} variant="2" size="base" color="grey" />
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4 mt-6">
-        {certificateDropdownOptions.isLoad && (
-          <SingleSelect
-            name="certificate"
-            options={mapCertificateDropdownToSelectOptions(certificateDropdownOptions.options)}
-            label={t('tribute:add.fields.certificate')}
-            placeholder={t('tribute:add.fields.certificatePlh')}
-          />
-        )}
-
         <InputText isRequired name="firstName" label={t('tribute:add.fields.firstName')} placeholder={t('tribute:add.fields.firstNamePlh')} />
 
         <InputText isRequired name="lastName" label={t('tribute:add.fields.lastName')} placeholder={t('tribute:add.fields.lastNamePlh')} />
@@ -85,4 +84,4 @@ const AddTributesModalForm = () => {
   )
 }
 
-export default AddTributesModal
+export default AddTributesForCertificatModal

@@ -15,8 +15,6 @@ export const mapCertificateToEdit = ({
 }) => {
   const foundCemetery = cemeteriesOptions.find((cemetery) => cemetery.cemeteryId === certificate.cemeteryId)
 
-  console.log(foundCemetery)
-
   return {
     firstName: certificate.firstName,
     lastName: certificate.lastName,

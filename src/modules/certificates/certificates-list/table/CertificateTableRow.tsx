@@ -30,7 +30,7 @@ const CertificateTableRow = ({ certificate }: Props) => {
           type: 'button',
           text: t('g:button.delete'),
           onClick: () => {
-            console.log('s')
+            console.log('TODO')
           },
         },
         textColor: 'red',
@@ -45,11 +45,13 @@ const CertificateTableRow = ({ certificate }: Props) => {
         {profileImage?.url ? (
           <img
             src={profileImage?.url}
-            className="h-8 w-8 mt-2"
+            className="h-8 w-8 rounded-full mr-2"
             alt={`${firstName} ${lastName} ${cemetery?.address}, ${cemetery?.name}, ${location}`}
           />
         ) : (
-          <GeneralIcons type="UserPlaceholder" className="mr-2" />
+          <div className="h-8 w-8 rounded-full mr-2">
+            <GeneralIcons type="UserPlaceholder" />
+          </div>
         )}
         <Paragraph text={`${firstName} ${lastName}`} size="sm" color="black" noWrap />
       </Link>
@@ -62,11 +64,11 @@ const CertificateTableRow = ({ certificate }: Props) => {
         <Paragraph text={`${placeOfDeath}, ${formatDateYearMonthDay(dateOfDeath)}`} size="sm" color="black" noWrap />
       </Link>
 
-      <Link to={linkTo} className="col-span-3 py-3">
+      <Link to={linkTo} className="col-span-3 py-4">
         <Paragraph text={`${cemetery?.address}, ${cemetery?.name}, (${location.x}, ${location.y})`} size="sm" color="black" noWrap />
       </Link>
 
-      <Link to={linkTo} className="col-span-2 gap-x-2 py-3">
+      <Link to={linkTo} className="col-span-2 gap-x-2 py-4">
         <Paragraph text={biography} size="sm" color="black" noWrap />
       </Link>
 

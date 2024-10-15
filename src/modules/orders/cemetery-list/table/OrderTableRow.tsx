@@ -32,7 +32,7 @@ const OrderTableRow = ({ order }: Props) => {
 
   const handleUpdateOrderStatus = async (status: OrderStatusEnum) => {
     try {
-      await api.patch(OrdersApis.patchOrder(order.orderId), { status })
+      await api.patch(OrdersApis.patchOrderStatus(order.orderId), { status })
       dispatch(updateOrderStatus({ orderId, status }))
     } catch {
       customToast.error(t('g:errorMessage'))

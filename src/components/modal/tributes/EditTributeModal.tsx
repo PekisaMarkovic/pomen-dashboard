@@ -4,7 +4,7 @@ import TributesApis from '../../../api/tributes'
 import { useApi } from '../../../hooks/use-api'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
 import { removeModal } from '../../../state/shared/modal'
-import { addNewTribute, selectTributes } from '../../../state/shared/tributes'
+import { removeToEditTribute, selectTributes, updateTribute } from '../../../state/shared/tributes'
 import { UPDATE_TRIBUTE_VALIDATION } from '../../../validations/tributes/update-tribute'
 import MainButton from '../../core/buttons/MainButton'
 import InputText from '../../core/input/InputText'
@@ -41,12 +41,11 @@ const EditTributeModalForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
-      const { data } = await api.patch(TributesApis.patchTribute(toEditTribute!.tributeId), {
-        ...values,
-      })
+      const { data } = await api.patch(TributesApis.patchTribute(toEditTribute!.tributeId), values)
 
-      dispatch(addNewTribute(data))
+      dispatch(updateTribute(data))
       dispatch(removeModal())
+      dispatch(removeToEditTribute())
     } catch {
       customToast.error(t('g:errorMessage'))
     }

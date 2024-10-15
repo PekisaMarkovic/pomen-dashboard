@@ -1,14 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { State as AppState } from '../store'
+import { SaveDisabledEnums } from '../../enum/behaviour'
 
 type State = {
   isScrollDisabled: boolean
-  isSaveDisabled: boolean
+  isSaveDisabled: SaveDisabledEnums[]
 }
 
 const initialState: State = {
   isScrollDisabled: false,
-  isSaveDisabled: false,
+  isSaveDisabled: [],
 }
 
 const behaviourSlice = createSlice({
@@ -24,12 +25,12 @@ const behaviourSlice = createSlice({
       state.isScrollDisabled = false
     },
 
-    handleDisableSave: (state) => {
-      state.isSaveDisabled = true
+    handleDisableSave: (state, action: PayloadAction<SaveDisabledEnums>) => {
+      state.isSaveDisabled = [...state.isSaveDisabled, action.payload]
     },
 
-    handleAllowSave: (state) => {
-      state.isSaveDisabled = false
+    handleAllowSave: (state, action: PayloadAction<SaveDisabledEnums>) => {
+      state.isSaveDisabled = state.isSaveDisabled.filter((dis) => dis !== action.payload)
     },
   },
 })

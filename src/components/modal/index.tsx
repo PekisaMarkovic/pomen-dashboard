@@ -12,6 +12,9 @@ import AddGetheringModal from './getherings/AddGetheringModal'
 import EditGetheringModal from './getherings/EditGetheringModal'
 import AddTributesModal from './tributes/AddTributesModal'
 import EditTributeModal from './tributes/EditTributeModal'
+import AddTributesForCertificatModal from './tributes/AddTributesForCertificatModal'
+import AddGetheringForCertifivateModal from './getherings/AddGetheringForCertifivateModal'
+import ShowQRcodeModal from './qrcode/ShowQRcodeModal'
 
 type Props = {
   variant?: ModalVariant
@@ -49,8 +52,17 @@ const MainModal = ({ variant }: Props) => {
       case ModalEnums.ADD_TRIBUTE:
         return <AddTributesModal />
 
+      case ModalEnums.ADD_TRIBUTE_FOR_CERTIFICATE:
+        return <AddTributesForCertificatModal />
+
+      case ModalEnums.ADD_GETHERING_FOR_CERTIFICAT:
+        return <AddGetheringForCertifivateModal />
+
       case ModalEnums.EDIT_TRIBUTE:
         return <EditTributeModal />
+
+      case ModalEnums.SHOW_QRCODE:
+        return <ShowQRcodeModal />
     }
   }
 

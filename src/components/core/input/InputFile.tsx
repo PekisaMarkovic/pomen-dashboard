@@ -14,6 +14,7 @@ import { IFile } from '../../../interfaces/image'
 import { FileTypeEnum } from '../../../enum/file'
 import { handleAllowSave, handleDisableSave } from '../../../state/shared/behaviours'
 import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
+import { SaveDisabledEnums } from '../../../enum/behaviour'
 
 type Props = {
   placeholderGreen?: string
@@ -49,7 +50,7 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    dispatch(handleDisableSave())
+    dispatch(handleDisableSave(SaveDisabledEnums.INPUT_FILE))
 
     try {
       if (acceptedFiles.length === 0) return
@@ -60,7 +61,7 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
     } catch {
       customToast.error(t('g:errorMessage'))
     } finally {
-      dispatch(handleAllowSave())
+      dispatch(handleAllowSave(SaveDisabledEnums.INPUT_FILE))
     }
   }, [])
 
@@ -84,7 +85,7 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
   const handleOnMouseLeave = () => setShowOverlay(false)
 
   const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(handleDisableSave())
+    dispatch(handleDisableSave(SaveDisabledEnums.INPUT_FILE))
     try {
       if (!e.target.files) return
 
@@ -94,7 +95,7 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
     } catch {
       customToast.error(t('g:errorMessage'))
     } finally {
-      dispatch(handleAllowSave())
+      dispatch(handleAllowSave(SaveDisabledEnums.INPUT_FILE))
     }
   }
 

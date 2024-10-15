@@ -15,6 +15,7 @@ import GeneralIcons from '../../../icons/general'
 import { FileTypeEnum } from '../../../enum/file'
 import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
 import { handleAllowSave, handleDisableSave } from '../../../state/shared/behaviours'
+import { SaveDisabledEnums } from '../../../enum/behaviour'
 
 type Props = {
   placeholderGreen?: string
@@ -51,7 +52,7 @@ const MultyInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   } = useFormContext()
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    dispatch(handleDisableSave())
+    dispatch(handleDisableSave(fileType === FileTypeEnum.VIDEO ? SaveDisabledEnums.INPUT_MULTY_VIDEO : SaveDisabledEnums.INPUT_MULTY_IMAGE))
 
     try {
       if (acceptedFiles.length === 0) return
@@ -62,7 +63,7 @@ const MultyInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
     } catch {
       customToast.error(t('g:errorMessage'))
     } finally {
-      dispatch(handleAllowSave())
+      dispatch(handleAllowSave(fileType === FileTypeEnum.VIDEO ? SaveDisabledEnums.INPUT_MULTY_VIDEO : SaveDisabledEnums.INPUT_MULTY_IMAGE))
     }
   }, [])
 
@@ -94,7 +95,7 @@ const MultyInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
   const error = errorObj && errorObj.message ? (errorObj.message as string) : null
 
   const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(handleDisableSave())
+    dispatch(handleDisableSave(fileType === FileTypeEnum.VIDEO ? SaveDisabledEnums.INPUT_MULTY_VIDEO : SaveDisabledEnums.INPUT_MULTY_IMAGE))
 
     try {
       if (!e.target.files) return
@@ -105,7 +106,7 @@ const MultyInputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, 
     } catch {
       customToast.error(t('g:errorMessage'))
     } finally {
-      dispatch(handleAllowSave())
+      dispatch(handleAllowSave(fileType === FileTypeEnum.VIDEO ? SaveDisabledEnums.INPUT_MULTY_VIDEO : SaveDisabledEnums.INPUT_MULTY_IMAGE))
     }
   }
 

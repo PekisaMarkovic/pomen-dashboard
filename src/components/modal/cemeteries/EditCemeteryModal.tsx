@@ -2,11 +2,11 @@ import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } fro
 import { useTranslation } from 'react-i18next'
 import CemeteriesApis from '../../../api/cemeteries'
 import { useApi } from '../../../hooks/use-api'
+import { mapCityDropdownToSelectOptions } from '../../../mapper/options'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
-import { addNewCemetery, selectCemeteries } from '../../../state/shared/cemeteries'
+import { removeToEditCemetery, selectCemeteries, updateCemetery } from '../../../state/shared/cemeteries'
 import { selectCities } from '../../../state/shared/cities'
 import { removeModal } from '../../../state/shared/modal'
-import { mapCityDropdownToSelectOptions } from '../../../mapper/options'
 import { CREATE_CEMETERY_VALIDATION } from '../../../validations/cemetereis/create-cemetery'
 import MainButton from '../../core/buttons/MainButton'
 import InputText from '../../core/input/InputText'
@@ -48,8 +48,9 @@ const EditCemeteryModalForm = () => {
         cityId: city?.id,
       })
 
-      dispatch(addNewCemetery(data))
+      dispatch(updateCemetery(data))
       dispatch(removeModal())
+      dispatch(removeToEditCemetery())
     } catch {
       customToast.error(t('g:errorMessage'))
     }

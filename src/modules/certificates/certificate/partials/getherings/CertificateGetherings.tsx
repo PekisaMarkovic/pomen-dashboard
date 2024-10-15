@@ -13,6 +13,10 @@ import CitiesApis from '../../../../../api/cities'
 import { setCityDropdownOptions } from '../../../../../state/shared/cities'
 import GetheringsTop from '../../../../getherings/gethering-list/partials/GetheringsTop'
 import GetheringsTable from '../../../../getherings/gethering-list/table/GetheringsTable'
+import DataSection from '../../../../../components/section/DataSection'
+import { ModalEnums } from '../../../../../enum/modal'
+import { IGethering } from '../../../../../interfaces/getherings'
+import { Paginated } from '../../../../../interfaces/general'
 
 const CertificateGetherings = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)
@@ -24,7 +28,13 @@ const CertificateGetherings = () => {
 
   const fetchData = useCallback(async (page: string) => {
     try {
-      const { data } = await api.get(GetheringsApis.getGetheringsByCertificateId(toEditCertificate!.certificateId), { params: { page } })
+      const { data } = await api.get<Paginated<IGethering>>(GetheringsApis.getGetheringsByCertificateId(toEditCertificate!.certificateId), {
+        params: { page },
+      })
+      data.items.map((item) => {
+        item.certificate = toEditCertificate
+        return item
+      })
       dispatch(setGetherings(data))
     } catch {
       customToast.error(t('g:errorMessage'))
@@ -59,10 +69,14 @@ const CertificateGetherings = () => {
   }, [page])
 
   return (
-    <form className="bg-white rounded-sm border-1 border-light-grey-alt border-solid p-6 mt-4">
-      <GetheringsTop />
+    <DataSection
+      tooltip={t('certificate:getherings.tooltip')}
+      title={t('certificate:getherings.title')}
+      subtitle={t('certificate:getherings.subtitle')}
+    >
+      <GetheringsTop type={ModalEnums.ADD_GETHERING_FOR_CERTIFICAT} />
       <GetheringsTable />
-    </form>
+    </DataSection>
   )
 }
 

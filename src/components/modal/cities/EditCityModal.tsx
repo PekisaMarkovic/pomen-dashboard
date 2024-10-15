@@ -2,17 +2,17 @@ import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } fro
 import { useTranslation } from 'react-i18next'
 import CitiesApis from '../../../api/cities'
 import { useApi } from '../../../hooks/use-api'
+import { mapCountryDropdownToSelectOptions } from '../../../mapper/options'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
-import { addNewCity, selectCities } from '../../../state/shared/cities'
+import { removeToEditCity, selectCities, updateCity } from '../../../state/shared/cities'
+import { selectCountry } from '../../../state/shared/countries'
 import { removeModal } from '../../../state/shared/modal'
 import { CREATE_CITY_VALIDATION } from '../../../validations/cities/create-city'
 import MainButton from '../../core/buttons/MainButton'
 import InputText from '../../core/input/InputText'
+import SingleSelect from '../../core/select/SingleSelect'
 import customToast from '../../core/toast/CustomToast'
 import Heading from '../../core/typography/Heading'
-import SingleSelect from '../../core/select/SingleSelect'
-import { selectCountry } from '../../../state/shared/countries'
-import { mapCountryDropdownToSelectOptions } from '../../../mapper/options'
 
 const EditCityModal = () => {
   const { toEditCity } = useAppSelector(selectCities)
@@ -45,8 +45,9 @@ const EditCityModalForm = () => {
     try {
       const { data } = await api.patch(CitiesApis.patchCity(toEditCity!.cityId), { ...values })
 
-      dispatch(addNewCity(data))
+      dispatch(updateCity(data))
       dispatch(removeModal())
+      dispatch(removeToEditCity())
     } catch {
       customToast.error(t('g:errorMessage'))
     }

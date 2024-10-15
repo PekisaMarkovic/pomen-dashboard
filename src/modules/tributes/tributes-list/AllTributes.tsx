@@ -10,6 +10,7 @@ import TributeTable from './table/TributeTable'
 import CertificatesApis from '../../../api/certificates'
 import { setCertificateDropdownOptions } from '../../../state/shared/certificates'
 import { useSearchParams } from 'react-router-dom'
+import { ModalEnums } from '../../../enum/modal'
 
 const AllTributes = () => {
   const [searchParams] = useSearchParams()
@@ -46,7 +47,7 @@ const AllTributes = () => {
 
   return (
     <form className="bg-white rounded-sm border-1 border-light-grey-alt border-solid p-6">
-      <TributesTop />
+      <TributesTop type={ModalEnums.ADD_TRIBUTE} />
       <TributeTable />
     </form>
   )
