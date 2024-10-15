@@ -17,7 +17,7 @@ const NewCertificateManagement = () => {
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-    const { cemetery, dateOfBirth, dateOfDeath, ...rest } = values
+    const { cemetery, dateOfBirth, dateOfDeath, city, ...rest } = values
 
     try {
       const { data } = await api.post(CertificatesApis.createCertificateNewUser(), {
@@ -25,6 +25,7 @@ const NewCertificateManagement = () => {
         ...rest,
         dateOfBirth: formatDateYearMonthDay(dateOfBirth),
         dateOfDeath: formatDateYearMonthDay(dateOfDeath),
+        ...(city ? { cityId: Number(city.id) } : {}),
       })
 
       navigate(`${ROUTE_NAMES.certificates}/${data.certificateId}`)
