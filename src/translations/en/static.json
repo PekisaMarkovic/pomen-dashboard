@@ -22,8 +22,9 @@
       "getherings": "Getherings",
       "countries": "Countries",
       "cemeteries": "Cemeteries",
-      "certificates": "Certificates",
+      "certificates": "Certificates {{name}}",
       "qrcodes": "Qrcodes",
+      "orderes": "Orderes",
       "cities": "Cities",
       "orders": "Orders",
       "contacts": "Contacts"

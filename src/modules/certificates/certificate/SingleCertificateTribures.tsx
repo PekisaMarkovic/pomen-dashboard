@@ -6,10 +6,17 @@ import { useAppSelector } from '../../../state/redux-hooks/reduxHooks'
 import { selectCertificates } from '../../../state/shared/certificates'
 import CertificateTabs from './partials/CertificateTabs'
 import CertificateTributes from './partials/tributes/CertificateTributes'
+import { useNavigate } from 'react-router-dom'
+import { useCallback } from 'react'
 
 const SingleCertificateTribures = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)
   const { t } = useTranslation(['g'])
+  const navigate = useNavigate()
+
+  const handleGoBack = useCallback(() => {
+    navigate(-1)
+  }, [])
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
@@ -20,7 +27,7 @@ const SingleCertificateTribures = () => {
   }
 
   return (
-    <GeneralLayout type="GENERAL_FORM" submit={onSubmit}>
+    <GeneralLayout type="GENERAL_FORM" submit={onSubmit} backButton={{ onClick: handleGoBack }}>
       <CertificateTabs id={`${toEditCertificate?.certificateId}`} />
       <CertificateTributes />
     </GeneralLayout>

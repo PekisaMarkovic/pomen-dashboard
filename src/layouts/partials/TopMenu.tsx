@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from '../../state/redux-hooks/reduxHoo
 import { removeUserData, selectAuthUser } from '../../state/user/authSlice'
 import { extractFirstLetters } from '../../utils/string'
 import { clearLocalStorageTokens } from '../../utils/token'
+import { selectCertificates } from '../../state/shared/certificates'
 
 type Props = {
   backButton?: {
@@ -25,6 +26,7 @@ const TopMenu = ({ backButton }: Props) => {
   const { t } = useTranslation(['g', 'info', 'static'])
   const api = useApi()
   const { pathname } = useLocation()
+  const { toEditCertificate } = useAppSelector(selectCertificates)
   const navigate = useNavigate()
   const [open, setOpen] = useState<boolean>(false)
   const { user } = useAppSelector(selectAuthUser)
@@ -70,6 +72,14 @@ const TopMenu = ({ backButton }: Props) => {
     return options
   }
 
+  const checkIfTitleHaveExtension = () => {
+    if (toEditCertificate) {
+      return `${toEditCertificate.lastName} ${toEditCertificate.lastName}`
+    }
+
+    return ''
+  }
+
   return (
     <div className="pl-8 pr-14 flex items-center justify-between py-3 border-b-1 border-b-lighy-grey border-solid absolute top-0 left-0 right-0 bg-white">
       <div>
@@ -83,7 +93,7 @@ const TopMenu = ({ backButton }: Props) => {
               )
             }
             variant="1"
-            text={t(`static:navigation.leftSidePage.${page.replace('/', '')}`)}
+            text={t(`static:navigation.leftSidePage.${page.replace('/', '')}`, { name: checkIfTitleHaveExtension() })}
           />
         )}
       </div>

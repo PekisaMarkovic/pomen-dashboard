@@ -11,7 +11,7 @@ import CitiesApis from '../../api/cities'
 import { selectCities, setCityDropdownOptions } from '../../state/shared/cities'
 import CertificatesApis from '../../api/certificates'
 import { useParams } from 'react-router-dom'
-import { selectCertificates, setToEditCertificate } from '../../state/shared/certificates'
+import { removeToEditCertificate, selectCertificates, setToEditCertificate } from '../../state/shared/certificates'
 import { mapCertificateToEdit } from '../../mapper/certificate'
 
 const SingleCertificatePage = () => {
@@ -53,6 +53,10 @@ const SingleCertificatePage = () => {
     fetchData()
     fetchCemeteryDropdownOptions()
     fetchCityDropDown()
+
+    return () => {
+      dispatch(removeToEditCertificate())
+    }
   }, [])
 
   return <>{toEditCertificate ? <SingleCertificateForm /> : null}</>

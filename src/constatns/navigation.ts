@@ -23,4 +23,5 @@ export const TOP_MENU_LINKS_FOR_TRANSLATIONS = [
   ...LEFT_SIDE_MENU_LINKS.map((e) => e.link),
   ROUTE_NAMES.newCerificate,
   ROUTE_NAMES.newCerificateManagement,
+  ROUTE_NAMES.certificateById,
 ]

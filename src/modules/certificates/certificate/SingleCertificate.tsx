@@ -11,12 +11,12 @@ import { useApi } from '../../../hooks/use-api'
 import GeneralLayout from '../../../layouts/GeneralLayout'
 import { useAppDispatch, useAppSelector } from '../../../state/redux-hooks/reduxHooks'
 import { setCemeteryDropdownOptions } from '../../../state/shared/cemeteries'
+import { selectCertificates } from '../../../state/shared/certificates'
 import { setCityDropdownOptions } from '../../../state/shared/cities'
 import { formatDateYearMonthDay } from '../../../utils/date'
 import CertificateCemeteryDetails from './partials/CertificateCemeteryDetails'
-import CertificateLifeDetails from './partials/CertificateLifeDetails'
 import CertificateFiles from './partials/CertificateFiles'
-import { selectCertificates } from '../../../state/shared/certificates'
+import CertificateLifeDetails from './partials/CertificateLifeDetails'
 import CertificateTabs from './partials/CertificateTabs'
 
 const SingleCertificate = () => {
@@ -61,13 +61,17 @@ const SingleCertificate = () => {
     }
   }
 
+  const handleGoBack = useCallback(() => {
+    navigate(-1)
+  }, [])
+
   useEffect(() => {
     fetchCemeteryDropdownOptions()
     fetchCityDropDown()
   }, [])
 
   return (
-    <GeneralLayout type="GENERAL_FORM" submit={onSubmit}>
+    <GeneralLayout type="GENERAL_FORM" submit={onSubmit} backButton={{ onClick: handleGoBack }}>
       <CertificateTabs id={`${toEditCertificate?.certificateId}`} />
       <CertificateFiles />
       <CertificateLifeDetails />
