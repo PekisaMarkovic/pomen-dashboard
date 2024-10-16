@@ -8,7 +8,7 @@ import { useApi } from '../../hooks/use-api'
 import { useEffect, useState } from 'react'
 import { ROUTE_NAMES } from '../../constatns/a-routes'
 import UserApis from '../../api/user'
-import InvalidFistTimeRegisterToken from '../../modules/log-in/partials/InvalidFIstTimeRegisterToken'
+import InvalidFistTimeRegisterToken from '../../modules/log-in/partials/InvalidFistTimeRegisterToken'
 
 const FirstTimeRegisterPage = () => {
   const methods = useForm({ resolver: FIRST_TIME_REGISTER_VALIDATION })
