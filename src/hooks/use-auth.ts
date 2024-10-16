@@ -7,7 +7,7 @@ import { removeUserData, setUserData } from '../state/user/authSlice'
 import { clearLocalStorageTokens, getAccessToken, getTokenPayload } from '../utils/token'
 import { useApi } from './use-api'
 
-const unprotectedRoutes = [ROUTE_NAMES.index, ROUTE_NAMES.firtTimeRegister, ROUTE_NAMES.createCertificate, ROUTE_NAMES.notFound]
+const unprotectedRoutes = [ROUTE_NAMES.index, ROUTE_NAMES.notFound, ROUTE_NAMES.signUp]
 
 export const useAuth = () => {
   const api = useApi()
@@ -28,7 +28,7 @@ export const useAuth = () => {
       const tokenPayload = getTokenPayload()
 
       if (!tokenPayload || !accessToken) {
-        if (!unprotectedRoutes.includes(pathname)) {
+        if (!unprotectedRoutes.includes(pathname) && !pathname.includes('/first-time-register')) {
           handleUnauthorized()
         }
         return

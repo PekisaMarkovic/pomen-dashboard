@@ -20,8 +20,10 @@ import OrdersPage from '../pages/order/OrdersPage'
 import QRcodesPage from '../pages/qrcodes/QRcodesPage'
 import TributesPage from '../pages/tributes/TributesPage'
 import ProtectedRoute from './ProtectedRoute'
+import SignUpPage from '../pages/log-in/SignUpPage'
+import FirstTimeRegisterPage from '../pages/log-in/FirstTimeRegisterPage'
 
-const ALL_ROLES = [RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
+const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
 type Route = {
   path: string
@@ -43,7 +45,12 @@ const AppRoutes = () => {
 
     {
       path: ROUTE_NAMES.firtTimeRegister,
-      element: <div>TODO</div>,
+      element: <FirstTimeRegisterPage />,
+    },
+
+    {
+      path: ROUTE_NAMES.signUp,
+      element: <SignUpPage />,
     },
 
     {

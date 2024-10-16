@@ -83,7 +83,7 @@ const DateSelect = ({ label, placeholder, isRequired, name, isDisabled, dateForm
         <GeneralIcons type="SelectDropdown" className={`${open ? 'rotate-180' : ''}`} />
       </div>
       {open && (
-        <div className="absolute bg-white z-10 border-1 border-solid border-grey border-solid rounded-xs-plus">
+        <div className="absolute bg-white z-10 border-1 border-solid border-grey border-solid rounded-xs-plus top-full left-1/2 -translate-x-1/2 mt-2">
           <Calendar onChange={handleOnDateChange} date={selected ? new Date(selected) : new Date()} dateDisplayFormat={dateFormat} />
         </div>
       )}

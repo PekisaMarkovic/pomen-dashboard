@@ -15,6 +15,7 @@ export const ROUTE_NAMES = {
   certificateById: '/certificates/:id',
   firtTimeRegister: '/first-time-register/:token',
   createCertificate: '/create-certificate/:token',
+  signUp: '/sign-up',
   contacts: '/contacts',
   profile: '/profile',
   notFound: '/not-found',

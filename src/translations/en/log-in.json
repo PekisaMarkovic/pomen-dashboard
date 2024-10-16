@@ -1,9 +1,28 @@
 {
   "title": "Sign in to your account",
+  "titleSignUp": "Sign up and join us",
+  "register": "Sign up",
+  "signIn": "Sign in",
+  "log-in": "Log in",
+  "sign-up": {
+    "tokenExpired": "Looks like the verification link has expired. Not to worry, we can send the link again.",
+    "resendLink": "Resend verification link",
+    "newLinkSend": "We sent new verification link, check your email."
+  },
   "fields": {
     "email": "E-Mail",
-    "emailPlh": "Enter an E-mail..",
+    "emailPlh": "Enter an e-mail..",
+
+    "firstName": "First name",
+    "firstNamePlh": "Enter an first name..",
+
+    "lastName": "Last name",
+    "lastNamePlh": "Enter an last name..",
+
+    "phoneNumber": "Phone number",
+    "phoneNumberPlh": "Enter an phone number..",
+
     "password": "Password",
-    "passwordPlh": "Enter an password"
+    "passwordPlh": "Enter an password.."
   }
 }
