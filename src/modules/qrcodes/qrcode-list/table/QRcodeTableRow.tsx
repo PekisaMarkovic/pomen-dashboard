@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import { ModalEnums } from '../../../../enum/modal'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { IQRcode } from '../../../../interfaces/qrcode'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { setModal } from '../../../../state/shared/modal'
-import { setToEditQRcode } from '../../../../state/shared/qrcodes'
-import { formatDateYearMonthDay } from '../../../../utils/date'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { ModalEnums } from '@/src/enum/modal'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { IQRcode } from '@/src/interfaces/qrcode'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { setModal } from '@/src/state/shared/modal'
+import { setToEditQRcode } from '@/src/state/shared/qrcodes'
+import { formatDateYearMonthDay } from '@/src/utils/date'
 
 type Props = {
   qrcode: IQRcode
@@ -43,7 +43,7 @@ const QRcodeTableRow = ({ qrcode }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={6} dropdownOptions={checkOptions()}>
       <div className="flex gap-x-2 py-3">
         <img
           src={value}

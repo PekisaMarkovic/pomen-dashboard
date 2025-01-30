@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react'
-import { useAppSelector } from '../state/redux-hooks/reduxHooks'
-import { selectBehaviours } from '../state/shared/behaviours'
-import BottomMenu from './partials/BottomMenu'
-import LeftMenu from './partials/LeftMenu'
-import TopMenu from './partials/TopMenu'
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectBehaviours } from '@/src/state/shared/behaviours'
+import BottomMenu from '@/src/layouts/partials/BottomMenu'
+import LeftMenu from '@/src/layouts/partials/LeftMenu'
+import TopMenu from '@/src/layouts/partials/TopMenu'
 
 type GeneralLayoutProps = {
   type?: 'GENERAL' | 'GENERAL_FORM'

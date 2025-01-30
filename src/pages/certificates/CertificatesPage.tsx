@@ -1,9 +1,9 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllCertificates from '../../modules/certificates/certificates-list/AllCertificates'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllCertificates from '@/src/modules/certificates/certificates-list/AllCertificates'
 import { useEffect } from 'react'
-import { removeToEditCertificate, removetoEditCertificateFiles } from '../../state/shared/certificates'
-import { useAppDispatch } from '../../state/redux-hooks/reduxHooks'
+import { removeToEditCertificate, removetoEditCertificateFiles } from '@/src/state/shared/certificates'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
 
 const CertificatesPage = () => {
   const methods = useForm()

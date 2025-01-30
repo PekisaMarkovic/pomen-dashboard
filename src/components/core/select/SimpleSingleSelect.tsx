@@ -1,11 +1,11 @@
 import { ChangeEventHandler, Fragment, useEffect, useRef, useState } from 'react'
-import DropdownIcon from '../../../../public/images/general/select-dropdown-arrow.svg'
+import DropdownIcon from '@/src/public/images/general/select-dropdown-arrow.svg'
 import SingleOption from './partials/SingleOption'
 import { useFormContext, useWatch } from 'react-hook-form'
-import { Nullable, SelectOption } from '../../../interfaces/general'
-import { OVERFLOW_OPTION } from '../../../constatns/select'
-import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
-import { handleAllowScroll, handleDisableScroll } from '../../../state/shared/behaviours'
+import { Nullable, SelectOption } from '@/src/interfaces/general'
+import { OVERFLOW_OPTION } from '@/src/constatns/select'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { handleAllowScroll, handleDisableScroll } from '@/src/state/shared/behaviours'
 
 type Props = {
   placeholder?: string

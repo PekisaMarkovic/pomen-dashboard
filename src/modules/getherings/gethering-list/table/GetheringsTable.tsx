@@ -1,8 +1,8 @@
-import PagginationWithoutUrl from '../../../../components/core/paggination/PagginationWithoutUrl'
-import DefaultTableSpace from '../../../../components/table/DefaultTableSpace'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectGetherings } from '../../../../state/shared/getherings'
-import { generateArrayOfLen } from '../../../../utils/array'
+import PagginationWithoutUrl from '@/src/components/core/paggination/PagginationWithoutUrl'
+import DefaultTableSpace from '@/src/components/table/DefaultTableSpace'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectGetherings } from '@/src/state/shared/getherings'
+import { generateArrayOfLen } from '@/src/utils/array'
 import GetheringTableHeader from './GetheringTableHeader'
 import GetheringTableRow from './GetheringTableRow'
 

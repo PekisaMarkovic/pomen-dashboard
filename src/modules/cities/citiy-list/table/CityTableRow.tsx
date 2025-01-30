@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ModalEnums } from '../../../../enum/modal'
-import { ICity } from '../../../../interfaces/cities'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { setToEditCity } from '../../../../state/shared/cities'
-import { setModal } from '../../../../state/shared/modal'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ModalEnums } from '@/src/enum/modal'
+import { ICity } from '@/src/interfaces/cities'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { setToEditCity } from '@/src/state/shared/cities'
+import { setModal } from '@/src/state/shared/modal'
 
 type Props = {
   city: ICity
@@ -42,7 +42,7 @@ const CityTableRow = ({ city }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={5} dropdownOptions={checkOptions()}>
       <div className="col-span-2 flex gap-x-2 py-3">
         <Paragraph text={name} size="sm" color="black" />
       </div>

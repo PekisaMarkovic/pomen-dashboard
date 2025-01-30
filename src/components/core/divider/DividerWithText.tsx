@@ -1,5 +1,5 @@
-import { Color } from '../../../interfaces/general'
-import Divider from './Divider'
+import { Color } from '@/src/interfaces/general'
+import Divider from '@/src/components/core/divider/Divider'
 
 type Props = {
   text: string

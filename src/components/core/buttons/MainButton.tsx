@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { style } from './style'
-import { FontFamily } from '../../../interfaces/general'
+import { style } from '@/src/components/core/buttons/style'
+import { FontFamily } from '@/src/interfaces/general'
 
 export type Variant = 'contained' | 'outlined' | 'text' | 'alternative' | 'primary' | 'error'
 

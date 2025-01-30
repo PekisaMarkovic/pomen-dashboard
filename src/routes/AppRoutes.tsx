@@ -1,27 +1,28 @@
 import type { ReactNode } from 'react'
 
 import { Route, Routes as Switch } from 'react-router-dom'
-import { ROUTE_NAMES } from '../constatns/a-routes'
-import { RoleEnums } from '../enum/user'
-import CemeteriesPage from '../pages/cemeteries/CemeteriesPage'
-import CertificatesPage from '../pages/certificates/CertificatesPage'
-import NewCertificateManagementPage from '../pages/certificates/NewCertificateManagementPage'
-import NewCertificatePage from '../pages/certificates/NewCertificatePage'
-import SingleCertificateGetheringsPage from '../pages/certificates/SingleCertificateGetheringsPage'
-import SingleCertificatePage from '../pages/certificates/SingleCertificatePage'
-import SingleCertificateTributesPage from '../pages/certificates/SingleCertificateTributesPage'
-import CitiesPage from '../pages/cities/CitiesPage'
-import CountriesPage from '../pages/countries/CountriesPage'
-import DashboardPage from '../pages/dashboard/DashboardPage'
-import GetheringsPage from '../pages/getherings/GetheringsPage'
-import LogInPage from '../pages/log-in/LogInPage'
-import NotFoundPage from '../pages/not-found/NotFoundPage'
-import OrdersPage from '../pages/order/OrdersPage'
-import QRcodesPage from '../pages/qrcodes/QRcodesPage'
-import TributesPage from '../pages/tributes/TributesPage'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { RoleEnums } from '@/src/enum/user'
+import CemeteriesPage from '@/src/pages/cemeteries/CemeteriesPage'
+import CertificatesPage from '@/src/pages/certificates/CertificatesPage'
+import NewCertificateManagementPage from '@/src/pages/certificates/NewCertificateManagementPage'
+import NewCertificatePage from '@/src/pages/certificates/NewCertificatePage'
+import SingleCertificateGetheringsPage from '@/src/pages/certificates/SingleCertificateGetheringsPage'
+import SingleCertificatePage from '@/src/pages/certificates/SingleCertificatePage'
+import SingleCertificateTributesPage from '@/src/pages/certificates/SingleCertificateTributesPage'
+import CitiesPage from '@/src/pages/cities/CitiesPage'
+import CountriesPage from '@/src/pages/countries/CountriesPage'
+import DashboardPage from '@/src/pages/dashboard/DashboardPage'
+import GetheringsPage from '@/src/pages/getherings/GetheringsPage'
+import LogInPage from '@/src/pages/log-in/LogInPage'
+import NotFoundPage from '@/src/pages/not-found/NotFoundPage'
+import OrdersPage from '@/src/pages/order/OrdersPage'
+import QRcodesPage from '@/src/pages/qrcodes/QRcodesPage'
+import TributesPage from '@/src/pages/tributes/TributesPage'
 import ProtectedRoute from './ProtectedRoute'
-import SignUpPage from '../pages/log-in/SignUpPage'
-import FirstTimeRegisterPage from '../pages/log-in/FirstTimeRegisterPage'
+import SignUpPage from '@/src/pages/log-in/SignUpPage'
+import FirstTimeRegisterPage from '@/src/pages/log-in/FirstTimeRegisterPage'
+import ContactsPage from '@/src/pages/contacts/ContactsPage'
 
 const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -139,6 +140,15 @@ const AppRoutes = () => {
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <CertificatesPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: ROUTE_NAMES.contacts,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <ContactsPage />
         </ProtectedRoute>
       ),
     },

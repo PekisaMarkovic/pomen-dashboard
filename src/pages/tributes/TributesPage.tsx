@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllTributes from '../../modules/tributes/tributes-list/AllTributes'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllTributes from '@/src/modules/tributes/tributes-list/AllTributes'
 
 const TributesPage = () => {
   const methods = useForm()

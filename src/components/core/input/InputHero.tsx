@@ -5,9 +5,9 @@ import get from 'lodash.get'
 import { ChangeEvent, useCallback, useRef, useState } from 'react'
 import { useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import ErrorMessage from '../typography/ErrorMessage'
+import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
-import { FileTypeEnum } from '../../../enum/file'
+import { FileTypeEnum } from '@/src/enum/file'
 
 type Props = {
   placeholderGreen?: string

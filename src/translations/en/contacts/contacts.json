@@ -1,0 +1,17 @@
+{
+  "table": {
+    "name": "Name",
+    "email": "Email",
+    "status": "Status",
+    "message": "Message"
+  },
+  "contact-status": {
+    "new.message": "New message",
+    "in.progress": "In Progress",
+    "replied": "Replied",
+    "resolved": "Resolved",
+    "spam": "Spam",
+    "escalated": "Escalated",
+    "archived": "Archived"
+  }
+}

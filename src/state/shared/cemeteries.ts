@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ICemetery, ICemeteryOption } from '../../interfaces/cemeteries'
-import { Nullable, Paginated } from '../../interfaces/general'
-import { State as AppState } from '../store'
+import { ICemetery, ICemeteryOption } from '@/src/interfaces/cemeteries'
+import { Nullable, Paginated } from '@/src/interfaces/general'
+import { State as AppState } from '@/src/state/store'
 
 type State = {
   cemeteries: Nullable<Paginated<ICemetery>>

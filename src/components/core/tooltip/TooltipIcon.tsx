@@ -1,5 +1,5 @@
-import GeneralIcons from '../../../icons/general'
-import Tooltip from './Tooltip'
+import GeneralIcons from '@/src/icons/general'
+import Tooltip from '@/src/components/core/tooltip/Tooltip'
 import { ReactNode } from 'react'
 
 type Props = {

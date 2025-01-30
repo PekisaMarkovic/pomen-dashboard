@@ -1,4 +1,4 @@
-import { SelectOption } from '../interfaces/general'
+import { SelectOption } from '@/src/interfaces/general'
 
 export const OVERFLOW_OPTION = {
   root: null, // Set the scrollable div as the root

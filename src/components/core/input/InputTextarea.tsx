@@ -1,6 +1,6 @@
 import get from 'lodash.get'
-import ErrorMessage from '../typography/ErrorMessage'
-import Label from '../typography/Label'
+import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
+import Label from '@/src/components/core/typography/Label'
 import { useFormContext, useWatch } from 'react-hook-form'
 import { ChangeEventHandler } from 'react'
 import { useTranslation } from 'react-i18next'

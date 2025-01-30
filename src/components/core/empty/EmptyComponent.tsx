@@ -1,6 +1,6 @@
-import EmptyIcon from '../../../../public/images/general/empty-component.svg'
-import Paragraph from '../typography/Paragraph'
-import MainButton from '../buttons/MainButton'
+import EmptyIcon from '@/public/images/general/empty-component.svg'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import MainButton from '@/src/components/core/buttons/MainButton'
 
 type Props = {
   text: string

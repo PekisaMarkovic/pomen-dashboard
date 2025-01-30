@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
-import MainLink from '../../../../components/core/buttons/MainLink'
-import NavigationTab from '../../../../components/core/navigation/NavigationTab'
-import TabSection from '../../../../components/section/TabSection'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import { SINGLE_CERTIFICATE_TABS } from '../../../../constatns/certificate'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectCertificates } from '../../../../state/shared/certificates'
-import { calculateArrayCompleteness, calculateCompleteness } from '../../../../utils/perc'
+import MainLink from '@/src/components/core/buttons/MainLink'
+import NavigationTab from '@/src/components/core/navigation/NavigationTab'
+import TabSection from '@/src/components/section/TabSection'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { SINGLE_CERTIFICATE_TABS } from '@/src/constatns/certificate'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCertificates } from '@/src/state/shared/certificates'
+import { calculateArrayCompleteness, calculateCompleteness } from '@/src/utils/perc'
 
 const CertificateTabs = () => {
   const { t } = useTranslation(['certificate'])

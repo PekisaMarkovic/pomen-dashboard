@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { State as AppState } from '../store'
-import { SaveDisabledEnums } from '../../enum/behaviour'
+import { State as AppState } from '@/src/state/store'
+import { SaveDisabledEnums } from '@/src/enum/behaviour'
 
 type State = {
   isScrollDisabled: boolean

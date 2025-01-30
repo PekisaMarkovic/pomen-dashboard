@@ -1,14 +1,15 @@
-import CemeteryIcon from './CemeteryIcon'
-import CertificateIcon from './CertificateIcon'
-import CityIcon from './CityIcon'
-import CountryIcon from './CountryIcon'
-import DashboardIcon from './DashboardIcon'
-import GetheringIcon from './GetheringIcon'
-import OrderIcon from './OrderIcon'
-import QRIcon from './QRIcon'
-import TributeIcon from './TributeIcon'
+import CemeteryIcon from '@/src/icons/navigation/CemeteryIcon'
+import CertificateIcon from '@/src/icons/navigation/CertificateIcon'
+import CityIcon from '@/src/icons/navigation/CityIcon'
+import CountryIcon from '@/src/icons/navigation/CountryIcon'
+import DashboardIcon from '@/src/icons/navigation/DashboardIcon'
+import GetheringIcon from '@/src/icons/navigation/GetheringIcon'
+import MailIcon from '@/src/icons/navigation/MailIcon'
+import OrderIcon from '@/src/icons/navigation/OrderIcon'
+import QRIcon from '@/src/icons/navigation/QRIcon'
+import TributeIcon from '@/src/icons/navigation/TributeIcon'
 
-export type NavigationIconType = 'City' | 'Order' | 'Getherings' | 'Dashboard' | 'Country' | 'Certificate' | 'QR' | 'Cemetery' | 'Tribute'
+export type NavigationIconType = 'City' | 'Order' | 'Getherings' | 'Dashboard' | 'Country' | 'Certificate' | 'QR' | 'Cemetery' | 'Tribute' | 'Mail'
 interface Props extends React.SVGProps<SVGSVGElement> {
   type: NavigationIconType
 }
@@ -33,6 +34,8 @@ const NavigationIcons = ({ type, ...rest }: Props) => {
       return <DashboardIcon {...rest} />
     case 'Certificate':
       return <CertificateIcon {...rest} />
+    case 'Mail':
+      return <MailIcon {...rest} />
 
     default:
       return null

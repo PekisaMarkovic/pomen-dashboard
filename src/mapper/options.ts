@@ -1,8 +1,8 @@
-import { ICemeteryOption } from '../interfaces/cemeteries'
-import { ICertificateOption } from '../interfaces/certificate'
-import { ICityOption } from '../interfaces/cities'
-import { ICountryOption } from '../interfaces/country'
-import { SelectOption } from '../interfaces/general'
+import { ICemeteryOption } from '@/src/interfaces/cemeteries'
+import { ICertificateOption } from '@/src/interfaces/certificate'
+import { ICityOption } from '@/src/interfaces/cities'
+import { ICountryOption } from '@/src/interfaces/country'
+import { SelectOption } from '@/src/interfaces/general'
 
 export const mapCountryDropdownToSelectOptions = (options: ICountryOption[]): SelectOption[] =>
   options.map((opt) => {

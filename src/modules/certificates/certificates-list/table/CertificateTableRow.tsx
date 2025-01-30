@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import GeneralIcons from '../../../../icons/general'
-import { ICertificate } from '../../../../interfaces/certificate'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { formatDateYearMonthDay } from '../../../../utils/date'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import GeneralIcons from '@/src/icons/general'
+import { ICertificate } from '@/src/interfaces/certificate'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { formatDateYearMonthDay } from '@/src/utils/date'
 
 type Props = {
   certificate: ICertificate

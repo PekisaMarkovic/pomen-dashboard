@@ -1,4 +1,4 @@
-import { FileTypeEnum } from '../enum/file'
+import { FileTypeEnum } from '@/src/enum/file'
 
 export interface IFile {
   fileId?: number

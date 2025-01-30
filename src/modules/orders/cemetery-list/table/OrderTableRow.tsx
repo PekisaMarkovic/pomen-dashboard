@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import OrdersApis from '../../../../api/orders'
-import customToast from '../../../../components/core/toast/CustomToast'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import { OrderStatusEnum } from '../../../../enum/order'
-import { useApi } from '../../../../hooks/use-api'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { IOrder } from '../../../../interfaces/orders'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { updateOrderStatus } from '../../../../state/shared/orders'
-import { formatDateYearMonthDay } from '../../../../utils/date'
+import OrdersApis from '@/src/api/orders'
+import customToast from '@/src/components/core/toast/CustomToast'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { OrderStatusEnum } from '@/src/enum/order'
+import { useApi } from '@/src/hooks/use-api'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { IOrder } from '@/src/interfaces/orders'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { updateOrderStatus } from '@/src/state/shared/orders'
+import { formatDateYearMonthDay } from '@/src/utils/date'
 import OrderTableStatus from './OrderTableStatus'
 
 type Props = {
@@ -94,7 +94,7 @@ const OrderTableRow = ({ order }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={10} dropdownOptions={checkOptions()}>
       <div className="col-span-3 flex gap-x-2 py-3">
         <Paragraph text={`${firstName} ${lastName}, ${phoneNumber}`} size="sm" color="black" noWrap />
       </div>

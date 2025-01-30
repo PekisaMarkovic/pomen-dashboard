@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable } from '../../interfaces/general'
-import { State as AppState } from '../store'
-import { ModalEnums } from '../../enum/modal'
+import { Nullable } from '@/src/interfaces/general'
+import { State as AppState } from '@/src/state/store'
+import { ModalEnums } from '@/src/enum/modal'
 
 type State = {
   modal: Nullable<ModalEnums>

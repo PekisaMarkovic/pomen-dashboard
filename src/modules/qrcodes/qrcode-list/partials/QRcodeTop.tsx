@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import InputTextSearch from '../../../../components/core/input/InputTextSearch'
+import InputTextSearch from '@/src/components/core/input/InputTextSearch'
 
 const QRcodeTop = () => {
   const { t } = useTranslation(['g', 'tl'])

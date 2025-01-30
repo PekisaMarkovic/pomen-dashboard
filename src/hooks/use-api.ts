@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import axios from 'axios'
 import { AxiosError, AxiosResponse } from 'axios'
-import { ACCESS_TOKEN, REFRESH_TOKEN, clearLocalStorageTokens, isTokenExpired } from '../utils/token'
-import AuthApis from '../api/auth'
-import { signIn } from '../utils/auth'
-import { removeUserData } from '../state/user/authSlice'
-import { store } from '../state/store'
+import { ACCESS_TOKEN, REFRESH_TOKEN, clearLocalStorageTokens, isTokenExpired } from '@/src/utils/token'
+import AuthApis from '@/src/api/auth'
+import { signIn } from '@/src/utils/auth'
+import { removeUserData } from '@/src/state/user/authSlice'
+import { store } from '@/src/state/store'
 
 export const refreshToken = async () => {
   const refreshToken = localStorage.getItem(REFRESH_TOKEN) || ''

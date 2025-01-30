@@ -1,5 +1,5 @@
-import { NavigationIconType } from '../icons/navigation'
-import { ROUTE_NAMES } from './a-routes'
+import { NavigationIconType } from '@/src/icons/navigation'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 
 interface IMenuLink {
   text: string
@@ -17,6 +17,7 @@ export const LEFT_SIDE_MENU_LINKS: IMenuLink[] = [
   { text: 'cemeteries', icon: 'Cemetery', link: ROUTE_NAMES.cemeteries },
   { text: 'cities', icon: 'City', link: ROUTE_NAMES.cities },
   { text: 'countries', icon: 'Country', link: ROUTE_NAMES.countries },
+  { text: 'contacts', icon: 'Mail', link: ROUTE_NAMES.contacts },
 ]
 
 export const TOP_MENU_LINKS_FOR_TRANSLATIONS = [

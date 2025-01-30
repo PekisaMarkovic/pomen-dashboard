@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next'
-
-import DataSection from '../../../../components/section/DataSection'
-import { FileTypeEnum } from '../../../../enum/file'
-import InputFile from '../../../../components/core/input/InputFile'
-import MultyInputFile from '../../../../components/core/input/MultyInputFile'
+import DataSection from '@/src/components/section/DataSection'
+import { FileTypeEnum } from '@/src/enum/file'
+import InputFile from '@/src/components/core/input/InputFile'
+import MultyInputFile from '@/src/components/core/input/MultyInputFile'
 
 const CertificateFiles = () => {
   const { t } = useTranslation(['certificate'])

@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
 
 const DashboardPage = () => {
   const methods = useForm()

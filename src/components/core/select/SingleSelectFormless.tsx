@@ -4,8 +4,8 @@ import DisabledDropdownIcon from '@/public/images/general/select-dropdown-arrow-
 import SingleOption from './partials/SingleOption'
 import Label from '../typography/Label'
 import ErrorMessage from '../typography/ErrorMessage'
-import { Nullable, SelectOption } from '../../../interfaces/general'
-import { useClickAway } from '../../../hooks/use-click-outside'
+import { Nullable, SelectOption } from '@/src/interfaces/general'
+import { useClickAway } from '@/src/hooks/use-click-outside'
 
 type Props = {
   placeholder?: string

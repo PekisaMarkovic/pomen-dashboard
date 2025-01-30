@@ -1,4 +1,4 @@
-import { LogoProps } from './LogoLetter'
+import { LogoProps } from '@/src/icons/LogoLetter'
 
 const Logo = (props: LogoProps) => {
   const color = props.type === 'WHITE' ? '#fff' : '#334155'

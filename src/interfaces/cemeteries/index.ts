@@ -1,5 +1,5 @@
-import { ICity } from '../cities'
-import { Nullable } from '../general'
+import { ICity } from '@/src/interfaces/cities'
+import { Nullable } from '@/src/interfaces/general'
 
 export interface ICemetery {
   cemeteryId: number

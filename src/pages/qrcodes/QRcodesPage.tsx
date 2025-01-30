@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllQRcodes from '../../modules/qrcodes/qrcode-list/AllQRcodes'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllQRcodes from '@/src/modules/qrcodes/qrcode-list/AllQRcodes'
 
 const QRcodesPage = () => {
   const methods = useForm()

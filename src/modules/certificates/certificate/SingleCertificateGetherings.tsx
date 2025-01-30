@@ -2,10 +2,10 @@ import { useCallback } from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import customToast from '../../../components/core/toast/CustomToast'
-import GeneralLayout from '../../../layouts/GeneralLayout'
-import CertificateTabs from './partials/CertificateTabs'
-import CertificateGetherings from './partials/getherings/CertificateGetherings'
+import customToast from '@/src/components/core/toast/CustomToast'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import CertificateTabs from '@/src/modules/certificates/certificate/partials/CertificateTabs'
+import CertificateGetherings from '@/src/modules/certificates/certificate/partials/getherings/CertificateGetherings'
 
 const SingleCertificateGetherings = () => {
   const { t } = useTranslation(['g'])

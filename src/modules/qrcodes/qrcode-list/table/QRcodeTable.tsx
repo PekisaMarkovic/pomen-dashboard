@@ -1,8 +1,8 @@
-import PagginationWithoutUrl from '../../../../components/core/paggination/PagginationWithoutUrl'
-import DefaultTableSpace from '../../../../components/table/DefaultTableSpace'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectQRcodes } from '../../../../state/shared/qrcodes'
-import { generateArrayOfLen } from '../../../../utils/array'
+import PagginationWithoutUrl from '@/src/components/core/paggination/PagginationWithoutUrl'
+import DefaultTableSpace from '@/src/components/table/DefaultTableSpace'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectQRcodes } from '@/src/state/shared/qrcodes'
+import { generateArrayOfLen } from '@/src/utils/array'
 import QRcodeTableHeader from './QRcodeTableHeader'
 import QRcodeTableRow from './QRcodeTableRow'
 

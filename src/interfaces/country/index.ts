@@ -1,4 +1,4 @@
-import { Nullable } from '../general'
+import { Nullable } from '@/src/interfaces/general'
 
 export interface ICountry {
   countryId: number

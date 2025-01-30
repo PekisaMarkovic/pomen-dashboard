@@ -1,5 +1,5 @@
-import { ICountry } from '../country'
-import { Nullable } from '../general'
+import { ICountry } from '@/src/interfaces/country'
+import { Nullable } from '@/src/interfaces/general'
 
 export interface ICity {
   cityId: number

@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllCities from '../../modules/cities/citiy-list/AllCities'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllCities from '@/src/modules/cities/citiy-list/AllCities'
 
 const CitiesPage = () => {
   const methods = useForm()

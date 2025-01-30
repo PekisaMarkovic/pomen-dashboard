@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { TributeStatusEnum } from '../../../../enum/tribute'
+import { TributeStatusEnum } from '@/src/enum/tribute'
 
 interface OrderTableStatusProps {
   status: TributeStatusEnum

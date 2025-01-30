@@ -1,6 +1,6 @@
-import { style } from './style'
+import { style } from '@/src/components/core/navigation/style'
 import { MouseEventHandler, ReactNode } from 'react'
-import TabUnderline from './partials/TabUnderline'
+import TabUnderline from '@/src/components/core/navigation/partials/TabUnderline'
 import { Link } from 'react-router-dom'
 
 export type Variant = 'side' | 'tab'

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { useAppSelector } from '../../../state/redux-hooks/reduxHooks'
-import { selectQRcodes } from '../../../state/shared/qrcodes'
-import Heading from '../../core/typography/Heading'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectQRcodes } from '@/src/state/shared/qrcodes'
+import Heading from '@/src/components/core/typography/Heading'
 
 const ShowQRcodeModal = () => {
   const { t } = useTranslation(['qrcode'])

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
-import LinkWrapper from './ToastLinkWrapper'
-import ToastIcon from '../../../icons/toast'
+import ToastLinkWrapper from '@/src/components/core/toast/partials/ToastLinkWrapper'
+import ToastIcon from '@/src/icons/toast'
 
 type ToastOptions = {
   link?: string
@@ -15,12 +15,12 @@ toast.success = (message, options?: unknown) => {
   }
 
   return toast(
-    <LinkWrapper link={link}>
+    <ToastLinkWrapper link={link}>
       <div className="bg-green flex gap-x-2 items-center px-4 py-2 rounded-sm border-1 border-green border-solid">
         <ToastIcon type="Success" className="flex-shrink-0" />
         <p className="font-poppins text-white text-sm">{String(message)}</p>
       </div>
-    </LinkWrapper>,
+    </ToastLinkWrapper>,
     { progressClassName: 'bg-green', bodyClassName: 'bg-green', className: 'bg-green', closeButton: false, icon: undefined },
   )
 }

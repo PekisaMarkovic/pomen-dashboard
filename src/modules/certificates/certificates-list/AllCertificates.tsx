@@ -1,13 +1,13 @@
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import CertificatesApis from '../../../api/certificates'
-import customToast from '../../../components/core/toast/CustomToast'
-import { useApi } from '../../../hooks/use-api'
-import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
-import { setCertificates } from '../../../state/shared/certificates'
-import CertificatesTop from './partials/CertificatesTop'
-import CertificatesTable from './table/CertificatesTable'
+import CertificatesApis from '@/src/api/certificates'
+import customToast from '@/src/components/core/toast/CustomToast'
+import { useApi } from '@/src/hooks/use-api'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { setCertificates } from '@/src/state/shared/certificates'
+import CertificatesTop from '@/src/modules/certificates/certificates-list/partials/CertificatesTop'
+import CertificatesTable from '@/src/modules/certificates/certificates-list/table/CertificatesTable'
 
 const AllCertificates = () => {
   const [searchParams] = useSearchParams()

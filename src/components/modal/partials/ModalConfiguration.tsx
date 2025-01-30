@@ -1,7 +1,7 @@
 import { PropsWithChildren, useCallback } from 'react'
 import Modal from 'react-modal'
-import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
-import { removeModal } from '../../../state/shared/modal'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { removeModal } from '@/src/state/shared/modal'
 
 export type ModalVariant = 'new' | 'old'
 

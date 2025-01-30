@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable } from '../../interfaces/general'
-import { TokenPayload } from '../../interfaces/user'
-import { State } from '../store'
+import { Nullable } from '@/src/interfaces/general'
+import { TokenPayload } from '@/src/interfaces/user'
+import { State } from '@/src/state/store'
 
 export type AuthState = {
   user: Nullable<TokenPayload>

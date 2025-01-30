@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import InputTextSearch from '../../../../components/core/input/InputTextSearch'
-import MainButton from '../../../../components/core/buttons/MainButton'
-import { setModal } from '../../../../state/shared/modal'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { ModalEnums } from '../../../../enum/modal'
+import InputTextSearch from '@/src/components/core/input/InputTextSearch'
+import MainButton from '@/src/components/core/buttons/MainButton'
+import { setModal } from '@/src/state/shared/modal'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { ModalEnums } from '@/src/enum/modal'
 
 const CityTop = () => {
   const { t } = useTranslation(['g', 'tl'])

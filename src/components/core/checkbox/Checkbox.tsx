@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react'
-import CheckboxOption from './CheckboxOption'
+import CheckboxOption from '@/src/components/core/checkbox/CheckboxOption'
 import { useFormContext, useWatch } from 'react-hook-form'
 
 type Props = {

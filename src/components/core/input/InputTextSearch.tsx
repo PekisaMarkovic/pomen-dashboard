@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 import { ChangeEventHandler, useEffect, useState } from 'react'
-import InputIcon from '../../../icons/input'
+import InputIcon from '@/src/icons/input'
 
 type Props = {
   placeholder?: string

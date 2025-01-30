@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import MainLink from '../../../../components/core/buttons/MainLink'
-import InputTextSearch from '../../../../components/core/input/InputTextSearch'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import { getUserRoles } from '../../../../state/utils'
+import MainLink from '@/src/components/core/buttons/MainLink'
+import InputTextSearch from '@/src/components/core/input/InputTextSearch'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { getUserRoles } from '@/src/state/utils'
 
 const CertificatesTop = () => {
   const { t } = useTranslation(['g', 'tl'])

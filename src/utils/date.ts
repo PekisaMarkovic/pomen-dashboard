@@ -33,3 +33,12 @@ export function formatDateDayMonthYear(input: Date | string | number): string {
 
   return `${day}/${month}/${year}`
 }
+
+export function formatTimeOption(value: string | number): string {
+  const numericValue = parseFloat(value.toString())
+  const hour = Math.floor(numericValue)
+  const fractionalPart = numericValue - hour
+  const minutes = fractionalPart !== 0 ? '30' : '00'
+
+  return `${hour.toString().padStart(2, '0')}:${minutes}`
+}

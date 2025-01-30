@@ -1,5 +1,5 @@
-import ReplaceIcon from './ReplaceIcon'
-import SearchIcon from './SearchIcon'
+import ReplaceIcon from '@/src/icons/input/ReplaceIcon'
+import SearchIcon from '@/src/icons/input/SearchIcon'
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   type: 'Search' | 'Replace' | 'File'

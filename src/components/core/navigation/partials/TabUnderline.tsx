@@ -1,4 +1,4 @@
-import { Color } from '../../../../interfaces/general'
+import { Color } from '@/src/interfaces/general'
 
 type Props = {
   variant?: Color

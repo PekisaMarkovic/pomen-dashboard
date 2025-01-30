@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { Color } from '../../../../interfaces/general'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { Color } from '@/src/interfaces/general'
 
 const SingleCustomDropdownOption = ({ content, textColor = 'black' }: CustomDropdown) => {
   const checkColor = (textColor: Color) => {

@@ -1,7 +1,7 @@
-import { ICemeteryOption } from '../interfaces/cemeteries'
-import { ICertificate, ICertificateFile } from '../interfaces/certificate'
-import { ICityOption } from '../interfaces/cities'
-import { mapCemeteryDropdownToSelectOptions } from './options'
+import { ICemeteryOption } from '@/src/interfaces/cemeteries'
+import { ICertificate, ICertificateFile } from '@/src/interfaces/certificate'
+import { ICityOption } from '@/src/interfaces/cities'
+import { mapCemeteryDropdownToSelectOptions } from '@/src/mapper/options'
 
 export const mapCertificateToEdit = ({
   cemeteriesOptions,

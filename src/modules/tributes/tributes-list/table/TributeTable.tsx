@@ -1,8 +1,8 @@
-import PagginationWithoutUrl from '../../../../components/core/paggination/PagginationWithoutUrl'
-import DefaultTableSpace from '../../../../components/table/DefaultTableSpace'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectTributes } from '../../../../state/shared/tributes'
-import { generateArrayOfLen } from '../../../../utils/array'
+import PagginationWithoutUrl from '@/src/components/core/paggination/PagginationWithoutUrl'
+import DefaultTableSpace from '@/src/components/table/DefaultTableSpace'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectTributes } from '@/src/state/shared/tributes'
+import { generateArrayOfLen } from '@/src/utils/array'
 import TributeTableHeader from './TributeTableHeader'
 import TributeTableRow from './TributeTableRow'
 

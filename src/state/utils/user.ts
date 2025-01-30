@@ -1,5 +1,5 @@
-import { RoleEnums } from '../../enum/user'
-import { store } from '../store'
+import { RoleEnums } from '@/src/enum/user'
+import { store } from '@/src/state/store'
 
 export const getUserRoles = () => {
   const roleNames = store.getState().auth.user?.roles.map((r) => r.name) || []

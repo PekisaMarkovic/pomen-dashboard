@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import MainButton from '../../components/core/buttons/MainButton'
-import { useAppSelector } from '../../state/redux-hooks/reduxHooks'
-import { selectBehaviours } from '../../state/shared/behaviours'
+import MainButton from '@/src/components/core/buttons/MainButton'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectBehaviours } from '@/src/state/shared/behaviours'
 
 type Props = {
   cancelButton?: {

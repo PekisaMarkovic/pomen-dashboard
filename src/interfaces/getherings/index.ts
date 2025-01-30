@@ -1,5 +1,5 @@
-import { ICertificate } from '../certificate'
-import { Nullable } from '../general'
+import { ICertificate } from '@/src/interfaces/certificate'
+import { Nullable } from '@/src/interfaces/general'
 
 export interface IGethering {
   getheringId: number

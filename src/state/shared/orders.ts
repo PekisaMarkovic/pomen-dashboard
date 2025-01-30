@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable, Paginated } from '../../interfaces/general'
-import { State as AppState } from '../store'
-import { IOrder, IUpdateOrderStatus } from '../../interfaces/orders'
+import { Nullable, Paginated } from '@/src/interfaces/general'
+import { State as AppState } from '@/src/state/store'
+import { IOrder, IUpdateOrderStatus } from '@/src/interfaces/orders'
 
 type State = {
   orders: Nullable<Paginated<IOrder>>

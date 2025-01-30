@@ -1,6 +1,6 @@
-import { PermissionEnums, RoleEnums } from '../../enum/user'
-import { Nullable } from '../general'
-import { IFile } from '../image'
+import { PermissionEnums, RoleEnums } from '@/src/enum/user'
+import { Nullable } from '@/src/interfaces/general'
+import { IFile } from '@/src/interfaces/image'
 
 export interface IPermisions {
   id: number

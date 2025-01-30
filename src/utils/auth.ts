@@ -1,6 +1,6 @@
-import { TokenData } from '../interfaces/user'
-import { store } from '../state/store'
-import { setUserData } from '../state/user/authSlice'
+import { TokenData } from '@/src/interfaces/user'
+import { store } from '@/src/state/store'
+import { setUserData } from '@/src/state/user/authSlice'
 import { decodeToken, setLocalStorageTokens } from './token'
 
 export const signIn = (data: TokenData) => {

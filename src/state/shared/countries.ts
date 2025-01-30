@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ICountry, ICountryOption } from '../../interfaces/country'
-import { Nullable, Paginated } from '../../interfaces/general'
-import { State as AppState } from '../store'
+import { ICountry, ICountryOption } from '@/src/interfaces/country'
+import { Nullable, Paginated } from '@/src/interfaces/general'
+import { State as AppState } from '@/src/state/store'
 
 type State = {
   countries: Nullable<Paginated<ICountry>>

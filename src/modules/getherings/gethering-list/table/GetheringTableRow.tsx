@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ROUTE_NAMES } from '../../../../constatns/a-routes'
-import { ModalEnums } from '../../../../enum/modal'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { IGethering } from '../../../../interfaces/getherings'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { setToEditGethering } from '../../../../state/shared/getherings'
-import { setModal } from '../../../../state/shared/modal'
-import { formatDateYearMonthDay } from '../../../../utils/date'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { ModalEnums } from '@/src/enum/modal'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { IGethering } from '@/src/interfaces/getherings'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { setToEditGethering } from '@/src/state/shared/getherings'
+import { setModal } from '@/src/state/shared/modal'
+import { formatDateYearMonthDay, formatTimeOption } from '@/src/utils/date'
 
 type Props = {
   gethering: IGethering
@@ -45,12 +45,12 @@ const GetheringTableRow = ({ gethering }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={7} dropdownOptions={checkOptions()}>
       <div className="gap-x-3 py-3">
         <Paragraph text={formatDateYearMonthDay(getheringDate)} size="sm" color="black" noWrap />
       </div>
       <div className="flex">
-        <Paragraph text={`${hour}`} size="sm" color="black" noWrap />
+        <Paragraph text={formatTimeOption(`${hour}`)} size="sm" color="black" noWrap />
       </div>
       <div className="col-span-3 gap-x-2 py-3">
         <Paragraph text={address} size="sm" color="black" noWrap />

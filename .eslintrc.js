@@ -13,13 +13,13 @@ module.exports = {
     browser: true,
   },
   globals: {
-    NodeJS: true
+    NodeJS: true,
   },
   rules: {
     'no-var': 'error',
     indent: ['error', 2, { SwitchCase: 1 }],
     'prefer-const': 'error',
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 }

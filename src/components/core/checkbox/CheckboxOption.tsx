@@ -2,7 +2,7 @@ import CheckedIcon from '@/public/images/general/checked.svg'
 import UncheckedIcon from '@/public/images/general/unchecked.svg'
 import get from 'lodash.get'
 import { useFormContext } from 'react-hook-form'
-import ErrorMessage from '../typography/ErrorMessage'
+import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { ReactNode } from 'react'
 
 type Props = {

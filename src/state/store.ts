@@ -1,15 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import auth from './user/authSlice'
-import modal from './shared/modal'
-import countries from './shared/countries'
-import cities from './shared/cities'
-import cemeteries from './shared/cemeteries'
-import qrcodes from './shared/qrcodes'
-import orders from './shared/orders'
-import certificates from './shared/certificates'
-import tributes from './shared/tributes'
-import getherings from './shared/getherings'
-import behaviours from './shared/behaviours'
+import auth from '@/src/state/user/authSlice'
+import modal from '@/src/state/shared/modal'
+import countries from '@/src/state/shared/countries'
+import cities from '@/src/state/shared/cities'
+import cemeteries from '@/src/state/shared/cemeteries'
+import qrcodes from '@/src/state/shared/qrcodes'
+import orders from '@/src/state/shared/orders'
+import certificates from '@/src/state/shared/certificates'
+import contacts from '@/src/state/shared/contacts'
+import tributes from '@/src/state/shared/tributes'
+import getherings from '@/src/state/shared/getherings'
+import behaviours from '@/src/state/shared/behaviours'
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     cities,
     behaviours,
     cemeteries,
+    contacts,
     getherings,
     qrcodes,
     orders,

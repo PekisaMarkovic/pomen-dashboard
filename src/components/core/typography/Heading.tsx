@@ -1,4 +1,4 @@
-import { Color, FontFamily, FontSize, FontWeight, Spacing } from '../../../interfaces/general'
+import { Color, FontFamily, FontSize, FontWeight, Spacing } from '@/src/interfaces/general'
 import { ReactNode } from 'react'
 
 type Variant = '1' | '2' | '3' | '4' | '5'

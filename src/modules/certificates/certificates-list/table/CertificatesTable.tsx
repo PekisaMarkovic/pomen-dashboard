@@ -1,10 +1,10 @@
-import PagginationWithoutUrl from '../../../../components/core/paggination/PagginationWithoutUrl'
-import DefaultTableSpace from '../../../../components/table/DefaultTableSpace'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectCertificates } from '../../../../state/shared/certificates'
-import { generateArrayOfLen } from '../../../../utils/array'
-import CertificateTableHeader from './CertificateTableHeader'
-import CertificateTableRow from './CertificateTableRow'
+import PagginationWithoutUrl from '@/src/components/core/paggination/PagginationWithoutUrl'
+import DefaultTableSpace from '@/src/components/table/DefaultTableSpace'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCertificates } from '@/src/state/shared/certificates'
+import { generateArrayOfLen } from '@/src/utils/array'
+import CertificateTableHeader from '@/src/modules/certificates/certificates-list/table/CertificateTableHeader'
+import CertificateTableRow from '@/src/modules/certificates/certificates-list/table/CertificateTableRow'
 
 const CertificatesTable = () => {
   const { certificates } = useAppSelector(selectCertificates)

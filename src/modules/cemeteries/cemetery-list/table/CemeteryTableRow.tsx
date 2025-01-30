@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import Paragraph from '../../../../components/core/typography/Paragraph'
-import DefaultTableRowContainer from '../../../../components/table/DefaultTableRowContainer'
-import { ModalEnums } from '../../../../enum/modal'
-import { ICemetery } from '../../../../interfaces/cemeteries'
-import { CustomDropdown } from '../../../../interfaces/dropdown'
-import { useAppDispatch } from '../../../../state/redux-hooks/reduxHooks'
-import { setToEditCemetery } from '../../../../state/shared/cemeteries'
-import { setModal } from '../../../../state/shared/modal'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowContainer'
+import { ModalEnums } from '@/src/enum/modal'
+import { ICemetery } from '@/src/interfaces/cemeteries'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { setToEditCemetery } from '@/src/state/shared/cemeteries'
+import { setModal } from '@/src/state/shared/modal'
 
 type Props = {
   cementery: ICemetery
@@ -42,7 +42,7 @@ const CemeteryTableRow = ({ cementery }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={5} dropdownOptions={checkOptions()}>
       <div className="flex gap-x-2 py-3">
         <Paragraph text={name} size="sm" color="black" noWrap />
       </div>

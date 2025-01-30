@@ -1,6 +1,6 @@
-import { TributeStatusEnum } from '../../enum/tribute'
-import { ICertificate } from '../certificate'
-import { Nullable } from '../general'
+import { TributeStatusEnum } from '@/src/enum/tribute'
+import { ICertificate } from '@/src/interfaces/certificate'
+import { Nullable } from '@/src/interfaces/general'
 
 export interface ITribute {
   tributeId: number

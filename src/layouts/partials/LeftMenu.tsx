@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
-import NavigationLink from '../../components/core/navigation/NavigationLink'
-import Heading from '../../components/core/typography/Heading'
-import { LEFT_SIDE_MENU_LINKS } from '../../constatns/navigation'
-import { checkIsLinkActiv } from '../../utils/route'
-import NavigationIcons from '../../icons/navigation'
-import Logo from '../../icons/Logo'
+import NavigationLink from '@/src/components/core/navigation/NavigationLink'
+import Heading from '@/src/components/core/typography/Heading'
+import { LEFT_SIDE_MENU_LINKS } from '@/src/constatns/navigation'
+import { checkIsLinkActiv } from '@/src/utils/route'
+import NavigationIcons from '@/src/icons/navigation'
+import Logo from '@/src/icons/Logo'
 
 const LeftMenu = () => {
   const { t } = useTranslation(['static'])

@@ -37,6 +37,7 @@
     "preview": "Preview",
     "or": "or"
   },
+
   "fields": {
     "maxChar": "Max. Characters: {{numberOfChars}}",
     "maxCharError": "You have exceeded the maximum number of characters"

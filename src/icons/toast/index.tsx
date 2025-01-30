@@ -1,7 +1,7 @@
-import ErrorIcon from './ErrorIcon'
-import QuestionIcon from './QuestionIcon'
-import SuccessIcon from './SuccessIcon'
-import WarrningIcon from './WarrningIcon'
+import ErrorIcon from '@/src/icons/toast/ErrorIcon'
+import QuestionIcon from '@/src/icons/toast/QuestionIcon'
+import SuccessIcon from '@/src/icons/toast/SuccessIcon'
+import WarrningIcon from '@/src/icons/toast/WarrningIcon'
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   type: 'Error' | 'Success' | 'Question' | 'Warrning'

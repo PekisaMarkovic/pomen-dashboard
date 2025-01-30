@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllCemeteries from '../../modules/cemeteries/cemetery-list/AllCemeteries'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllCemeteries from '@/src/modules/cemeteries/cemetery-list/AllCemeteries'
 
 const CemeteriesPage = () => {
   const methods = useForm()

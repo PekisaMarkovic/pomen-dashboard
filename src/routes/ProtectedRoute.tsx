@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { selectAuthUser } from '../state/user/authSlice'
-import { useAppSelector } from '../state/redux-hooks/reduxHooks'
-import { RoleEnums } from '../enum/user'
-import { ROUTE_NAMES } from '../constatns/a-routes'
+import { selectAuthUser } from '@/src/state/user/authSlice'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { RoleEnums } from '@/src/enum/user'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 
 type Props = {
   allowedRoles: RoleEnums[]

@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import GeneralLayout from '../../layouts/GeneralLayout'
-import AllGetherings from '../../modules/getherings/gethering-list/AllGetherings'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
+import AllGetherings from '@/src/modules/getherings/gethering-list/AllGetherings'
 
 const GetheringsPage = () => {
   const methods = useForm()

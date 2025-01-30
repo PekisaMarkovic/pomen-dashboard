@@ -1,4 +1,4 @@
-import { ROUTE_NAMES } from './a-routes'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 
 export const SINGLE_CERTIFICATE_TABS = [
   { text: 'life', icon: null, link: (id: string) => `${ROUTE_NAMES.certificates}/${id}` },

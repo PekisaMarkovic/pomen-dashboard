@@ -1,4 +1,4 @@
-import { Nullable } from '../../../interfaces/general'
+import { Nullable } from '@/src/interfaces/general'
 import { InputVaraint } from './InputText'
 
 export const inputTextStyle = ({

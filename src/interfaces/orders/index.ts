@@ -1,8 +1,8 @@
-import { OrderStatusEnum } from '../../enum/order'
-import { ICertificate } from '../certificate'
-import { ICity } from '../cities'
-import { Nullable } from '../general'
-import { User } from '../user'
+import { OrderStatusEnum } from '@/src/enum/order'
+import { ICertificate } from '@/src/interfaces/certificate'
+import { ICity } from '@/src/interfaces/cities'
+import { Nullable } from '@/src/interfaces/general'
+import { User } from '@/src/interfaces/user'
 
 export interface IOrder {
   orderId: number

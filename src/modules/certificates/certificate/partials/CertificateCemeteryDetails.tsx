@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import DataSection from '../../../../components/section/DataSection'
-import SingleSelect from '../../../../components/core/select/SingleSelect'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectCemeteries } from '../../../../state/shared/cemeteries'
-import { mapCemeteryDropdownToSelectOptions, mapCityDropdownToSelectOptions } from '../../../../mapper/options'
-import { selectCities } from '../../../../state/shared/cities'
+import DataSection from '@/src/components/section/DataSection'
+import SingleSelect from '@/src/components/core/select/SingleSelect'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCemeteries } from '@/src/state/shared/cemeteries'
+import { mapCemeteryDropdownToSelectOptions, mapCityDropdownToSelectOptions } from '@/src/mapper/options'
+import { selectCities } from '@/src/state/shared/cities'
 import { useFormContext, useWatch } from 'react-hook-form'
 import { useEffect, useState } from 'react'
-import { SelectOption } from '../../../../interfaces/general'
+import { SelectOption } from '@/src/interfaces/general'
 
 const CertificateCemeteryDetails = () => {
   const cityOption = useWatch({ name: 'city' })

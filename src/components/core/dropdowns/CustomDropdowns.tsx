@@ -1,5 +1,5 @@
-import { CustomDropdown } from '../../../interfaces/dropdown'
-import SingleCustomDropdownOption from './partials/SingleCustomDropdownOption'
+import { CustomDropdown } from '@/src/interfaces/dropdown'
+import SingleCustomDropdownOption from '@/src/components/core/dropdowns/partials/SingleCustomDropdownOption'
 
 type Props = {
   dropdownOptions: CustomDropdown[]

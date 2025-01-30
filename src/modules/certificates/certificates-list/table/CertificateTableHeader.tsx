@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import Heading from '../../../../components/core/typography/Heading'
+import Heading from '@/src/components/core/typography/Heading'
 
 const CertificateTableHeader = () => {
   const { t } = useTranslation(['certificate'])

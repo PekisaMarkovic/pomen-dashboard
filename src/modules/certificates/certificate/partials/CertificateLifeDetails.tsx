@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import DataSection from '../../../../components/section/DataSection'
-import InputText from '../../../../components/core/input/InputText'
-import DateSelect from '../../../../components/core/select/DateSelect'
-import InputTextarea from '../../../../components/core/input/InputTextarea'
+import DataSection from '@/src/components/section/DataSection'
+import InputText from '@/src/components/core/input/InputText'
+import DateSelect from '@/src/components/core/select/DateSelect'
+import InputTextarea from '@/src/components/core/input/InputTextarea'
 
 // biography,
 

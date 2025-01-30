@@ -1,10 +1,10 @@
-import PagginationWithoutUrl from '../../../../components/core/paggination/PagginationWithoutUrl'
-import DefaultTableSpace from '../../../../components/table/DefaultTableSpace'
-import { useAppSelector } from '../../../../state/redux-hooks/reduxHooks'
-import { selectCemeteries } from '../../../../state/shared/cemeteries'
-import { generateArrayOfLen } from '../../../../utils/array'
-import CemeteryTableHeader from './CemeteryTableHeader'
-import CemeteryTableRow from './CemeteryTableRow'
+import PagginationWithoutUrl from '@/src/components/core/paggination/PagginationWithoutUrl'
+import DefaultTableSpace from '@/src/components/table/DefaultTableSpace'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCemeteries } from '@/src/state/shared/cemeteries'
+import { generateArrayOfLen } from '@/src/utils/array'
+import CemeteryTableHeader from '@/src/modules/cemeteries/cemetery-list/table/CemeteryTableHeader'
+import CemeteryTableRow from '@/src/modules/cemeteries/cemetery-list/table/CemeteryTableRow'
 
 const CemeteryTable = () => {
   const { cemeteries } = useAppSelector(selectCemeteries)

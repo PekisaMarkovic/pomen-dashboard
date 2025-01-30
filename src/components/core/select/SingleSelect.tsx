@@ -4,11 +4,11 @@ import Label from '../typography/Label'
 import { useFormContext, useWatch } from 'react-hook-form'
 import ErrorMessage, { Variant } from '../typography/ErrorMessage'
 import get from 'lodash.get'
-import { Nullable, SelectOption, Spacing } from '../../../interfaces/general'
-import { OVERFLOW_OPTION } from '../../../constatns/select'
-import GeneralIcons from '../../../icons/general'
-import { handleAllowScroll, handleDisableScroll } from '../../../state/shared/behaviours'
-import { useAppDispatch } from '../../../state/redux-hooks/reduxHooks'
+import { Nullable, SelectOption, Spacing } from '@/src/interfaces/general'
+import { OVERFLOW_OPTION } from '@/src/constatns/select'
+import GeneralIcons from '@/src/icons/general'
+import { handleAllowScroll, handleDisableScroll } from '@/src/state/shared/behaviours'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
 
 type Props = {
   placeholder?: string

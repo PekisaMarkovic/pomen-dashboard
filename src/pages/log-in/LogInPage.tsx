@@ -1,7 +1,7 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import LogInDetails from '../../modules/log-in/LogInDetails'
-import { LOG_IN_VALIDATION } from '../../validations/log-in/log-in'
-import LandingLayout from '../../layouts/LandingLayout'
+import LogInDetails from '@/src/modules/log-in/LogInDetails'
+import { LOG_IN_VALIDATION } from '@/src/validations/log-in/log-in'
+import LandingLayout from '@/src/layouts/LandingLayout'
 import { useTranslation } from 'react-i18next'
 
 const LogInPage = () => {

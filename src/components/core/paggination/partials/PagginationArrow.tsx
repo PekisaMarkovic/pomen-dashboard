@@ -1,4 +1,4 @@
-import GeneralIcons from '../../../../icons/general'
+import GeneralIcons from '@/src/icons/general'
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type

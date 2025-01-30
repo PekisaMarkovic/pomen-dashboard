@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import DataSection from '../../../../components/section/DataSection'
-import InputText from '../../../../components/core/input/InputText'
+import DataSection from '@/src/components/section/DataSection'
+import InputText from '@/src/components/core/input/InputText'
 
 const CertificateOrderDetails = () => {
   const { t } = useTranslation(['certificate'])

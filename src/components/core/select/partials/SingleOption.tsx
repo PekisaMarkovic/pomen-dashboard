@@ -1,6 +1,6 @@
-import Paragraph from '../../typography/Paragraph'
-import { SelectOption } from '../../../../interfaces/general'
-import GeneralIcons from '../../../../icons/general'
+import { SelectOption } from '@/src/interfaces/general'
+import GeneralIcons from '@/src/icons/general'
+import Paragraph from '@/src/components/core/typography/Paragraph'
 
 type Props = {
   checked: boolean

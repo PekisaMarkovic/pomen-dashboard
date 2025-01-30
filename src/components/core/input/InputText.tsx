@@ -1,9 +1,9 @@
-import Label from '../../../components/core/typography/Label'
+import Label from '@/src/components/core/typography/Label'
 import { useFormContext } from 'react-hook-form'
-import ErrorMessage, { Variant } from '../../../components/core/typography/ErrorMessage'
+import ErrorMessage, { Variant } from '@/src/components/core/typography/ErrorMessage'
 import get from 'lodash.get'
 import { ChangeEventHandler } from 'react'
-import { Spacing } from '../../../interfaces/general'
+import { Spacing } from '@/src/interfaces/general'
 import { inputTextStyle } from './InputTextStyle'
 
 export type InputVaraint = 'default' | 'simple'

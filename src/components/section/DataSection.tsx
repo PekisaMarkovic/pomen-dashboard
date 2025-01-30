@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react'
-import Heading from '../core/typography/Heading'
-import Paragraph from '../core/typography/Paragraph'
-import TooltipIcon from '../core/tooltip/TooltipIcon'
+import Heading from '@/src/components/core/typography/Heading'
+import Paragraph from '@/src/components/core/typography/Paragraph'
+import TooltipIcon from '@/src/components/core/tooltip/TooltipIcon'
 
 type Props = {
   title: string

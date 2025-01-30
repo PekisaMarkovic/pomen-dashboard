@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import AuthApis from '../api/auth'
-import { ROUTE_NAMES } from '../constatns/a-routes'
-import { useAppDispatch } from '../state/redux-hooks/reduxHooks'
-import { removeUserData, setUserData } from '../state/user/authSlice'
-import { clearLocalStorageTokens, getAccessToken, getTokenPayload } from '../utils/token'
-import { useApi } from './use-api'
+import AuthApis from '@/src/api/auth'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { removeUserData, setUserData } from '@/src/state/user/authSlice'
+import { clearLocalStorageTokens, getAccessToken, getTokenPayload } from '@/src/utils/token'
+import { useApi } from '@/src/hooks/use-api'
 
 const unprotectedRoutes = [ROUTE_NAMES.index, ROUTE_NAMES.notFound, ROUTE_NAMES.signUp]
 

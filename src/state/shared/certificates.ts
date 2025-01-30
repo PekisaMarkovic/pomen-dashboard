@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable, Paginated } from '../../interfaces/general'
-import { State as AppState } from '../store'
-import { ICertificate, ICertificateFile, ICertificateOption } from '../../interfaces/certificate'
+import { Nullable, Paginated } from '@/src/interfaces/general'
+import { State as AppState } from '@/src/state/store'
+import { ICertificate, ICertificateFile, ICertificateOption } from '@/src/interfaces/certificate'
 
 type State = {
   certificates: Nullable<Paginated<ICertificate>>

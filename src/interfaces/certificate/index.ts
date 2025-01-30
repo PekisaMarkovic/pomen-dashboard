@@ -1,11 +1,11 @@
-import { ICemetery } from '../cemeteries'
-import { LocationPoint, Nullable } from '../general'
-import { IGethering } from '../getherings'
-import { IFile } from '../image'
-import { IOrder } from '../orders'
-import { IQRcode } from '../qrcode'
-import { ITribute } from '../tributes'
-import { User } from '../user'
+import { ICemetery } from '@/src/interfaces/cemeteries'
+import { LocationPoint, Nullable } from '@/src/interfaces/general'
+import { IGethering } from '@/src/interfaces/getherings'
+import { IFile } from '@/src/interfaces/image'
+import { IOrder } from '@/src/interfaces/orders'
+import { IQRcode } from '@/src/interfaces/qrcode'
+import { ITribute } from '@/src/interfaces/tributes'
+import { User } from '@/src/interfaces/user'
 
 export interface ICertificate {
   certificateId: number

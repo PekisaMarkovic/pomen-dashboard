@@ -5,6 +5,7 @@ import enLogIn from './en/log-in.json'
 import enErrors from './en/errors.json'
 import enStatic from './en/static.json'
 import enCountry from './en/country/country.json'
+import enContact from './en/contacts/contacts.json'
 import enCity from './en/cities/cities.json'
 import enOrder from './en/orders/orders.json'
 import enCemeteries from './en/cemeteries/cemeteries.json'
@@ -22,6 +23,7 @@ export const resources = {
     qrcode: enQrcodes,
     gethering: enGetherings,
     certificate: enCertificates,
+    contact: enContact,
     country: enCountry,
     city: enCity,
     tribute: enTributes,

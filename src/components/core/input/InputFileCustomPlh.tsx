@@ -1,14 +1,13 @@
 import { ChangeEvent, useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useFormContext, useWatch } from 'react-hook-form'
-import UploadIcon from '../../../../public/images/general/plus-upload.svg'
-// import { onFileInput, onSingleFileInput } from '@/api/s3'
-import ReplaceIcon from '../../../../public/images/general/replace.svg'
-import Elipse from '../../../../public/images/case-study/client.png'
+import UploadIcon from '@/public/images/general/plus-upload.svg'
+import ReplaceIcon from '@/public/images/general/replace.svg'
+import Elipse from '@/public/images/case-study/client.png'
 import get from 'lodash.get'
-import ErrorMessage from '../typography/ErrorMessage'
+import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
-import { FileTypeEnum } from '../../../enum/file'
+import { FileTypeEnum } from '@/src/enum/file'
 
 type Props = {
   maxSize: number
