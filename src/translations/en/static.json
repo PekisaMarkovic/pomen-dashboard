@@ -11,7 +11,8 @@
       "tributes": "Tributes",
       "qrcodes": "Qrcodes",
       "orders": "Orders",
-      "contacts": "Contacts"
+      "contacts": "Contacts",
+      "blogs": "Blogs"
     },
     "leftSidePage": {
       "title": "navigation",
@@ -26,6 +27,7 @@
       "qrcodes": "Qrcodes",
       "orderes": "Orderes",
       "cities": "Cities",
+      "blogs": "Blogs",
       "orders": "Orders",
       "contacts": "Contacts"
     }

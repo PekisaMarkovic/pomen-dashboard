@@ -1,9 +1,8 @@
-import CheckedIcon from '@/public/images/general/checked.svg'
-import UncheckedIcon from '@/public/images/general/unchecked.svg'
 import get from 'lodash.get'
 import { useFormContext } from 'react-hook-form'
 import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { ReactNode } from 'react'
+import GeneralIcons from '@/src/icons/general'
 
 type Props = {
   handleOnClick: () => void
@@ -32,7 +31,7 @@ const CheckboxOption = ({ handleOnClick, label, checked, noHover = false, name, 
         }`}
         onClick={handleOnClick}
       >
-        <div>{checked ? <CheckedIcon /> : <UncheckedIcon />}</div>
+        <div>{<GeneralIcons type={checked ? 'Check' : 'UnCheck'} />}</div>
         <p className="font-poppins text-sm text-dark-grey">
           {leftIcon}
           {label}

@@ -8,8 +8,20 @@ import MailIcon from '@/src/icons/navigation/MailIcon'
 import OrderIcon from '@/src/icons/navigation/OrderIcon'
 import QRIcon from '@/src/icons/navigation/QRIcon'
 import TributeIcon from '@/src/icons/navigation/TributeIcon'
+import BlogIcon from './BlogIcon'
 
-export type NavigationIconType = 'City' | 'Order' | 'Getherings' | 'Dashboard' | 'Country' | 'Certificate' | 'QR' | 'Cemetery' | 'Tribute' | 'Mail'
+export type NavigationIconType =
+  | 'City'
+  | 'Order'
+  | 'Getherings'
+  | 'Dashboard'
+  | 'Country'
+  | 'Certificate'
+  | 'QR'
+  | 'Cemetery'
+  | 'Blog'
+  | 'Tribute'
+  | 'Mail'
 interface Props extends React.SVGProps<SVGSVGElement> {
   type: NavigationIconType
 }
@@ -34,6 +46,8 @@ const NavigationIcons = ({ type, ...rest }: Props) => {
       return <DashboardIcon {...rest} />
     case 'Certificate':
       return <CertificateIcon {...rest} />
+    case 'Blog':
+      return <BlogIcon {...rest} />
     case 'Mail':
       return <MailIcon {...rest} />
 

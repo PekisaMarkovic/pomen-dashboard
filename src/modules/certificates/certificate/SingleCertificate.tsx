@@ -73,7 +73,7 @@ const SingleCertificate = () => {
         ...(city ? { cityId: Number(city.id) } : {}),
       })
 
-      if (!profileImage?.fileId) {
+      if (profileImage?.fileId !== null && profileImage?.fileId !== undefined) {
         const newProfile: ICreateFile = {
           height: profileImage.height,
           publicId: profileImage.publicId,

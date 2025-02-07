@@ -25,9 +25,20 @@ type Props = {
   mt?: Spacing
   mb?: Spacing
   fileType?: FileTypeEnum
+  isDisabled?: boolean
 }
 
-const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name, mb, mt, fileType = FileTypeEnum.IMAGE }: Props) => {
+const InputFile = ({
+  label,
+  placeholderGreen,
+  placeholderGrey,
+  isRequired,
+  name,
+  mb,
+  mt,
+  fileType = FileTypeEnum.IMAGE,
+  isDisabled = false,
+}: Props) => {
   let marginTop = ''
   let marginBottom = ''
 
@@ -49,23 +60,29 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
   } = useFormContext()
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    dispatch(handleDisableSave(SaveDisabledEnums.INPUT_FILE))
+  const onDrop = useCallback(
+    async (acceptedFiles: File[]) => {
+      if (isDisabled) return
 
-    try {
-      if (acceptedFiles.length === 0) return
+      dispatch(handleDisableSave(SaveDisabledEnums.INPUT_FILE))
 
-      const { data } = await onSingleFileInput(api, acceptedFiles[0], fileType)
+      try {
+        if (acceptedFiles.length === 0) return
 
-      setValue(name, data)
-    } catch {
-      customToast.error(t('g:errorMessage'))
-    } finally {
-      dispatch(handleAllowSave(SaveDisabledEnums.INPUT_FILE))
-    }
-  }, [])
+        const { data } = await onSingleFileInput(api, acceptedFiles[0], fileType)
+
+        setValue(name, data)
+      } catch {
+        customToast.error(t('g:errorMessage'))
+      } finally {
+        dispatch(handleAllowSave(SaveDisabledEnums.INPUT_FILE))
+      }
+    },
+    [isDisabled],
+  )
 
   const { getRootProps, getInputProps } = useDropzone({
+    disabled: isDisabled,
     onDrop,
     accept:
       fileType === FileTypeEnum.VIDEO
@@ -85,6 +102,8 @@ const InputFile = ({ label, placeholderGreen, placeholderGrey, isRequired, name,
   const handleOnMouseLeave = () => setShowOverlay(false)
 
   const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (isDisabled) return
+
     dispatch(handleDisableSave(SaveDisabledEnums.INPUT_FILE))
     try {
       if (!e.target.files) return

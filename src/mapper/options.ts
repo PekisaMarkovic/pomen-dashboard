@@ -3,6 +3,7 @@ import { ICertificateOption } from '@/src/interfaces/certificate'
 import { ICityOption } from '@/src/interfaces/cities'
 import { ICountryOption } from '@/src/interfaces/country'
 import { SelectOption } from '@/src/interfaces/general'
+import { BlogContentTypeEnum } from '../enum'
 
 export const mapCountryDropdownToSelectOptions = (options: ICountryOption[]): SelectOption[] =>
   options.map((opt) => {
@@ -28,3 +29,12 @@ export const mapCemeteryDropdownToSelectOptions = (options: ICemeteryOption[]): 
   options.map((opt) => {
     return { id: `${opt.cemeteryId}`, name: opt.name, value: opt.slug }
   })
+
+export const mapBlogContentTypeToSelectOptions = (excludeTitle: boolean = false): SelectOption[] =>
+  Object.entries(BlogContentTypeEnum)
+    .filter(([key]) => !(excludeTitle && key === 'TITLE')) // Exclude TITLE if excludeTitle is true
+    .map(([key, value]) => ({
+      id: key,
+      name: key.replace(/_/g, ' '),
+      value: value,
+    }))

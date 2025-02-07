@@ -11,6 +11,7 @@ import contacts from '@/src/state/shared/contacts'
 import tributes from '@/src/state/shared/tributes'
 import getherings from '@/src/state/shared/getherings'
 import behaviours from '@/src/state/shared/behaviours'
+import blogs from '@/src/state/shared/blogs'
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     countries,
     cities,
     behaviours,
+    blogs,
     cemeteries,
     contacts,
     getherings,

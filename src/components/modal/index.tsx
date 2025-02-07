@@ -15,6 +15,7 @@ import EditTributeModal from './tributes/EditTributeModal'
 import AddTributesForCertificatModal from './tributes/AddTributesForCertificatModal'
 import AddGetheringForCertifivateModal from './getherings/AddGetheringForCertifivateModal'
 import ShowQRcodeModal from './qrcode/ShowQRcodeModal'
+import AddBlogModal from './blogs/AddBlogModal'
 
 type Props = {
   variant?: ModalVariant
@@ -48,6 +49,9 @@ const MainModal = ({ variant }: Props) => {
 
       case ModalEnums.EDIT_GETHERING:
         return <EditGetheringModal />
+
+      case ModalEnums.ADD_BLOG:
+        return <AddBlogModal />
 
       case ModalEnums.ADD_TRIBUTE:
         return <AddTributesModal />

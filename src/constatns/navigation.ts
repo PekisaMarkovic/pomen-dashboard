@@ -18,6 +18,7 @@ export const LEFT_SIDE_MENU_LINKS: IMenuLink[] = [
   { text: 'cities', icon: 'City', link: ROUTE_NAMES.cities },
   { text: 'countries', icon: 'Country', link: ROUTE_NAMES.countries },
   { text: 'contacts', icon: 'Mail', link: ROUTE_NAMES.contacts },
+  { text: 'blogs', icon: 'Blog', link: ROUTE_NAMES.blogs },
 ]
 
 export const TOP_MENU_LINKS_FOR_TRANSLATIONS = [

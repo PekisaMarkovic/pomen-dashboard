@@ -1,0 +1,35 @@
+{
+  "table": {
+    "title": "Name",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "slug": "Slug"
+  },
+  "add": {
+    "title": "Add a Blog",
+    "editTitle": "Edit a Blog",
+    "content": "Add a Content",
+    "text": "Add a Text",
+
+    "fields": {
+      "isBold": "Is text bold?",
+
+      "title": "Title",
+      "titlePlh": "Enter a Title",
+
+      "type": "Type",
+      "typePlh": "Select a type",
+
+      "image": "Image",
+      "imagePlh": "Upload image",
+
+      "text": "Text",
+      "textPlh": "Enter a text"
+    }
+  },
+  "blog-content": {
+    "title": "Blog Content",
+    "subtitle": "Tell us how to align text and image",
+    "tooltip": "Enter info about blog that will be shown"
+  }
+}

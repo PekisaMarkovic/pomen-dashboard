@@ -16,6 +16,8 @@ export const ROUTE_NAMES = {
   firtTimeRegister: '/first-time-register/:token',
   createCertificate: '/create-certificate/:token',
   signUp: '/sign-up',
+  blogs: '/blogs',
+  blogById: '/blogs/:id',
   contacts: '/contacts',
   profile: '/profile',
   notFound: '/not-found',

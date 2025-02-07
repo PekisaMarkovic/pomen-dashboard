@@ -4,8 +4,6 @@ import InputText from '@/src/components/core/input/InputText'
 import DateSelect from '@/src/components/core/select/DateSelect'
 import InputTextarea from '@/src/components/core/input/InputTextarea'
 
-// biography,
-
 const CertificateLifeDetails = () => {
   const { t } = useTranslation(['certificate'])
   return (

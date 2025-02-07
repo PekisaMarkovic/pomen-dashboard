@@ -23,6 +23,8 @@ import ProtectedRoute from './ProtectedRoute'
 import SignUpPage from '@/src/pages/log-in/SignUpPage'
 import FirstTimeRegisterPage from '@/src/pages/log-in/FirstTimeRegisterPage'
 import ContactsPage from '@/src/pages/contacts/ContactsPage'
+import SingleBlogPage from '@/src/pages/blogs/SingleBlogPage'
+import BlogsPage from '@/src/pages/blogs/BlogsPage'
 
 const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -145,10 +147,28 @@ const AppRoutes = () => {
     },
 
     {
+      path: ROUTE_NAMES.blogs,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <BlogsPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
       path: ROUTE_NAMES.contacts,
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <ContactsPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: ROUTE_NAMES.blogById,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <SingleBlogPage />
         </ProtectedRoute>
       ),
     },

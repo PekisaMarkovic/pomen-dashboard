@@ -13,6 +13,7 @@ import enQrcodes from './en/qrcodes/qrcodes.json'
 import enTributes from './en/tributes/tributes.json'
 import enGetherings from './en/getherings/getherings.json'
 import enCertificates from './en/certificates/certificates.json'
+import enBlogs from './en/blogs/blogs.json'
 
 export const resources = {
   en: {
@@ -27,6 +28,7 @@ export const resources = {
     country: enCountry,
     city: enCity,
     tribute: enTributes,
+    blogs: enBlogs,
     cemetery: enCemeteries,
     er: enErrors,
   },

@@ -52,6 +52,9 @@
     "phoneNewUser": "phone",
     "cemetery": "cemetery",
     "biography": "biography",
-    "reservationTime": "reservation time"
+    "reservationTime": "reservation time",
+    "text": "text, max lenght 250 characters",
+    "isBold": "is text bolded",
+    "blogContentImage": "image"
   }
 }
