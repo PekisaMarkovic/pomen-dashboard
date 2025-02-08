@@ -17,6 +17,9 @@
       "title": "Title",
       "titlePlh": "Enter a Title",
 
+      "order": "Order",
+      "orderPlh": "Enter a Order",
+
       "type": "Type",
       "typePlh": "Select a type",
 

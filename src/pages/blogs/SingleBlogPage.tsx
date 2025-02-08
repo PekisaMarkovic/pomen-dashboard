@@ -42,18 +42,21 @@ const SingleBlogForm = () => {
   const options = mapBlogContentTypeToSelectOptions()
   const blog = {
     ...toEditBlog,
-    contents: toEditBlog?.contents.map((cont) => {
-      const type = options.find((o) => o.value === cont.type)
-      return {
-        ...cont,
-        paragraphs: cont.paragraphs.map((par) => {
-          const isBold: SelectOption = { id: '0', name: '', value: '', checked: par.isBold }
-          return { ...par, isBold }
-        }),
-        type,
-        blogContentImage: cont.blogContentImageId !== null && cont.blogContentImageId !== undefined ? cont.blogContentImage : {},
-      }
-    }),
+    contents: [...(toEditBlog?.contents || [])]
+      .sort((a, b) => Number(a.order) - Number(b.order))
+      .map((cont) => {
+        const type = options.find((o) => o.value === cont.type)
+        return {
+          ...cont,
+          order: `${cont.order}`,
+          paragraphs: cont.paragraphs.map((par) => {
+            const isBold: SelectOption = { id: '0', name: '', value: '', checked: par.isBold }
+            return { ...par, isBold, order: `${par.order}` }
+          }),
+          type,
+          blogContentImage: cont.blogContentImageId !== null && cont.blogContentImageId !== undefined ? cont.blogContentImage : {},
+        }
+      }),
   }
 
   const methods = useForm({

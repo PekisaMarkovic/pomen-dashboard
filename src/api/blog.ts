@@ -9,6 +9,7 @@ const getBlogBySlug = (slug: string) => `${base}/slug/${slug}`
 const getBlog = () => `${base}`
 const createBlog = () => `${base}`
 const blogSitemap = () => `${base}/sitemap`
+const publishOrUnpublishBlog = () => `${base}/publish-blog`
 const blogSearch = () => `${base}/search`
 
 const BlogApis = {
@@ -19,6 +20,7 @@ const BlogApis = {
   getBlogBySlug,
   createBlog,
   deleteBlogContent,
+  publishOrUnpublishBlog,
   deleteBlogText,
   blogSitemap,
   blogSearch,

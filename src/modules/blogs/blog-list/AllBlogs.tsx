@@ -24,6 +24,7 @@ const AllBlogs = () => {
     const title = searchTerm || ''
     try {
       const { data } = await api.post(BlogApis.blogSearch(), { page: Number(page), limit, title })
+
       dispatch(setBlogs(data))
     } catch {
       customToast.error(t('g:errorMessage'))

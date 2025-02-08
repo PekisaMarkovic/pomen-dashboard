@@ -30,6 +30,8 @@
     "confirm": "Confirm",
     "download": "Download",
     "inProgress": "Delivering",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
     "returned": "returned",
     "canceled": "canceled",
     "failed": "failed",
@@ -45,6 +47,7 @@
   },
 
   "errorMessage": "Something went wrong. Please try again later.",
+  "blogSuccess": "Blog is published/unpublished successfully",
   "profile": "Profile",
   "logout": "Log out"
 }

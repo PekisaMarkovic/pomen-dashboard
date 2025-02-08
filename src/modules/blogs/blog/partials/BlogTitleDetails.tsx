@@ -23,9 +23,12 @@ const BlogTitleDetails = ({ title }: Props) => {
     setValue('blog.contents', [
       ...contents,
       {
+        order: contents.length,
         paragraphs: [
           {
             text: '',
+            order: '1',
+            isBold: { id: '0', name: '', value: '', checked: false },
           },
         ],
         type,

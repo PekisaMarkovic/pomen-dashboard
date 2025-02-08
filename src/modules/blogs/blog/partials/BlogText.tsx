@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next'
 import customToast from '@/src/components/core/toast/CustomToast'
 import { useFormContext, useWatch } from 'react-hook-form'
 import Checkbox from '@/src/components/core/checkbox/Checkbox'
+import InputText from '@/src/components/core/input/InputText'
 
 type Props = {
   text: IBlogTextEdit
@@ -21,12 +22,20 @@ type Props = {
 }
 
 const BlogText = ({ contentIndex, paragraphIndex, isReadOnly, text, isTitle }: Props) => {
+  const namePath = `blog.contents[${contentIndex}].paragraphs[${paragraphIndex}]`
   const { t } = useTranslation(['blogs'])
   const [open, setOpen] = useState<boolean>(false)
   const api = useApi()
   const paragaphsName = `blog.contents[${contentIndex}].paragraphs`
   const paragraphs = useWatch({ name: paragaphsName })
   const { setValue } = useFormContext()
+
+  const handleRemoveByIndex = () => {
+    setValue(
+      paragaphsName,
+      paragraphs.filter((_: IBlogText, index: number) => index !== paragraphIndex),
+    )
+  }
 
   const handleClose = useCallback(() => setOpen(false), [])
 
@@ -39,15 +48,9 @@ const BlogText = ({ contentIndex, paragraphIndex, isReadOnly, text, isTitle }: P
       if (text.blogTextId !== null && text.blogTextId !== undefined) {
         await api.delete(BlogApis.deleteBlogText(text.blogTextId!))
 
-        setValue(
-          paragaphsName,
-          paragraphs.filter((singleText: IBlogText) => text.blogTextId !== singleText.blogTextId),
-        )
+        handleRemoveByIndex()
       } else {
-        setValue(
-          paragaphsName,
-          paragraphs.filter((_: IBlogText, index: number) => index !== paragraphIndex),
-        )
+        handleRemoveByIndex()
       }
     } catch {
       customToast.error(t('g:errorMessage'))
@@ -68,7 +71,7 @@ const BlogText = ({ contentIndex, paragraphIndex, isReadOnly, text, isTitle }: P
   return (
     <div className="relative col-span-3">
       <InputTextarea
-        name={`blog.contents[${contentIndex}].paragraphs[${paragraphIndex}].text`}
+        name={`${namePath}.text`}
         isRequired
         label={t('blogs:add.fields.text')}
         placeholder={t('blogs:add.fields.textPlh')}
@@ -76,11 +79,10 @@ const BlogText = ({ contentIndex, paragraphIndex, isReadOnly, text, isTitle }: P
         isDisabled={isReadOnly}
       />
       {!isTitle && (
-        <Checkbox
-          label={t('blogs:add.fields.isBold')}
-          name={`blog.contents[${contentIndex}].paragraphs[${paragraphIndex}].isBold`}
-          disabled={isReadOnly}
-        />
+        <div className="flex gap-3">
+          <InputText isRequired name={`${namePath}.order`} label={t('blogs:add.fields.order')} placeholder={t('blogs:add.fields.orderPlh')} />
+          <Checkbox label={t('blogs:add.fields.isBold')} name={`${namePath}.isBold`} disabled={isReadOnly} />
+        </div>
       )}
 
       {!isReadOnly && (

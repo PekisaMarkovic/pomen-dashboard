@@ -53,8 +53,10 @@
     "cemetery": "cemetery",
     "biography": "biography",
     "reservationTime": "reservation time",
-    "text": "text, max lenght 250 characters",
+    "text": "text, max lenght 820 characters",
     "isBold": "is text bolded",
-    "blogContentImage": "image"
+    "blogContentImage": "image",
+    "orderParag": "unique order value for each paragraph in content",
+    "orderCont": "unique order value for each content in blog"
   }
 }
