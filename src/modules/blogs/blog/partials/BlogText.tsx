@@ -80,7 +80,7 @@ const BlogText = ({ contentIndex, paragraphIndex, isReadOnly, text, isTitle }: P
       />
       {!isTitle && (
         <div className="flex gap-3">
-          <InputText isRequired name={`${namePath}.order`} label={t('blogs:add.fields.order')} placeholder={t('blogs:add.fields.orderPlh')} />
+          <InputText isRequired name={`${namePath}.order`} label={t('blogs:add.fields.orderText')} placeholder={t('blogs:add.fields.orderPlh')} />
           <Checkbox label={t('blogs:add.fields.isBold')} name={`${namePath}.isBold`} disabled={isReadOnly} />
         </div>
       )}

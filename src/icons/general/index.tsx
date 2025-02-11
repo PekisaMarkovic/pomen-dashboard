@@ -9,6 +9,7 @@ import TooltipIcon from '@/src/icons/general/TooltipIcon'
 import TrashWhiteIcon from '@/src/icons/general/TrashWhiteIcon'
 import UnCheckIcon from '@/src/icons/general/UnCheckIcon'
 import UserPlaceholderIcon from '@/src/icons/general/UserPlaceholderIcon'
+import InfiniteLoader from '@/src/icons/general/InfiniteLoader'
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   type:
@@ -20,6 +21,7 @@ interface Props extends React.SVGProps<SVGSVGElement> {
     | 'Check'
     | 'UnCheck'
     | 'Tooltip'
+    | 'InfiniteLoader'
     | 'TrashWhite'
     | 'SelectDropdown'
     | 'UserPlaceholder'
@@ -32,6 +34,8 @@ const GeneralIcons = ({ onClick, type, ...rest }: Props) => {
       return <ArrowBackIcon {...rest} onClick={onClick} />
     case 'ArrowDown':
       return <ArrowDownIcon {...rest} onClick={onClick} />
+    case 'InfiniteLoader':
+      return <InfiniteLoader {...rest} onClick={onClick} />
     case 'ArrowRight':
       return <ArrowRightIcon {...rest} onClick={onClick} />
     case 'MoreIcon':

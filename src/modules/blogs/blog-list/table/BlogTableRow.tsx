@@ -23,7 +23,7 @@ const BlogTableRow = ({ blog }: Props) => {
   const dispatch = useAppDispatch()
   const { blogs } = useAppSelector(selectBlogs)
   const { t } = useTranslation(['g:button'])
-  const { blogId, slug, createdAt, updatedAt } = blog
+  const { blogId, slug, createdAt, updatedAt, publishedAt } = blog
   const linkTo = `${ROUTE_NAMES.blogs}/${blogId}`
   const contentTitle = blog.contents.find((cont) => cont.type === BlogContentTypeEnum.TITLE)
 
@@ -87,7 +87,7 @@ const BlogTableRow = ({ blog }: Props) => {
   }
 
   return (
-    <DefaultTableRowContainer cols={5} dropdownOptions={checkOptions()}>
+    <DefaultTableRowContainer cols={6} dropdownOptions={checkOptions()}>
       <Link to={linkTo} className="col-span-2 py-3 flex">
         <Paragraph text={`${contentTitle?.paragraphs[0].text || slug}`} size="sm" color="black" noWrap />
       </Link>
@@ -102,6 +102,10 @@ const BlogTableRow = ({ blog }: Props) => {
 
       <Link to={linkTo} className="flex">
         <Paragraph text={updatedAt ? formatDateYearMonthDay(updatedAt) : '-'} size="sm" color="black" noWrap />
+      </Link>
+
+      <Link to={linkTo} className="flex">
+        <Paragraph text={publishedAt ? formatDateYearMonthDay(publishedAt) : '-'} size="sm" color="black" noWrap />
       </Link>
     </DefaultTableRowContainer>
   )

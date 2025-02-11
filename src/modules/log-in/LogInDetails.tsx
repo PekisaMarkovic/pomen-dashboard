@@ -11,14 +11,21 @@ import { signIn } from '@/src/utils/auth'
 import { decodeToken } from '@/src/utils/token'
 import Paragraph from '@/src/components/core/typography/Paragraph'
 import MainLink from '@/src/components/core/buttons/MainLink'
+import { SaveDisabledEnums } from '@/src/enum'
+import { handleAllowSave, handleDisableSave, selectBehaviours } from '@/src/state/shared/behaviours'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 
 const LogInDetails = () => {
   const { t } = useTranslation(['log-in', 'g'])
   const { handleSubmit } = useFormContext()
+  const dispatch = useAppDispatch()
   const api = useApi()
   const navigate = useNavigate()
+  const { isSaveDisabled } = useAppSelector(selectBehaviours)
 
   const handleSubmitForm: SubmitHandler<FieldValues> = async (values) => {
+    dispatch(handleDisableSave(SaveDisabledEnums.LOGIN_IN))
+
     try {
       const { data } = await api.post(AuthApis.logIn(), values)
       const tokenPayload = decodeToken(data.access_token)
@@ -28,6 +35,8 @@ const LogInDetails = () => {
       navigate(ROUTE_NAMES.dashboard)
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(handleAllowSave(SaveDisabledEnums.LOGIN_IN))
     }
   }
 
@@ -36,7 +45,14 @@ const LogInDetails = () => {
       <InputText isRequired name="email" label={t('log-in:fields.email')} placeholder={t('log-in:fields.emailPlh')} />
       <InputText isRequired name="password" label={t('log-in:fields.password')} placeholder={t('log-in:fields.passwordPlh')} typeHtml="password" />
 
-      <MainButton text={t('g:button.signIn')} variant="contained" size="medium" htmlType="submit" className="justify-center" />
+      <MainButton
+        text={t('g:button.signIn')}
+        disabled={isSaveDisabled.includes(SaveDisabledEnums.LOGIN_IN)}
+        variant="contained"
+        size="medium"
+        htmlType="submit"
+        className="justify-center"
+      />
 
       <div className="flex justify-center">
         <Paragraph text={t('g:button.or')} size="sm" color="dark-grey" />

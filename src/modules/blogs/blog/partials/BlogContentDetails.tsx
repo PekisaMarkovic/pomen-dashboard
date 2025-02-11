@@ -192,7 +192,7 @@ const BlogContentDetails = ({ index, content, blogId }: Props) => {
           isDisabled={isTypeIsTitle}
         />
         <div />
-        <InputText isRequired name={`${pathName}.order`} label={t('blogs:add.fields.order')} placeholder={t('blogs:add.fields.orderPlh')} />
+        <InputText isRequired name={`${pathName}.order`} label={t('blogs:add.fields.orderCont')} placeholder={t('blogs:add.fields.orderPlh')} />
         {content.type.value !== BlogContentTypeEnum.TITLE && content.type.value !== BlogContentTypeEnum.TEXT_CENTER && (
           <div className="col-span-3">
             <InputFile

@@ -12,14 +12,17 @@ import '@/src/styles/index.scss'
 import { ToastContainer } from 'react-toastify'
 import '@/src/translations/config.ts'
 import MainModal from '@/src/components/modal/index.js'
+import ScreenSizeWarning from './components/section/ScreenSizeWarnings'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
-        <ToastContainer autoClose={3000} position="top-center" hideProgressBar />
-        <MainModal />
+        <ScreenSizeWarning>
+          <App />
+          <ToastContainer autoClose={3000} position="top-center" hideProgressBar />
+          <MainModal />
+        </ScreenSizeWarning>
       </Router>
     </Provider>
   </StrictMode>,

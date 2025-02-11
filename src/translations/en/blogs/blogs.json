@@ -3,7 +3,8 @@
     "title": "Name",
     "createdAt": "Created",
     "updatedAt": "Updated",
-    "slug": "Slug"
+    "slug": "Slug",
+    "publishedAt": "Published"
   },
   "add": {
     "title": "Add a Blog",
@@ -17,7 +18,8 @@
       "title": "Title",
       "titlePlh": "Enter a Title",
 
-      "order": "Order",
+      "orderText": "TEXT order",
+      "orderCont": "CONTENT order",
       "orderPlh": "Enter a Order",
 
       "type": "Type",

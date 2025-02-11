@@ -54,7 +54,7 @@ const SingleBlogForm = () => {
             return { ...par, isBold, order: `${par.order}` }
           }),
           type,
-          blogContentImage: cont.blogContentImageId !== null && cont.blogContentImageId !== undefined ? cont.blogContentImage : {},
+          blogContentImage: cont.blogContentImageId !== null && cont.blogContentImageId !== undefined ? cont.blogContentImage : undefined,
         }
       }),
   }

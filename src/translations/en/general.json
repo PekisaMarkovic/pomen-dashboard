@@ -48,6 +48,7 @@
 
   "errorMessage": "Something went wrong. Please try again later.",
   "blogSuccess": "Blog is published/unpublished successfully",
+  "screenWraning": "This web application is not optimized for screens smaller than 768px. Please use a device with a higher resolution.",
   "profile": "Profile",
   "logout": "Log out"
 }

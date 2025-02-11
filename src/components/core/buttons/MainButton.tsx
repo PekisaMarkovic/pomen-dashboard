@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { style } from '@/src/components/core/buttons/style'
 import { FontFamily } from '@/src/interfaces/general'
+import GeneralIcons from '@/src/icons/general'
 
 export type Variant = 'contained' | 'outlined' | 'text' | 'alternative' | 'primary' | 'error'
 
@@ -15,7 +16,6 @@ type Props = {
   htmlType?: 'button' | 'submit' | 'reset'
   leftIcon?: ReactNode
   rightIcon?: ReactNode
-  isLoading?: boolean
   disabled?: boolean
   onClick?: () => void
 }
@@ -34,9 +34,15 @@ const MainButton = ({
 }: Props) => {
   return (
     <button onClick={onClick} type={htmlType} className={`${style({ fontFamily, size, variant, disabled })} ${className}`} disabled={disabled}>
-      {leftIcon}
-      {text}
-      {rightIcon}
+      {disabled ? (
+        <GeneralIcons type="InfiniteLoader" />
+      ) : (
+        <>
+          {leftIcon}
+          {text}
+          {rightIcon}
+        </>
+      )}
     </button>
   )
 }

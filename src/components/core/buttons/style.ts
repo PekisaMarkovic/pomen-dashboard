@@ -12,9 +12,9 @@ export const style = ({
   variant: Variant
   disabled: boolean
 }): string => {
-  const classes: string[] = [`font-${fontFamily} flex items-center gap-x-1`]
+  const classes: string[] = [`font-${fontFamily} flex items-center gap-x-1 relative`]
 
-  if (disabled) classes.push('cursor-not-allowed opacity-30')
+  if (disabled) classes.push('cursor-not-allowed')
 
   switch (size) {
     case 'large':
