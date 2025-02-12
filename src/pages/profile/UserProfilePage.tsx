@@ -1,3 +1,4 @@
+import { FileTypeEnum } from '@/src/enum'
 import UserProfile from '@/src/modules/profiles/UserProfile'
 import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectAuthUser } from '@/src/state/user/authSlice'
@@ -10,9 +11,14 @@ const UserProfilePage = () => {
     defaultValues: {
       firstName: user?.firstName || '',
       lastName: user?.lastName || '',
+      gender: user?.gender || '',
       phoneNumber: user?.phoneNumber || '',
       email: user?.email || '',
       dateOfBirth: user?.dateOfBirth || undefined,
+      profileImage: {
+        type: FileTypeEnum.IMAGE,
+        url: user?.profileImage || '',
+      },
     },
     resolver: UPDATE_PROFILE_VALIDATION,
   })
