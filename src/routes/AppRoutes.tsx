@@ -25,6 +25,7 @@ import FirstTimeRegisterPage from '@/src/pages/log-in/FirstTimeRegisterPage'
 import ContactsPage from '@/src/pages/contacts/ContactsPage'
 import SingleBlogPage from '@/src/pages/blogs/SingleBlogPage'
 import BlogsPage from '@/src/pages/blogs/BlogsPage'
+import UserProfilePage from '@/src/pages/profile/UserProfilePage'
 
 const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -60,7 +61,7 @@ const AppRoutes = () => {
       path: ROUTE_NAMES.profile,
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
-          <div>TODO</div>
+          <UserProfilePage />
         </ProtectedRoute>
       ),
     },

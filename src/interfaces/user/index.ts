@@ -22,6 +22,9 @@ export type TokenPayload = {
   email: string
   firstName: string
   lastName: string
+  gender: Nullable<string>
+  phoneNumber: Nullable<string>
+  dateOfBirth: Nullable<Date>
   roles: IRole[]
   profileImage: Nullable<string>
   exp: number

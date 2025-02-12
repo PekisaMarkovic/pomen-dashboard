@@ -10,10 +10,11 @@ import { TributeStatusEnum } from '@/src/enum/tribute'
 import { useApi } from '@/src/hooks/use-api'
 import { CustomDropdown } from '@/src/interfaces/dropdown'
 import { ITribute } from '@/src/interfaces/tributes'
-import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { setModal } from '@/src/state/shared/modal'
-import { setToEditTribute, updateTribute } from '@/src/state/shared/tributes'
+import { selectTributes, setToEditTribute, setTributes, updateTribute } from '@/src/state/shared/tributes'
 import TributeTableStatus from './TributeTableStatus'
+import { useCallback } from 'react'
 
 type Props = {
   tribute: ITribute
@@ -21,18 +22,31 @@ type Props = {
 
 const TributeTableRow = ({ tribute }: Props) => {
   const { t } = useTranslation(['g:button'])
-  const { description, firstName, lastName, certificate, status, email } = tribute
+  const { tributes } = useAppSelector(selectTributes)
   const dispatch = useAppDispatch()
+  const { description, firstName, lastName, certificate, status, email, tributeId } = tribute
   const api = useApi()
 
   const handleUpdateTributeStatus = async (status: TributeStatusEnum) => {
     try {
-      await api.patch(TributesApis.patchTributeStatus(tribute.tributeId), { status })
+      await api.patch(TributesApis.patchTributeStatus(tributeId), { status })
       dispatch(updateTribute({ ...tribute, status }))
     } catch {
       customToast.error(t('g:errorMessage'))
     }
   }
+
+  const handleDelete = useCallback(async () => {
+    try {
+      if (tributes) {
+        await api.delete(TributesApis.deleteTribute(tributeId))
+
+        dispatch(setTributes({ ...tributes, items: tributes?.items.filter((obj) => obj.tributeId == tributeId) }))
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [tributes, tributeId])
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -73,9 +87,7 @@ const TributeTableRow = ({ tribute }: Props) => {
         content: {
           type: 'button',
           text: t('g:button.delete'),
-          onClick: () => {
-            console.log('TODO')
-          },
+          onClick: handleDelete,
         },
         textColor: 'red',
       },

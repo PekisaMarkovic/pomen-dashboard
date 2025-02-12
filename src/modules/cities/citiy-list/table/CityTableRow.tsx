@@ -4,9 +4,13 @@ import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowCont
 import { ModalEnums } from '@/src/enum/modal'
 import { ICity } from '@/src/interfaces/cities'
 import { CustomDropdown } from '@/src/interfaces/dropdown'
-import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
-import { setToEditCity } from '@/src/state/shared/cities'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCities, setCities, setToEditCity } from '@/src/state/shared/cities'
 import { setModal } from '@/src/state/shared/modal'
+import CitiesApis from '@/src/api/cities'
+import { useApi } from '@/src/hooks/use-api'
+import { useCallback } from 'react'
+import customToast from '@/src/components/core/toast/CustomToast'
 
 type Props = {
   city: ICity
@@ -14,8 +18,22 @@ type Props = {
 
 const CityTableRow = ({ city }: Props) => {
   const { t } = useTranslation(['g:button'])
-  const { country, code, name, slug } = city
+  const { country, code, name, slug, cityId } = city
+  const { cities } = useAppSelector(selectCities)
   const dispatch = useAppDispatch()
+  const api = useApi()
+
+  const handleDelete = useCallback(async () => {
+    try {
+      await api.delete(CitiesApis.deleteCity(cityId))
+
+      if (cities) {
+        dispatch(setCities({ ...cities, items: cities.items.filter((obj) => obj.cityId !== cityId) }))
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [cities, cityId])
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -23,7 +41,7 @@ const CityTableRow = ({ city }: Props) => {
         content: {
           type: 'button',
           text: t('g:button.delete'),
-          onClick: () => {},
+          onClick: handleDelete,
         },
         textColor: 'red',
       },

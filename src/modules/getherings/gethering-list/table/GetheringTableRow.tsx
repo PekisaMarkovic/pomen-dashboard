@@ -6,10 +6,14 @@ import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 import { ModalEnums } from '@/src/enum/modal'
 import { CustomDropdown } from '@/src/interfaces/dropdown'
 import { IGethering } from '@/src/interfaces/getherings'
-import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
-import { setToEditGethering } from '@/src/state/shared/getherings'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectGetherings, setGetherings, setToEditGethering } from '@/src/state/shared/getherings'
 import { setModal } from '@/src/state/shared/modal'
 import { formatDateYearMonthDay, formatTimeOption } from '@/src/utils/date'
+import { useCallback } from 'react'
+import { useApi } from '@/src/hooks/use-api'
+import GetheringsApis from '@/src/api/getherings'
+import customToast from '@/src/components/core/toast/CustomToast'
 
 type Props = {
   gethering: IGethering
@@ -17,8 +21,22 @@ type Props = {
 
 const GetheringTableRow = ({ gethering }: Props) => {
   const { t } = useTranslation(['g:button'])
-  const { address, certificate, getheringDate, hour } = gethering
+  const { address, certificate, getheringDate, hour, getheringId } = gethering
   const dispatch = useAppDispatch()
+  const { getherings } = useAppSelector(selectGetherings)
+  const api = useApi()
+
+  const handleDelete = useCallback(async () => {
+    try {
+      await api.delete(GetheringsApis.deleteGethering(getheringId))
+
+      if (getherings) {
+        dispatch(setGetherings({ ...getherings, items: getherings.items.filter((obj) => obj.getheringId !== getheringId) }))
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [getherings, getheringId])
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -26,7 +44,7 @@ const GetheringTableRow = ({ gethering }: Props) => {
         content: {
           type: 'button',
           text: t('g:button.delete'),
-          onClick: () => {},
+          onClick: handleDelete,
         },
         textColor: 'red',
       },

@@ -4,9 +4,13 @@ import DefaultTableRowContainer from '@/src/components/table/DefaultTableRowCont
 import { ModalEnums } from '@/src/enum/modal'
 import { ICemetery } from '@/src/interfaces/cemeteries'
 import { CustomDropdown } from '@/src/interfaces/dropdown'
-import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
-import { setToEditCemetery } from '@/src/state/shared/cemeteries'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCemeteries, setCemeteries, setToEditCemetery } from '@/src/state/shared/cemeteries'
 import { setModal } from '@/src/state/shared/modal'
+import { useCallback } from 'react'
+import { useApi } from '@/src/hooks/use-api'
+import CemeteriesApis from '@/src/api/cemeteries'
+import customToast from '@/src/components/core/toast/CustomToast'
 
 type Props = {
   cementery: ICemetery
@@ -14,8 +18,22 @@ type Props = {
 
 const CemeteryTableRow = ({ cementery }: Props) => {
   const { t } = useTranslation(['g:button'])
-  const { address, city, name, slug } = cementery
+  const { cemeteries } = useAppSelector(selectCemeteries)
+  const api = useApi()
+  const { address, city, name, slug, cemeteryId } = cementery
   const dispatch = useAppDispatch()
+
+  const handleDelete = useCallback(async () => {
+    try {
+      await api.delete(CemeteriesApis.deleteCemetery(cemeteryId))
+
+      if (cemeteries) {
+        dispatch(setCemeteries({ ...cemeteries, items: cemeteries.items.filter((obj) => obj.cemeteryId !== cemeteryId) }))
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [cemeteries, cemeteryId])
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -23,7 +41,7 @@ const CemeteryTableRow = ({ cementery }: Props) => {
         content: {
           type: 'button',
           text: t('g:button.delete'),
-          onClick: () => {},
+          onClick: handleDelete,
         },
         textColor: 'red',
       },

@@ -7,6 +7,12 @@ import GeneralIcons from '@/src/icons/general'
 import { ICertificate } from '@/src/interfaces/certificate'
 import { CustomDropdown } from '@/src/interfaces/dropdown'
 import { formatDateYearMonthDay } from '@/src/utils/date'
+import { useCallback } from 'react'
+import { useApi } from '@/src/hooks/use-api'
+import customToast from '@/src/components/core/toast/CustomToast'
+import CertificatesApis from '@/src/api/certificates'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { selectCertificates, setCertificates } from '@/src/state/shared/certificates'
 
 type Props = {
   certificate: ICertificate
@@ -14,9 +20,24 @@ type Props = {
 
 const CertificateTableRow = ({ certificate }: Props) => {
   const { t } = useTranslation(['g:button'])
+  const api = useApi()
+  const dispatch = useAppDispatch()
+  const { certificates } = useAppSelector(selectCertificates)
   const { biography, dateOfBirth, dateOfDeath, placeOfBirth, placeOfDeath, firstName, lastName, cemetery, location, profileImage, certificateId } =
     certificate
   const linkTo = `${ROUTE_NAMES.certificates}/${certificateId}`
+
+  const handleDelete = useCallback(async () => {
+    try {
+      if (certificates) {
+        await api.delete(CertificatesApis.deleteCertificate(certificateId))
+
+        dispatch(setCertificates({ ...certificates, items: certificates?.items.filter((obj) => obj.certificateId == certificateId) }))
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [certificates, certificateId])
 
   const checkOptions = () => {
     const options: CustomDropdown[] = [
@@ -24,9 +45,7 @@ const CertificateTableRow = ({ certificate }: Props) => {
         content: {
           type: 'button',
           text: t('g:button.delete'),
-          onClick: () => {
-            console.log('TODO')
-          },
+          onClick: handleDelete,
         },
         textColor: 'red',
       },

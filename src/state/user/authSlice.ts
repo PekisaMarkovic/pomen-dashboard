@@ -26,6 +26,9 @@ const authSlice = createSlice({
       state.accessToken = accessToken
       state.isAuthenticated = true
     },
+    setUserProfileData: (state, action: PayloadAction<{ user: TokenPayload }>) => {
+      state.user = action.payload.user
+    },
     removeUserData: (state) => {
       state.user = null
       state.accessToken = null
@@ -34,7 +37,7 @@ const authSlice = createSlice({
   },
 })
 
-export const { initializeAuth, setUserData, removeUserData } = authSlice.actions
+export const { initializeAuth, setUserData, removeUserData, setUserProfileData } = authSlice.actions
 
 export default authSlice.reducer
 

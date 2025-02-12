@@ -14,6 +14,7 @@ import enTributes from './en/tributes/tributes.json'
 import enGetherings from './en/getherings/getherings.json'
 import enCertificates from './en/certificates/certificates.json'
 import enBlogs from './en/blogs/blogs.json'
+import profile from './en/user/profile.json'
 
 export const resources = {
   en: {
@@ -31,6 +32,7 @@ export const resources = {
     blogs: enBlogs,
     cemetery: enCemeteries,
     er: enErrors,
+    user: profile,
   },
 } as const
 
