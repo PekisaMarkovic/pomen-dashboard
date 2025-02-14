@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 export const CREATE_CERTIFICATE_VALIDATION = yupResolver(
   Yup.object({
     addressOrder: Yup.string().typeError('addressOrder').required('addressOrder'),
-    biography: Yup.string().typeError('biography').required('biography'),
+    biography: Yup.string().typeError('biography').required('biography').min(250, 'biographyMin'),
     emailNewUser: Yup.string().email().typeError('emailNewUser').required('emailNewUser'),
     firstNameNewUser: Yup.string().typeError('firstNameNewUser').required('firstNameNewUser'),
     phoneNewUser: Yup.string().typeError('phoneNewUser').required('phoneNewUser'),

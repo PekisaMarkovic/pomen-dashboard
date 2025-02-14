@@ -52,6 +52,7 @@
     "phoneNewUser": "phone",
     "cemetery": "cemetery",
     "biography": "biography",
+    "biographyMin": "biography, min lenght 250 characters",
     "reservationTime": "reservation time",
     "text": "text, max lenght 820 characters",
     "isBold": "is text bolded",
