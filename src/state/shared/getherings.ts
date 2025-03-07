@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable, Paginated } from '@/src/interfaces/general'
 import { State as AppState } from '@/src/state/store'
-import { IGethering } from '@/src/interfaces/getherings'
+import { IGethering, Nullable, Paginated } from '@/src/interfaces'
 
 type State = {
   getherings: Nullable<Paginated<IGethering>>

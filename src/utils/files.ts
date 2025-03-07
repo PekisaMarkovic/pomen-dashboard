@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios'
-import { IFile } from '@/src/interfaces/image'
+import { IFile } from '@/src/interfaces'
 import FileApis from '@/src/api/files'
-import { FileTypeEnum } from '@/src/enum/file'
+import { FileTypeEnum } from '@/src/enum'
 
 const toBase64 = (file: File) =>
   new Promise((resolve, reject) => {

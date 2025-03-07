@@ -3,8 +3,8 @@ import { useFormContext } from 'react-hook-form'
 import ErrorMessage, { Variant } from '@/src/components/core/typography/ErrorMessage'
 import get from 'lodash.get'
 import { ChangeEventHandler } from 'react'
-import { Spacing } from '@/src/interfaces/general'
-import { inputTextStyle } from './InputTextStyle'
+import { Spacing } from '@/src/interfaces'
+import { inputTextStyle } from '@/src/components/core/input/InputTextStyle'
 
 export type InputVaraint = 'default' | 'simple'
 

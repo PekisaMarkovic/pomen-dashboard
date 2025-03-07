@@ -1,4 +1,4 @@
-import { PermissionEnums, RoleEnums } from '@/src/enum/user'
+import { PermissionEnums, RoleEnums } from '@/src/enum'
 import { Nullable } from '@/src/interfaces/general'
 import { IFile } from '@/src/interfaces/image'
 

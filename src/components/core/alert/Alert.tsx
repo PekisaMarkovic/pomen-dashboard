@@ -1,7 +1,7 @@
 import InfoCircleIcon from '@/src/public/images/general/info-circle.svg'
 import CloseLineIcon from '@/src/public/images/general/close-line.svg'
 import { FC, SVGProps, MouseEvent } from 'react'
-import { Color } from '@/src/interfaces/general'
+import { Color } from '@/src/interfaces'
 
 type Variant = 'error' | 'info'
 

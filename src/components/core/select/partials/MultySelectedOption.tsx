@@ -1,5 +1,5 @@
 import XIcon from '@/public/images/general/x-selected.svg'
-import { SelectOption } from '@/src/interfaces/general'
+import { SelectOption } from '@/src/interfaces'
 
 type Props = {
   option: SelectOption

@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable, Paginated } from '@/src/interfaces/general'
 import { State as AppState } from '@/src/state/store'
-import { IQRcode } from '@/src/interfaces/qrcode'
+import { IQRcode, Nullable, Paginated } from '@/src/interfaces'
 
 type State = {
   qrcodes: Nullable<Paginated<IQRcode>>

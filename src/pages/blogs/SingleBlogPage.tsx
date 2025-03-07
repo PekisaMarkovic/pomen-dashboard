@@ -1,7 +1,7 @@
 import BlogApis from '@/src/api/blog'
 import customToast from '@/src/components/core/toast/CustomToast'
 import { useApi } from '@/src/hooks/use-api'
-import { SelectOption } from '@/src/interfaces/general'
+import { SelectOption } from '@/src/interfaces'
 import { mapBlogContentTypeToSelectOptions } from '@/src/mapper/options'
 import SingleBlog from '@/src/modules/blogs/blog/SingleBlog'
 import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'

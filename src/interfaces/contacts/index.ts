@@ -1,4 +1,4 @@
-import { ContactStatusEnum } from '@/src/enum/contact'
+import { ContactStatusEnum } from '@/src/enum'
 
 export interface IContact {
   contactId: number

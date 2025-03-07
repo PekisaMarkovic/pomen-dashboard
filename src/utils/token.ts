@@ -1,5 +1,5 @@
 import { jwtDecode, JwtDecodeOptions } from 'jwt-decode'
-import { TokenPayload } from '@/src/interfaces/user'
+import { TokenPayload } from '@/src/interfaces'
 
 export const ACCESS_TOKEN = 'access_token'
 export const REFRESH_TOKEN = 'refresh_token'

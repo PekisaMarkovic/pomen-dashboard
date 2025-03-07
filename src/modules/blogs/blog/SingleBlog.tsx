@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import BlogContentDetails from '@/src/modules/blogs/blog/partials/BlogContentDetails'
 import BlogTitleDetails from '@/src/modules/blogs/blog/partials/BlogTitleDetails'
 import { useWatch } from 'react-hook-form'
-import { IBlogContentEdit } from '@/src/interfaces/blogs'
+import { IBlogContentEdit } from '@/src/interfaces'
 
 const SingleBlog = () => {
   const blog = useWatch({ name: 'blog' })

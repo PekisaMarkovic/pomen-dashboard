@@ -1,10 +1,10 @@
 import { ChangeEventHandler, useRef, useState } from 'react'
 import DropdownIcon from '@/public/images/general/select-dropdown-arrow.svg'
 import DisabledDropdownIcon from '@/public/images/general/select-dropdown-arrow-disabled.svg'
-import SingleOption from './partials/SingleOption'
-import Label from '../typography/Label'
-import ErrorMessage from '../typography/ErrorMessage'
-import { Nullable, SelectOption } from '@/src/interfaces/general'
+import SingleOption from '@/src/components/core/select/partials/SingleOption'
+import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
+import Label from '@/src/components/core/typography/Label'
+import { Nullable, SelectOption } from '@/src/interfaces'
 import { useClickAway } from '@/src/hooks/use-click-outside'
 
 type Props = {

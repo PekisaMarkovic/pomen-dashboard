@@ -1,4 +1,4 @@
-import { SelectOption } from '@/src/interfaces/general'
+import { SelectOption } from '@/src/interfaces'
 import GeneralIcons from '@/src/icons/general'
 import Paragraph from '@/src/components/core/typography/Paragraph'
 

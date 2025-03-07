@@ -1,7 +1,7 @@
 import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectModal } from '@/src/state/shared/modal'
 import ModalConfiguration, { ModalVariant } from './partials/ModalConfiguration'
-import { ModalEnums } from '@/src/enum/modal'
+import { ModalEnums } from '@/src/enum'
 import AddCemeteryModal from './cemeteries/AddCemeteryModal'
 import EditCemeteryModal from './cemeteries/EditCemeteryModal'
 import AddCityModal from './cities/AddCityModal'

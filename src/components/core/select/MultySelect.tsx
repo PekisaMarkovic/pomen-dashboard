@@ -10,7 +10,7 @@ import get from 'lodash.get'
 import SearchIcon from '@/public/images/general/search.svg'
 import { useTranslation } from 'react-i18next'
 import { OVERFLOW_OPTION } from '@/src/constatns/select'
-import { Nullable, SelectOption } from '@/src/interfaces/general'
+import { Nullable, SelectOption } from '@/src/interfaces'
 import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
 import { handleAllowScroll, handleDisableScroll } from '@/src/state/shared/behaviours'
 

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { OrderStatusEnum } from '@/src/enum/order'
+import { OrderStatusEnum } from '@/src/enum'
 
 interface OrderTableStatusProps {
   status: OrderStatusEnum

@@ -1,7 +1,7 @@
 import FileApis from '@/src/api/files'
 import { FileTypeEnum, SaveDisabledEnums } from '@/src/enum'
 import { useApi } from '@/src/hooks/use-api'
-import { ICreateFile } from '@/src/interfaces/image'
+import { ICreateFile } from '@/src/interfaces'
 import GeneralLayout from '@/src/layouts/GeneralLayout'
 import UserInfo from '@/src/pages/profile/partials/UserInfo'
 import { FieldValues, SubmitHandler } from 'react-hook-form'

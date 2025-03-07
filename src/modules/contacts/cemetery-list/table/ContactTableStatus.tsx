@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ContactStatusEnum } from '@/src/enum/contact'
+import { ContactStatusEnum } from '@/src/enum'
 
 interface ContactTableStatusProps {
   status: ContactStatusEnum

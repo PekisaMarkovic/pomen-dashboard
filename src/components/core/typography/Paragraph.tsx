@@ -1,4 +1,4 @@
-import { Color, FontFamily, FontSize, FontWeight, Spacing } from '@/src/interfaces/general'
+import { Color, FontFamily, FontSize, FontWeight, Spacing } from '@/src/interfaces'
 import { MouseEventHandler, ReactNode } from 'react'
 
 type Props = {

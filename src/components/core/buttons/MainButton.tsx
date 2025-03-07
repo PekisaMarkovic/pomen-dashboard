@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { style } from '@/src/components/core/buttons/style'
-import { FontFamily } from '@/src/interfaces/general'
+import { FontFamily } from '@/src/interfaces'
 import GeneralIcons from '@/src/icons/general'
 
 export type Variant = 'contained' | 'outlined' | 'text' | 'alternative' | 'primary' | 'error'

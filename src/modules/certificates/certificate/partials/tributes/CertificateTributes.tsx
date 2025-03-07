@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-
 import { useSearchParams } from 'react-router-dom'
 import TributesApis from '@/src//api/tributes'
 import { useAppDispatch, useAppSelector } from '@/src//state/redux-hooks/reduxHooks'
@@ -10,9 +9,8 @@ import CertificatesApis from '@/src//api/certificates'
 import customToast from '@/src//components/core/toast/CustomToast'
 import { selectCertificates, setCertificateDropdownOptions } from '@/src/state/shared/certificates'
 import DataSection from '@/src/components/section/DataSection'
-import { ModalEnums } from '@/src/enum/modal'
-import { ITribute } from '@/src/interfaces/tributes'
-import { Paginated } from '@/src/interfaces/general'
+import { ModalEnums } from '@/src/enum'
+import { ITribute, Paginated } from '@/src/interfaces'
 import TributesTop from '@/src/modules/tributes/tributes-list/partials/TributesTop'
 import TributeTable from '@/src/modules/tributes/tributes-list/table/TributeTable'
 

@@ -1,4 +1,4 @@
-import { TributeStatusEnum } from '@/src/enum/tribute'
+import { TributeStatusEnum } from '@/src/enum'
 import { ICertificate } from '@/src/interfaces/certificate'
 import { Nullable } from '@/src/interfaces/general'
 

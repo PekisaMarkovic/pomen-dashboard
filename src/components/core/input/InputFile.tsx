@@ -5,16 +5,14 @@ import { useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useApi } from '@/src/hooks/use-api'
 import InputIcon from '@/src/icons/input'
-import { Spacing } from '@/src/interfaces/general'
+import { Spacing, IFile } from '@/src/interfaces'
 import { onSingleFileInput } from '@/src/utils/files'
 import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { style } from '@/src/components/core/input/InputFileStyle'
 import customToast from '@/src/components/core/toast/CustomToast'
-import { IFile } from '@/src/interfaces/image'
-import { FileTypeEnum } from '@/src/enum/file'
+import { FileTypeEnum, SaveDisabledEnums } from '@/src/enum'
 import { handleAllowSave, handleDisableSave } from '@/src/state/shared/behaviours'
 import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
-import { SaveDisabledEnums } from '@/src/enum/behaviour'
 
 type Props = {
   placeholderGreen?: string

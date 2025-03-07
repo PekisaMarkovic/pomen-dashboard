@@ -18,10 +18,9 @@ import CertificateFiles from '@/src/modules/certificates/certificate/partials/Ce
 import CertificateLifeDetails from '@/src/modules/certificates/certificate/partials/CertificateLifeDetails'
 import CertificateTabs from '@/src/modules/certificates/certificate/partials/CertificateTabs'
 import FileApis from '@/src/api/files'
-import { ICreateFile, IFile } from '@/src/interfaces/image'
-import { FileTypeEnum } from '@/src/enum/file'
+import { ICreateFile, IFile } from '@/src/interfaces'
+import { FileTypeEnum, SaveDisabledEnums } from '@/src/enum'
 import { handleAllowSave, handleDisableSave } from '@/src/state/shared/behaviours'
-import { SaveDisabledEnums } from '@/src/enum/behaviour'
 
 const SingleCertificate = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)

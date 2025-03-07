@@ -7,7 +7,7 @@ import { mapCemeteryDropdownToSelectOptions, mapCityDropdownToSelectOptions } fr
 import { selectCities } from '@/src/state/shared/cities'
 import { useFormContext, useWatch } from 'react-hook-form'
 import { useEffect, useState } from 'react'
-import { SelectOption } from '@/src/interfaces/general'
+import { SelectOption } from '@/src/interfaces'
 
 const CertificateCemeteryDetails = () => {
   const cityOption = useWatch({ name: 'city' })

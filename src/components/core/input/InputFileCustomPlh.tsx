@@ -7,7 +7,7 @@ import Elipse from '@/public/images/case-study/client.png'
 import get from 'lodash.get'
 import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
-import { FileTypeEnum } from '@/src/enum/file'
+import { FileTypeEnum } from '@/src/enum'
 
 type Props = {
   maxSize: number

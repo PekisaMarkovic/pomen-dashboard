@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import { Route, Routes as Switch } from 'react-router-dom'
 import { ROUTE_NAMES } from '@/src/constatns/a-routes'
-import { RoleEnums } from '@/src/enum/user'
+import { RoleEnums } from '@/src/enum'
 import CemeteriesPage from '@/src/pages/cemeteries/CemeteriesPage'
 import CertificatesPage from '@/src/pages/certificates/CertificatesPage'
 import NewCertificateManagementPage from '@/src/pages/certificates/NewCertificateManagementPage'

@@ -1,7 +1,7 @@
 import MainButton from '@/src/components/core/buttons/MainButton'
 import Heading from '@/src/components/core/typography/Heading'
 import { BlogContentTypeEnum } from '@/src/enum'
-import { IBlogContentEdit } from '@/src/interfaces/blogs'
+import { IBlogContentEdit } from '@/src/interfaces'
 import { mapBlogContentTypeToSelectOptions } from '@/src/mapper/options'
 import { useCallback } from 'react'
 import { useFormContext, useWatch } from 'react-hook-form'

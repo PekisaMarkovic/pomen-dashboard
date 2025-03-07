@@ -1,4 +1,4 @@
-import { Color } from '@/src/interfaces/general'
+import { Color } from '@/src/interfaces'
 import Divider from '@/src/components/core/divider/Divider'
 
 type Props = {

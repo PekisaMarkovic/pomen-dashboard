@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, ReactNode } from 'react'
-import { Color } from '@/src/interfaces/general'
+import { Color } from '@/src/interfaces'
 
 export type CustomDropdownLink = {
   type: 'link'

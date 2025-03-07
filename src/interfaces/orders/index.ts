@@ -1,4 +1,4 @@
-import { OrderStatusEnum } from '@/src/enum/order'
+import { OrderStatusEnum } from '@/src/enum'
 import { ICertificate } from '@/src/interfaces/certificate'
 import { ICity } from '@/src/interfaces/cities'
 import { Nullable } from '@/src/interfaces/general'

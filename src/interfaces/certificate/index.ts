@@ -1,4 +1,4 @@
-import { ICemetery } from '@/src/interfaces/cemeteries'
+import { ICemetery } from '@/src/interfaces'
 import { LocationPoint, Nullable } from '@/src/interfaces/general'
 import { IGethering } from '@/src/interfaces/getherings'
 import { IFile } from '@/src/interfaces/image'

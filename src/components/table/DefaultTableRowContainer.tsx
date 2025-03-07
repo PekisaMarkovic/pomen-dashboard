@@ -1,6 +1,6 @@
 import { PropsWithChildren, useCallback, useState } from 'react'
 import GeneralIcons from '@/src/icons/general'
-import { CustomDropdown } from '@/src/interfaces/dropdown'
+import { CustomDropdown } from '@/src/interfaces'
 import { useClickAway } from '@/src/hooks/use-click-outside'
 import CustomDropdowns from '@/src/components/core/dropdowns/CustomDropdowns'
 

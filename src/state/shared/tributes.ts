@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Nullable, Paginated } from '@/src/interfaces/general'
 import { State as AppState } from '@/src/state/store'
-import { ITribute } from '@/src/interfaces/tributes'
+import { ITribute, Nullable, Paginated } from '@/src/interfaces'
 
 type State = {
   tributes: Nullable<Paginated<ITribute>>

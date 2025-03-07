@@ -12,7 +12,7 @@ import GetheringsTable from './table/GetheringsTable'
 import { setCityDropdownOptions } from '@/src/state/shared/cities'
 import CitiesApis from '@/src/api/cities'
 import { useSearchParams } from 'react-router-dom'
-import { ModalEnums } from '@/src/enum/modal'
+import { ModalEnums } from '@/src/enum'
 
 const AllGetherings = () => {
   const [searchParams] = useSearchParams()

@@ -10,7 +10,7 @@ import TributeTable from './table/TributeTable'
 import CertificatesApis from '@/src/api/certificates'
 import { setCertificateDropdownOptions } from '@/src/state/shared/certificates'
 import { useSearchParams } from 'react-router-dom'
-import { ModalEnums } from '@/src/enum/modal'
+import { ModalEnums } from '@/src/enum'
 
 const AllTributes = () => {
   const [searchParams] = useSearchParams()

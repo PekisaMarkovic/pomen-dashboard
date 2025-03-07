@@ -1,4 +1,4 @@
-import { TokenData } from '@/src/interfaces/user'
+import { TokenData } from '@/src/interfaces'
 import { store } from '@/src/state/store'
 import { setUserData } from '@/src/state/user/authSlice'
 import { decodeToken, setLocalStorageTokens } from './token'

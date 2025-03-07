@@ -14,7 +14,7 @@ import InputTextarea from '@/src/components/core/input/InputTextarea'
 import SingleSelect from '@/src/components/core/select/SingleSelect'
 import customToast from '@/src/components/core/toast/CustomToast'
 import Heading from '@/src/components/core/typography/Heading'
-import { TributeStatusEnum } from '@/src/enum/tribute'
+import { TributeStatusEnum } from '@/src/enum'
 
 const AddTributesModal = () => {
   const methods = useForm({ resolver: CREATE_TRIBUTE_VALIDATION })

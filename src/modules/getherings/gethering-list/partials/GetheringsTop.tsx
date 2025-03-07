@@ -4,7 +4,7 @@ import InputTextSearch from '@/src/components/core/input/InputTextSearch'
 import MainButton from '@/src/components/core/buttons/MainButton'
 import { setModal } from '@/src/state/shared/modal'
 import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
-import { ModalEnums } from '@/src/enum/modal'
+import { ModalEnums } from '@/src/enum'
 
 interface GetheringsTopProps {
   type: ModalEnums.ADD_GETHERING | ModalEnums.ADD_GETHERING_FOR_CERTIFICAT

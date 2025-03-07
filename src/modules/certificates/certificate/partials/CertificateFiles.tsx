@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import DataSection from '@/src/components/section/DataSection'
-import { FileTypeEnum } from '@/src/enum/file'
+import { FileTypeEnum } from '@/src/enum'
 import InputFile from '@/src/components/core/input/InputFile'
 import MultyInputFile from '@/src/components/core/input/MultyInputFile'
 

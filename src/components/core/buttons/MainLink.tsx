@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { Size, Variant } from './MainButton'
 import { Link } from 'react-router-dom'
 import { style } from '@/src/components/core/buttons/style'
-import { FontFamily } from '@/src/interfaces/general'
+import { FontFamily } from '@/src/interfaces'
 
 type Props = {
   className?: string

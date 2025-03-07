@@ -1,5 +1,5 @@
-import { FontFamily } from '@/src/interfaces/general'
-import { Size, Variant } from './MainButton'
+import { FontFamily } from '@/src/interfaces'
+import { Size, Variant } from '@/src/components/core/buttons/MainButton'
 
 export const style = ({
   fontFamily,

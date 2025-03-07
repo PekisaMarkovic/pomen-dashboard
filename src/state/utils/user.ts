@@ -1,4 +1,4 @@
-import { RoleEnums } from '@/src/enum/user'
+import { RoleEnums } from '@/src/enum'
 import { store } from '@/src/state/store'
 
 export const getUserRoles = () => {

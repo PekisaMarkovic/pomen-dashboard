@@ -1,5 +1,5 @@
-import { Nullable } from '@/src/interfaces/general'
-import { InputVaraint } from './InputText'
+import { Nullable } from '@/src/interfaces'
+import { InputVaraint } from '@/src/components/core/input/InputText'
 
 export const inputTextStyle = ({
   error,

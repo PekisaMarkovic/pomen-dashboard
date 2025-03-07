@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { selectAuthUser } from '@/src/state/user/authSlice'
 import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
-import { RoleEnums } from '@/src/enum/user'
+import { RoleEnums } from '@/src/enum'
 import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 
 type Props = {

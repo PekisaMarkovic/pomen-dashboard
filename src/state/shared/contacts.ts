@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { IContact, IUpdateContactStatus } from '@/src/interfaces/contacts'
-import { Nullable, Paginated } from '@/src/interfaces/general'
+import { IContact, IUpdateContactStatus, Nullable, Paginated } from '@/src/interfaces'
 import { State as AppState } from '@/src/state/store'
 
 type State = {

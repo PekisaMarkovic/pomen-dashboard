@@ -1,34 +1,32 @@
-import { ICemeteryOption } from '@/src/interfaces/cemeteries'
-import { ICertificateOption } from '@/src/interfaces/certificate'
-import { ICityOption } from '@/src/interfaces/cities'
-import { ICountryOption } from '@/src/interfaces/country'
-import { SelectOption } from '@/src/interfaces/general'
-import { BlogContentTypeEnum } from '../enum'
+import { ICemeteryOption, ICertificateOption, ICityOption, ICountryOption, SelectOption } from '@/src/interfaces'
+import { BlogContentTypeEnum } from '@/src/enum'
 
-export const mapCountryDropdownToSelectOptions = (options: ICountryOption[]): SelectOption[] =>
-  options.map((opt) => {
-    return { id: `${opt.countryId}`, name: opt.name, value: opt.code }
-  })
+export const mapSingleCountryDropdownToSelectOption = (opt: ICountryOption) => ({ id: `${opt.countryId}`, name: opt.name, value: opt.code })
 
-export const mapCityDropdownToSelectOptions = (options: ICityOption[]): SelectOption[] =>
-  options.map((opt) => {
-    return { id: `${opt.cityId}`, name: opt.name, value: opt.slug }
-  })
+export const mapCountryDropdownToSelectOptions = (options: ICountryOption[]): SelectOption[] => options.map(mapSingleCountryDropdownToSelectOption)
+
+export const mapSingleCityDropdownToSelectOptions = (opt: ICityOption) => ({ id: `${opt.cityId}`, name: opt.name, value: opt.slug })
+
+export const mapCityDropdownToSelectOptions = (options: ICityOption[]): SelectOption[] => options.map(mapSingleCityDropdownToSelectOptions)
+
+export const mapSingleCityDropdownToSelectOptionsCountry = (opt: ICityOption) => ({ id: `${opt.cityId}`, name: opt.name, value: `${opt.countryId}` })
 
 export const mapCityDropdownToSelectOptionsCountry = (options: ICityOption[]): SelectOption[] =>
-  options.map((opt) => {
-    return { id: `${opt.cityId}`, name: opt.name, value: `${opt.countryId}` }
-  })
+  options.map(mapSingleCityDropdownToSelectOptionsCountry)
+
+export const mapSingleCertificateDropdownToSelectOptions = (opt: ICertificateOption) => ({
+  id: `${opt.certificateId}`,
+  name: opt.name,
+  value: opt.slug,
+})
 
 export const mapCertificateDropdownToSelectOptions = (options: ICertificateOption[]): SelectOption[] =>
-  options.map((opt) => {
-    return { id: `${opt.certificateId}`, name: opt.name, value: opt.slug }
-  })
+  options.map(mapSingleCertificateDropdownToSelectOptions)
+
+export const mapSingleCemeteryDropdownToSelectOptions = (opt: ICemeteryOption) => ({ id: `${opt.cemeteryId}`, name: opt.name, value: opt.slug })
 
 export const mapCemeteryDropdownToSelectOptions = (options: ICemeteryOption[]): SelectOption[] =>
-  options.map((opt) => {
-    return { id: `${opt.cemeteryId}`, name: opt.name, value: opt.slug }
-  })
+  options.map(mapSingleCemeteryDropdownToSelectOptions)
 
 export const mapBlogContentTypeToSelectOptions = (excludeTitle: boolean = false): SelectOption[] =>
   Object.entries(BlogContentTypeEnum)

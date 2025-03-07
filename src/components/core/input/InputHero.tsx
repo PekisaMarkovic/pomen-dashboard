@@ -7,7 +7,7 @@ import { useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import ErrorMessage from '@/src/components/core/typography/ErrorMessage'
 import { useDropzone } from 'react-dropzone'
-import { FileTypeEnum } from '@/src/enum/file'
+import { FileTypeEnum } from '@/src/enum'
 
 type Props = {
   placeholderGreen?: string

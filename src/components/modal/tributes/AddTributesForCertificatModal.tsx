@@ -1,7 +1,7 @@
 import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import TributesApis from '@/src/api/tributes'
-import { TributeStatusEnum } from '@/src/enum/tribute'
+import { TributeStatusEnum } from '@/src/enum'
 import { useApi } from '@/src/hooks/use-api'
 import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectCertificates } from '@/src/state/shared/certificates'
