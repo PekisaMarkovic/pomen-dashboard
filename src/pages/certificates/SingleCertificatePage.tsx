@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHoo
 import { selectCemeteries, setCemeteryDropdownOptions } from '@/src/state/shared/cemeteries'
 import { selectCertificates, setToEditCertificate, setToEditCertificateFiles } from '@/src/state/shared/certificates'
 import { selectCities, setCityDropdownOptions } from '@/src/state/shared/cities'
+import { EDIT_CERTIFICATE_VALIDATION } from '@/src/validations/certificates/edit-certificate-with-user'
 
 const SingleCertificatePage = () => {
   const { toEditCertificate, toEditCertificateFiles } = useAppSelector(selectCertificates)
@@ -74,6 +75,7 @@ const SingleCertificateForm = () => {
       cemeteriesOptions: cemeteriesOptions.options,
       certificateFile: toEditCertificateFiles!,
     }),
+    resolver: EDIT_CERTIFICATE_VALIDATION,
   })
 
   return (

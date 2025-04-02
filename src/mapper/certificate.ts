@@ -29,7 +29,7 @@ export const mapCertificateToEdit = ({
     biography: certificate.biography,
     city: foundCity ? mapSingleCityDropdownToSelectOptions(foundCity) : '',
     cemetery: foundCemetery ? mapSingleCemeteryDropdownToSelectOptions(foundCemetery) : '',
-    profileImage: certificate.profileImage,
+    profileImage: certificate.profileImage!,
     videos: certificateFile.videos,
     images: certificateFile.images,
   }

@@ -6,7 +6,7 @@ import { selectCemeteries } from '@/src/state/shared/cemeteries'
 import { mapCemeteryDropdownToSelectOptions, mapCityDropdownToSelectOptions } from '@/src/mapper/options'
 import { selectCities } from '@/src/state/shared/cities'
 import { useFormContext, useWatch } from 'react-hook-form'
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { SelectOption } from '@/src/interfaces'
 
 const CertificateCemeteryDetails = () => {
@@ -17,7 +17,7 @@ const CertificateCemeteryDetails = () => {
   const { t } = useTranslation(['certificate'])
   const { setValue } = useFormContext()
 
-  useEffect(() => {
+  const handleOnSelectCityCallback = useCallback(() => {
     if (cityOption?.id) {
       setValue('cemetery', '')
       setCemeteryOptions(mapCemeteryDropdownToSelectOptions(cemeteryDropdownOptions.options.filter((opt) => opt.cityId === Number(cityOption.id))))
@@ -35,6 +35,7 @@ const CertificateCemeteryDetails = () => {
             options={mapCityDropdownToSelectOptions(cityDropdownOptions.options)}
             label={t('certificate:cemetery.fields.city')}
             placeholder={t('certificate:cemetery.fields.cityPlh')}
+            onClickCallback={handleOnSelectCityCallback}
           />
         )}
 
