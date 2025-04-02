@@ -13,7 +13,7 @@ export const EDIT_CERTIFICATE_VALIDATION = yupResolver(
     profileImage: Yup.object().required('profileImage').typeError('profileImage'),
     dateOfBirth: Yup.date().required('dateOfBirth').typeError('dateOfBirth'),
     dateOfDeath: Yup.date().required('dateOfDeath').typeError('dateOfDeath'),
-    videos: Yup.array().of(Yup.object()).min(1, 'videos').typeError('videos'),
+    videos: Yup.array().of(Yup.object()).typeError('videos'),
     images: Yup.array().of(Yup.object()).min(1, 'images').typeError('images'),
   }),
 )

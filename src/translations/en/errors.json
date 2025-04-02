@@ -37,7 +37,7 @@
     "status": "status",
     "logo": "logo",
     "images": "images, at least one.",
-    "videos": "videos, at least one.",
+    "videos": "videos",
     "numberOfPeople": "number of people",
     "numberOfPeopleNum": "number of people, must be number",
     "reservationDate": "reservation date",
