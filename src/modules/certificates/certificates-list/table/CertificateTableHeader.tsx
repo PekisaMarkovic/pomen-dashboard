@@ -23,8 +23,12 @@ const CertificateTableHeader = () => {
           <Heading text={t('certificate:table.cemetery')} variant="2" size="sm" color="grey" weight="medium" />
         </div>
 
-        <div className="col-span-2">
-          <Heading text={t('certificate:table.biography')} variant="2" size="sm" color="grey" weight="medium" />
+        <div className="flex">
+          <Heading text={t('certificate:table.status')} variant="2" size="sm" color="grey" weight="medium" />
+        </div>
+
+        <div className="flex">
+          <Heading text={t('certificate:table.plan')} variant="2" size="sm" color="grey" weight="medium" />
         </div>
       </div>
     </div>

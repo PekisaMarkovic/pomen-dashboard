@@ -1,9 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import DataSection from '@/src/components/section/DataSection'
 import InputText from '@/src/components/core/input/InputText'
+import SingleSelect from '@/src/components/core/select/SingleSelect'
+import { selectPricings } from '@/src/state/shared/pricings'
+import { mapPricingDropdownToSelectOptions } from '@/src/mapper/options'
+import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 
 const CertificateOrderDetails = () => {
   const { t } = useTranslation(['certificate'])
+  const { dropdownOptions: pricingDropdownOptions } = useAppSelector(selectPricings)
+
   return (
     <DataSection tooltip={t('certificate:order.tooltip')} title={t('certificate:order.title')} subtitle={t('certificate:order.subtitle')}>
       <div className="grid grid-cols-3 gap-x-6 gap-y-4">
@@ -46,6 +52,15 @@ const CertificateOrderDetails = () => {
           placeholder={t('certificate:order.fields.addressOrderPlh')}
           typeHtml="text"
         />
+
+        {pricingDropdownOptions.isLoad && (
+          <SingleSelect
+            name="pricingPlan"
+            options={mapPricingDropdownToSelectOptions(pricingDropdownOptions.options)}
+            label={t('certificate:order.fields.plan')}
+            placeholder={t('certificate:order.fields.planPlh')}
+          />
+        )}
       </div>
     </DataSection>
   )

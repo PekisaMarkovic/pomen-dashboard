@@ -1,11 +1,5 @@
-import { ICemetery } from '@/src/interfaces'
-import { LocationPoint, Nullable } from '@/src/interfaces/general'
-import { IGethering } from '@/src/interfaces/getherings'
-import { IFile } from '@/src/interfaces/image'
-import { IOrder } from '@/src/interfaces/orders'
-import { IQRcode } from '@/src/interfaces/qrcode'
-import { ITribute } from '@/src/interfaces/tributes'
-import { User } from '@/src/interfaces/user'
+import { CertificateStatusEnums } from '@/src/enum'
+import { ICemetery, LocationPoint, Nullable, IGethering, User, ITribute, IFile, IOrder, IQRcode, IPricing } from '@/src/interfaces'
 
 export interface ICertificate {
   certificateId: number
@@ -24,6 +18,8 @@ export interface ICertificate {
   deletedAt: Nullable<Date>
   cemeteryId: number
   cemetery: Nullable<ICemetery>
+  status: CertificateStatusEnums
+  pricing: Nullable<IPricing>
   userId: number
   user: User
   getherings: IGethering[]

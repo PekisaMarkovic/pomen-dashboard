@@ -4,7 +4,15 @@
     "born": "Born",
     "died": "Died",
     "cemetery": "Cemetery",
-    "biography": "Biography"
+    "biography": "Biography",
+    "status": "Status",
+    "plan": "Plan"
+  },
+  "certificate-status": {
+    "draft": "Draft",
+    "completed": "Completed",
+    "published": "Published",
+    "suspended": "Suspended"
   },
   "tabs": {
     "life": "Life",
@@ -84,6 +92,9 @@
     "fields": {
       "firstNameNewUser": "Delivery person first name",
       "firstNameNewUserPlh": "Enter a first name for delivery",
+
+      "plan": "Pricing plan",
+      "planPlh": "Select pricing plan",
 
       "lastNameNewUser": "Delivery person last name",
       "lastNameNewUserPlh": "Enter a last name for delivery",

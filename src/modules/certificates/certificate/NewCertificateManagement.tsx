@@ -17,11 +17,12 @@ const NewCertificateManagement = () => {
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-    const { cemetery, dateOfBirth, dateOfDeath, city, ...rest } = values
+    const { cemetery, dateOfBirth, dateOfDeath, city, pricingPlan, ...rest } = values
 
     try {
       const { data } = await api.post(CertificatesApis.createCertificateNewUser(), {
         cemeteryId: Number(cemetery.id),
+        pricingId: Number(pricingPlan.id),
         ...rest,
         dateOfBirth: formatDateYearMonthDay(dateOfBirth),
         dateOfDeath: formatDateYearMonthDay(dateOfDeath),

@@ -12,6 +12,7 @@ import tributes from '@/src/state/shared/tributes'
 import getherings from '@/src/state/shared/getherings'
 import behaviours from '@/src/state/shared/behaviours'
 import blogs from '@/src/state/shared/blogs'
+import pricings from '@/src/state/shared/pricings'
 
 export const store = configureStore({
   reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
     tributes,
     certificates,
     modal,
+    pricings,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

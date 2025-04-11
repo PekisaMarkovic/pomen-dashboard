@@ -10,6 +10,8 @@ import { useAppDispatch } from '@/src/state/redux-hooks/reduxHooks'
 import { useApi } from '@/src/hooks/use-api'
 import customToast from '@/src/components/core/toast/CustomToast'
 import { useTranslation } from 'react-i18next'
+import PricingsApis from '@/src/api/pricing'
+import { setPricingDropdownOptions } from '@/src/state/shared/pricings'
 
 const NewCertificateManagementPage = () => {
   const methods = useForm({ resolver: CREATE_CERTIFICATE_VALIDATION })
@@ -35,9 +37,19 @@ const NewCertificateManagementPage = () => {
     }
   }, [])
 
+  const fetchPricingPlanDropDown = useCallback(async () => {
+    try {
+      const { data } = await api.get(PricingsApis.getPricingOptions())
+      dispatch(setPricingDropdownOptions(data))
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [])
+
   useEffect(() => {
     fetchCemeteryDropdownOptions()
     fetchCityDropDown()
+    fetchPricingPlanDropDown()
   }, [])
 
   return (

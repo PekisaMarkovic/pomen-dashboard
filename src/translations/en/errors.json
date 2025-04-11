@@ -59,6 +59,7 @@
     "isBold": "is text bolded",
     "blogContentImage": "image",
     "orderParag": "unique order value for each paragraph in content",
-    "orderCont": "unique order value for each content in blog"
+    "orderCont": "unique order value for each content in blog",
+    "pricingPlan": "pricing plan"
   }
 }

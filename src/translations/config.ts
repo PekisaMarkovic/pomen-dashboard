@@ -13,6 +13,7 @@ import enQrcodes from './en/qrcodes/qrcodes.json'
 import enTributes from './en/tributes/tributes.json'
 import enGetherings from './en/getherings/getherings.json'
 import enCertificates from './en/certificates/certificates.json'
+import enPricings from './en/pricing/pricing.json'
 import enBlogs from './en/blogs/blogs.json'
 import profile from './en/user/profile.json'
 
@@ -33,6 +34,7 @@ export const resources = {
     cemetery: enCemeteries,
     er: enErrors,
     user: profile,
+    pricing: enPricings,
   },
 } as const
 

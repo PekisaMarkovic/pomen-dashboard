@@ -12,6 +12,8 @@ import customToast from '@/src/components/core/toast/CustomToast'
 import CertificatesApis from '@/src/api/certificates'
 import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectCertificates, setCertificates } from '@/src/state/shared/certificates'
+import CertificatesTableStatus from '@/src/modules/certificates/certificates-list/table/CertificatesTableStatus'
+import CertificatesTablePricingPackage from '@/src/modules/certificates/certificates-list/table/CertificatesTablePricingPackage'
 
 type Props = {
   certificate: ICertificate
@@ -22,7 +24,7 @@ const CertificateTableRow = ({ certificate }: Props) => {
   const api = useApi()
   const dispatch = useAppDispatch()
   const { certificates } = useAppSelector(selectCertificates)
-  const { biography, dateOfBirth, dateOfDeath, placeOfBirth, placeOfDeath, firstName, lastName, cemetery, location, profileImage, certificateId } =
+  const { status, dateOfBirth, dateOfDeath, placeOfBirth, placeOfDeath, firstName, lastName, cemetery, location, profileImage, certificateId } =
     certificate
   const linkTo = `${ROUTE_NAMES.certificates}/${certificateId}`
 
@@ -81,8 +83,12 @@ const CertificateTableRow = ({ certificate }: Props) => {
         <Paragraph text={`${cemetery?.address}, ${cemetery?.name}, (${location.x}, ${location.y})`} size="sm" color="black" noWrap />
       </Link>
 
-      <Link to={linkTo} className="col-span-2 gap-x-2 py-4">
-        <Paragraph text={biography} size="sm" color="black" noWrap />
+      <Link to={linkTo} className="gap-x-2 py-4 pr-2">
+        <CertificatesTableStatus status={status} />
+      </Link>
+
+      <Link to={linkTo} className="gap-x-2 py-4 pr-2">
+        {certificate.pricing?.plan ? <CertificatesTablePricingPackage plan={certificate.pricing?.plan} /> : '-'}
       </Link>
     </DefaultTableRowContainer>
   )

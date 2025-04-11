@@ -1,4 +1,4 @@
-import { ICemeteryOption, ICertificateOption, ICityOption, ICountryOption, SelectOption } from '@/src/interfaces'
+import { ICemeteryOption, ICertificateOption, ICityOption, ICountryOption, IPricingOption, SelectOption } from '@/src/interfaces'
 import { BlogContentTypeEnum } from '@/src/enum'
 
 export const mapSingleCountryDropdownToSelectOption = (opt: ICountryOption) => ({ id: `${opt.countryId}`, name: opt.name, value: opt.code })
@@ -7,7 +7,15 @@ export const mapCountryDropdownToSelectOptions = (options: ICountryOption[]): Se
 
 export const mapSingleCityDropdownToSelectOptions = (opt: ICityOption) => ({ id: `${opt.cityId}`, name: opt.name, value: opt.slug })
 
+export const mapSinglePricingDropdownToSelectOptions = (opt: IPricingOption) => ({
+  id: `${opt.pricingId}`,
+  name: `${opt.plan}`,
+  value: `${opt.price}`,
+})
+
 export const mapCityDropdownToSelectOptions = (options: ICityOption[]): SelectOption[] => options.map(mapSingleCityDropdownToSelectOptions)
+
+export const mapPricingDropdownToSelectOptions = (options: IPricingOption[]): SelectOption[] => options.map(mapSinglePricingDropdownToSelectOptions)
 
 export const mapSingleCityDropdownToSelectOptionsCountry = (opt: ICityOption) => ({ id: `${opt.cityId}`, name: opt.name, value: `${opt.countryId}` })
 

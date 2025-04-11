@@ -15,6 +15,7 @@ export const CREATE_CERTIFICATE_VALIDATION = yupResolver(
     lastName: Yup.string().typeError('lastName').required('lastName'),
     city: Yup.object().optional(),
     cemetery: Yup.object().required('cemetery'),
+    pricingPlan: Yup.object().required('pricingPlan'),
     dateOfBirth: Yup.date().required('dateOfBirth').typeError('dateOfBirth'),
     dateOfDeath: Yup.date().required('dateOfDeath').typeError('dateOfDeath'),
   }),
