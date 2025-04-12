@@ -31,7 +31,7 @@ const CertificatesTablePricingPackage = ({ plan }: CertificatesTablePricingPacka
         </p>
       )
 
-    case PricingPackagesEnums.BEGINNER:
+    case PricingPackagesEnums.BASIC:
       return (
         <p className="font-poppins bg-orange-transparent border-1 border-solid border-orange flex items-center justify-center rounded-xs text-orange text-sm h-7 px-2">
           {text}

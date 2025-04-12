@@ -1,7 +1,7 @@
 {
   "pricing-package-plan": {
     "free": "Free",
-    "beginner": "Beginner",
+    "basic": "basic",
     "standard": "Standard",
     "premium": "Premium"
   }

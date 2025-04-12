@@ -1,6 +1,6 @@
 export enum PricingPackagesEnums {
   FREE = 'free',
-  BEGINNER = 'beginner',
+  BASIC = 'basic',
   STANDARD = 'standard',
   PREMIUM = 'premium',
 }
