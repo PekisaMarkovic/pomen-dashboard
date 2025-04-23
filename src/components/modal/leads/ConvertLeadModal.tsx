@@ -14,7 +14,11 @@ import customToast from '@/src/components/core/toast/CustomToast'
 import SingleSelect from '../../core/select/SingleSelect'
 import { selectPricings } from '@/src/state/shared/pricings'
 import { mapPricingDropdownToSelectOptions } from '@/src/mapper/options'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { ICertificate, Nullable } from '@/src/interfaces'
+import CertificatesApis from '@/src/api/certificates'
+import { useNavigate } from 'react-router-dom'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 
 const ConvertLeadModal = () => {
   const { toConvertLead } = useAppSelector(selectLeads)
@@ -36,23 +40,44 @@ const ConvertLeadModal = () => {
 }
 
 const ConvertLeadModalForm = () => {
+  const [certificate, setCertificate] = useState<Nullable<ICertificate>>(null)
   const { toConvertLead } = useAppSelector(selectLeads)
   const { t } = useTranslation(['leads', 'g'])
   const { handleSubmit } = useFormContext()
   const dispatch = useAppDispatch()
   const api = useApi()
   const { dropdownOptions } = useAppSelector(selectPricings)
+  const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     try {
-      await api.patch(LeadsApis.patchLeadStatus(toConvertLead!.leadId), { status: LeadStatusEnums.CONVERTED })
-      dispatch(updateLeadsStatus({ leadId: toConvertLead!.leadId, status: LeadStatusEnums.CONVERTED }))
+      if (toConvertLead?.status !== LeadStatusEnums.CONVERTED) {
+        await api.patch(LeadsApis.patchLeadStatus(toConvertLead!.leadId), { status: LeadStatusEnums.CONVERTED })
+        dispatch(updateLeadsStatus({ leadId: toConvertLead!.leadId, status: LeadStatusEnums.CONVERTED }))
+        navigate(`${ROUTE_NAMES.convertLead}/${toConvertLead?.leadId}`)
+      } else {
+        navigate(`${ROUTE_NAMES.certificates}/${certificate?.certificateId}`)
+      }
     } catch {
       customToast.error(t('g:errorMessage'))
     }
   }
 
+  const fetchConvertedCertificate = useCallback(async () => {
+    try {
+      if (toConvertLead?.status === LeadStatusEnums.CONVERTED) {
+        const { data } = await api.get<ICertificate>(CertificatesApis.getCertificatesByLeadId(toConvertLead!.leadId))
+
+        setCertificate(data)
+      }
+    } catch {
+      customToast.error(t('g:errorMessage'))
+    }
+  }, [toConvertLead])
+
   useEffect(() => {
+    fetchConvertedCertificate()
+
     return () => {
       dispatch(removeToConvertLead())
     }

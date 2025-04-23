@@ -4,6 +4,7 @@ const getCertificatesById = (id: number) => `${base}/${id}`
 const patchCertificate = (id: number) => `${base}/${id}`
 const deleteCertificate = (id: number) => `${base}/${id}`
 const getCertificatesBySlug = (slug: string) => `${base}/slug/${slug}`
+const getCertificatesByLeadId = (leadId: number) => `${base}/lead/${leadId}`
 const getCertificates = () => `${base}`
 const createCertificate = () => `${base}`
 const createCertificateNewUser = () => `${base}/new-user`
@@ -16,6 +17,7 @@ const CertificatesApis = {
   patchCertificate,
   getCertificatesBySlug,
   createCertificate,
+  getCertificatesByLeadId,
   getCertificateOptions,
   createCertificateNewUser,
 }

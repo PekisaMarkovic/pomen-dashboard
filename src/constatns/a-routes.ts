@@ -3,6 +3,7 @@ export const ROUTE_NAMES = {
   dashboard: '/dashboard',
   countries: '/countries',
   leads: '/leads',
+  convertLead: '/convert-lead/:id',
   cities: '/cities',
   cemeteries: '/cemeteries',
   orderes: '/orderes',
