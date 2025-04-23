@@ -2,6 +2,7 @@ export const ROUTE_NAMES = {
   index: '/',
   dashboard: '/dashboard',
   countries: '/countries',
+  leads: '/leads',
   cities: '/cities',
   cemeteries: '/cemeteries',
   orderes: '/orderes',

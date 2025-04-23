@@ -8,6 +8,7 @@ import MailIcon from '@/src/icons/navigation/MailIcon'
 import OrderIcon from '@/src/icons/navigation/OrderIcon'
 import QRIcon from '@/src/icons/navigation/QRIcon'
 import TributeIcon from '@/src/icons/navigation/TributeIcon'
+import LeadsIcon from '@/src/icons/navigation/LeadsIcon'
 import BlogIcon from './BlogIcon'
 
 export type NavigationIconType =
@@ -16,6 +17,7 @@ export type NavigationIconType =
   | 'Getherings'
   | 'Dashboard'
   | 'Country'
+  | 'Lead'
   | 'Certificate'
   | 'QR'
   | 'Cemetery'
@@ -36,6 +38,8 @@ const NavigationIcons = ({ type, ...rest }: Props) => {
       return <GetheringIcon {...rest} />
     case 'QR':
       return <QRIcon {...rest} />
+    case 'Lead':
+      return <LeadsIcon {...rest} />
     case 'Country':
       return <CountryIcon {...rest} />
     case 'Cemetery':

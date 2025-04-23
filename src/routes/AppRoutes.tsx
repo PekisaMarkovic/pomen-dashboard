@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-
 import { Route, Routes as Switch } from 'react-router-dom'
 import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 import { RoleEnums } from '@/src/enum'
@@ -26,6 +25,7 @@ import ContactsPage from '@/src/pages/contacts/ContactsPage'
 import SingleBlogPage from '@/src/pages/blogs/SingleBlogPage'
 import BlogsPage from '@/src/pages/blogs/BlogsPage'
 import UserProfilePage from '@/src/pages/profile/UserProfilePage'
+import LeadPage from '@/src/pages/leads/LeadsPage'
 
 const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -40,11 +40,6 @@ const AppRoutes = () => {
     {
       path: ROUTE_NAMES.index,
       element: <LogInPage />,
-    },
-
-    {
-      path: ROUTE_NAMES.createCertificate,
-      element: <div>TODO</div>,
     },
 
     {
@@ -98,6 +93,15 @@ const AppRoutes = () => {
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <OrdersPage />
+        </ProtectedRoute>
+      ),
+    },
+
+    {
+      path: ROUTE_NAMES.leads,
+      element: (
+        <ProtectedRoute allowedRoles={ALL_ROLES}>
+          <LeadPage />
         </ProtectedRoute>
       ),
     },

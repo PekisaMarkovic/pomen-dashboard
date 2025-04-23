@@ -1,21 +1,22 @@
 import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectModal } from '@/src/state/shared/modal'
-import ModalConfiguration, { ModalVariant } from './partials/ModalConfiguration'
+import ModalConfiguration, { ModalVariant } from '@/src/components/modal/partials/ModalConfiguration'
 import { ModalEnums } from '@/src/enum'
-import AddCemeteryModal from './cemeteries/AddCemeteryModal'
-import EditCemeteryModal from './cemeteries/EditCemeteryModal'
-import AddCityModal from './cities/AddCityModal'
-import EditCityModal from './cities/EditCityModal'
-import AddCountryModal from './countries/AddCountryModal'
-import EditCountryModal from './countries/EditCountryModal'
-import AddGetheringModal from './getherings/AddGetheringModal'
-import EditGetheringModal from './getherings/EditGetheringModal'
-import AddTributesModal from './tributes/AddTributesModal'
-import EditTributeModal from './tributes/EditTributeModal'
-import AddTributesForCertificatModal from './tributes/AddTributesForCertificatModal'
-import AddGetheringForCertifivateModal from './getherings/AddGetheringForCertifivateModal'
-import ShowQRcodeModal from './qrcode/ShowQRcodeModal'
-import AddBlogModal from './blogs/AddBlogModal'
+import AddCemeteryModal from '@/src/components/modal/cemeteries/AddCemeteryModal'
+import EditCemeteryModal from '@/src/components/modal/cemeteries/EditCemeteryModal'
+import AddCityModal from '@/src/components/modal/cities/AddCityModal'
+import EditCityModal from '@/src/components/modal/cities/EditCityModal'
+import AddCountryModal from '@/src/components/modal/countries/AddCountryModal'
+import EditCountryModal from '@/src/components/modal/countries/EditCountryModal'
+import AddGetheringModal from '@/src/components/modal/getherings/AddGetheringModal'
+import EditGetheringModal from '@/src/components/modal/getherings/EditGetheringModal'
+import AddTributesModal from '@/src/components/modal/tributes/AddTributesModal'
+import EditTributeModal from '@/src/components/modal/tributes/EditTributeModal'
+import AddTributesForCertificatModal from '@/src/components/modal/tributes/AddTributesForCertificatModal'
+import AddGetheringForCertifivateModal from '@/src/components/modal/getherings/AddGetheringForCertifivateModal'
+import ShowQRcodeModal from '@/src/components/modal/qrcode/ShowQRcodeModal'
+import AddBlogModal from '@/src/components/modal/blogs/AddBlogModal'
+import ConvertLeadModal from '@/src/components/modal/leads/ConvertLeadModal'
 
 type Props = {
   variant?: ModalVariant
@@ -43,6 +44,9 @@ const MainModal = ({ variant }: Props) => {
 
       case ModalEnums.EDIT_CEMETERY:
         return <EditCemeteryModal />
+
+      case ModalEnums.CONVERT_LEAD:
+        return <ConvertLeadModal />
 
       case ModalEnums.ADD_GETHERING:
         return <AddGetheringModal />

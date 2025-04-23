@@ -13,11 +13,13 @@ import getherings from '@/src/state/shared/getherings'
 import behaviours from '@/src/state/shared/behaviours'
 import blogs from '@/src/state/shared/blogs'
 import pricings from '@/src/state/shared/pricings'
+import leads from '@/src/state/shared/leads'
 
 export const store = configureStore({
   reducer: {
     auth,
     countries,
+    leads,
     cities,
     behaviours,
     blogs,

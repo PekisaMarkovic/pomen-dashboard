@@ -1,0 +1,63 @@
+{
+  "table": {
+    "name": "name",
+    "address": "address",
+    "email": "email",
+    "phoneNumber": "phoneNumber",
+    "status": "status",
+    "createdAt": "createdAt",
+    "note": "note"
+  },
+
+  "leads-status": {
+    "new": "New",
+    "discarded": "Discarded",
+    "in.progress": "In progress",
+    "converted": "Converted"
+  },
+
+  "add": {
+    "title": "Create a Certificate from Lead",
+
+    "fields": {
+      "firstName": "First Name",
+      "firstNamePlh": "Enter a First Name",
+
+      "firstNameForCertificate": "First Name For Cerficate",
+      "firstNameForCertificatePlh": "Enter a First Name For Certificate",
+
+      "lastNameForCertificate": "Last Name For Cerficate",
+      "lastNameForCertificatePlh": "Enter a Last Name For Certificate",
+
+      "lastName": "Last Name",
+      "lastNamePlh": "Enter a Last Name",
+
+      "phoneNumber": "Phone number",
+      "phoneNumberPlh": "Enter a Phone number",
+
+      "address": "Address",
+      "addressPlh": "Enter a address",
+
+      "email": "email",
+      "emailPlh": "Enter a email",
+
+      "note": "Note",
+      "notePlh": "Enter a Note",
+
+      "createdAt": "Created",
+      "createdAtPlh": "Select a Created",
+
+      "status": "Status",
+      "statusPlh": "Select a Status",
+
+      "pricing": "Pricing",
+      "pricingPlh": "Select a Pricing",
+
+      "dateOfBirth": "Date of birth",
+      "dateOfBirthPlh": "Select a Date of birth",
+
+      "dateOfDeath": "Date of death",
+      "dateOfDeathPlh": "Select a Date of death"
+    }
+  }
+}

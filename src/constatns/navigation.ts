@@ -9,6 +9,7 @@ interface IMenuLink {
 
 export const LEFT_SIDE_MENU_LINKS: IMenuLink[] = [
   { text: 'dashboard', icon: 'Dashboard', link: ROUTE_NAMES.dashboard },
+  { text: 'leads', icon: 'Lead', link: ROUTE_NAMES.leads },
   { text: 'orders', icon: 'Order', link: ROUTE_NAMES.orderes },
   { text: 'certificates', icon: 'Certificate', link: ROUTE_NAMES.certificates },
   { text: 'getherings', icon: 'Getherings', link: ROUTE_NAMES.getherings },
