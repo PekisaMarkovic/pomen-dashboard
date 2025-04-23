@@ -1,24 +1,24 @@
+import CertificatesApis from '@/src/api/certificates'
 import MainButton from '@/src/components/core/buttons/MainButton'
 import InputText from '@/src/components/core/input/InputText'
 import InputTextarea from '@/src/components/core/input/InputTextarea'
-import Heading from '@/src/components/core/typography/Heading'
-import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
-import { removeToConvertLead, selectLeads, updateLeadsStatus } from '@/src/state/shared/leads'
-import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 import DateSelect from '@/src/components/core/select/DateSelect'
-import LeadsApis from '@/src/api/leads'
+import customToast from '@/src/components/core/toast/CustomToast'
+import Heading from '@/src/components/core/typography/Heading'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 import { LeadStatusEnums } from '@/src/enum'
 import { useApi } from '@/src/hooks/use-api'
-import customToast from '@/src/components/core/toast/CustomToast'
-import SingleSelect from '../../core/select/SingleSelect'
-import { selectPricings } from '@/src/state/shared/pricings'
-import { mapPricingDropdownToSelectOptions } from '@/src/mapper/options'
-import { useCallback, useEffect, useState } from 'react'
 import { ICertificate, Nullable } from '@/src/interfaces'
-import CertificatesApis from '@/src/api/certificates'
+import { mapPricingDropdownToSelectOptions } from '@/src/mapper/options'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { removeToConvertLead, selectLeads } from '@/src/state/shared/leads'
+import { removeModal } from '@/src/state/shared/modal'
+import { selectPricings } from '@/src/state/shared/pricings'
+import { useCallback, useEffect, useState } from 'react'
+import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import SingleSelect from '../../core/select/SingleSelect'
 
 const ConvertLeadModal = () => {
   const { toConvertLead } = useAppSelector(selectLeads)
@@ -52,14 +52,15 @@ const ConvertLeadModalForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     try {
       if (toConvertLead?.status !== LeadStatusEnums.CONVERTED) {
-        await api.patch(LeadsApis.patchLeadStatus(toConvertLead!.leadId), { status: LeadStatusEnums.CONVERTED })
-        dispatch(updateLeadsStatus({ leadId: toConvertLead!.leadId, status: LeadStatusEnums.CONVERTED }))
         navigate(`${ROUTE_NAMES.convertLead}/${toConvertLead?.leadId}`)
       } else {
         navigate(`${ROUTE_NAMES.certificates}/${certificate?.certificateId}`)
       }
     } catch {
       customToast.error(t('g:errorMessage'))
+    } finally {
+      dispatch(removeModal())
+      dispatch(removeToConvertLead())
     }
   }
 
@@ -77,10 +78,6 @@ const ConvertLeadModalForm = () => {
 
   useEffect(() => {
     fetchConvertedCertificate()
-
-    return () => {
-      dispatch(removeToConvertLead())
-    }
   }, [])
 
   return (
