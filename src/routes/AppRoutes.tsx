@@ -26,7 +26,7 @@ import SingleBlogPage from '@/src/pages/blogs/SingleBlogPage'
 import BlogsPage from '@/src/pages/blogs/BlogsPage'
 import UserProfilePage from '@/src/pages/profile/UserProfilePage'
 import LeadPage from '@/src/pages/leads/LeadsPage'
-import ConvertLeadPage from '@/src/pages/leads/LeadsPage'
+import ConvertLeadPage from '@/src/pages/leads/ConvertLeadPage'
 
 const ALL_ROLES = [RoleEnums.USER, RoleEnums.ADMIN, RoleEnums.SUPER_ADMIN]
 
@@ -108,7 +108,7 @@ const AppRoutes = () => {
     },
 
     {
-      path: ROUTE_NAMES.convertLead,
+      path: ROUTE_NAMES.convertLeadById,
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <ConvertLeadPage />
