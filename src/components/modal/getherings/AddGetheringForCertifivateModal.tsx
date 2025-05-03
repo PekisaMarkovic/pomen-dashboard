@@ -1,6 +1,10 @@
-import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 import GetheringsApis from '@/src/api/getherings'
+import MainButton from '@/src/components/core/buttons/MainButton'
+import InputText from '@/src/components/core/input/InputText'
+import DateSelect from '@/src/components/core/select/DateSelect'
+import SingleSelect from '@/src/components/core/select/SingleSelect'
+import customToast from '@/src/components/core/toast/CustomToast'
+import Heading from '@/src/components/core/typography/Heading'
 import { TIME_OPTIONS } from '@/src/constatns/select'
 import { useApi } from '@/src/hooks/use-api'
 import { mapCityDropdownToSelectOptions } from '@/src/mapper/options'
@@ -9,14 +13,10 @@ import { selectCertificates } from '@/src/state/shared/certificates'
 import { selectCities } from '@/src/state/shared/cities'
 import { addNewGethering } from '@/src/state/shared/getherings'
 import { removeModal } from '@/src/state/shared/modal'
-import { formatDateYearMonthDay } from '@/src/utils/date'
+import { formatToIsoDate } from '@/src/utils/date'
 import { CREATE_GETHERING_VALIDATION } from '@/src/validations/getherings/create-gethering'
-import MainButton from '@/src/components/core/buttons/MainButton'
-import InputText from '@/src/components/core/input/InputText'
-import DateSelect from '@/src/components/core/select/DateSelect'
-import SingleSelect from '@/src/components/core/select/SingleSelect'
-import customToast from '@/src/components/core/toast/CustomToast'
-import Heading from '@/src/components/core/typography/Heading'
+import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 const AddGetheringForCertifivateModal = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)
@@ -55,7 +55,7 @@ const AddGetheringForCertifivateModalForm = () => {
       const { data } = await api.post(GetheringsApis.createGethering(), {
         address,
         certificateId: Number(certificate.id),
-        getheringDate: formatDateYearMonthDay(getheringDate),
+        getheringDate: formatToIsoDate(getheringDate),
         hour: Number(selectedHour.value),
       })
 

@@ -1,19 +1,19 @@
-import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 import GetheringsApis from '@/src/api/getherings'
-import { TIME_OPTIONS } from '@/src/constatns/select'
-import { useApi } from '@/src/hooks/use-api'
-import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
-import { removeToEditGethering, selectGetherings, updateGethering } from '@/src/state/shared/getherings'
-import { removeModal } from '@/src/state/shared/modal'
-import { formatDateYearMonthDay } from '@/src/utils/date'
-import { UPDATE_GETHERING_VALIDATION } from '@/src/validations/getherings/update-gethering'
 import MainButton from '@/src/components/core/buttons/MainButton'
 import InputText from '@/src/components/core/input/InputText'
 import DateSelect from '@/src/components/core/select/DateSelect'
 import SingleSelect from '@/src/components/core/select/SingleSelect'
 import customToast from '@/src/components/core/toast/CustomToast'
 import Heading from '@/src/components/core/typography/Heading'
+import { TIME_OPTIONS } from '@/src/constatns/select'
+import { useApi } from '@/src/hooks/use-api'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
+import { removeToEditGethering, selectGetherings, updateGethering } from '@/src/state/shared/getherings'
+import { removeModal } from '@/src/state/shared/modal'
+import { formatToIsoDate } from '@/src/utils/date'
+import { UPDATE_GETHERING_VALIDATION } from '@/src/validations/getherings/update-gethering'
+import { FieldValues, FormProvider, SubmitHandler, useForm, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 const EditGetheringModal = () => {
   const { toEditGethering } = useAppSelector(selectGetherings)
@@ -48,7 +48,7 @@ const EditGetheringModalForm = () => {
     try {
       const { data } = await api.patch(GetheringsApis.patchGethering(toEditGethering!.getheringId), {
         address,
-        getheringDate: formatDateYearMonthDay(getheringDate),
+        getheringDate: formatToIsoDate(getheringDate),
         hour: Number(selectedHour.value),
       })
 
