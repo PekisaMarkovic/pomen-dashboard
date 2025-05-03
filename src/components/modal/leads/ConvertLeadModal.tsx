@@ -53,6 +53,7 @@ const ConvertLeadModalForm = () => {
     try {
       if (toConvertLead?.status !== LeadStatusEnums.CONVERTED) {
         navigate(`${ROUTE_NAMES.convertLead}/${toConvertLead?.leadId}`)
+        dispatch(removeToConvertLead())
       } else {
         navigate(`${ROUTE_NAMES.certificates}/${certificate?.certificateId}`)
       }
@@ -60,7 +61,6 @@ const ConvertLeadModalForm = () => {
       customToast.error(t('g:errorMessage'))
     } finally {
       dispatch(removeModal())
-      dispatch(removeToConvertLead())
     }
   }
 

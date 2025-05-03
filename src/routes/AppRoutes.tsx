@@ -5,7 +5,6 @@ import { RoleEnums } from '@/src/enum'
 import CemeteriesPage from '@/src/pages/cemeteries/CemeteriesPage'
 import CertificatesPage from '@/src/pages/certificates/CertificatesPage'
 import NewCertificateManagementPage from '@/src/pages/certificates/NewCertificateManagementPage'
-import NewCertificatePage from '@/src/pages/certificates/NewCertificatePage'
 import SingleCertificateGetheringsPage from '@/src/pages/certificates/SingleCertificateGetheringsPage'
 import SingleCertificatePage from '@/src/pages/certificates/SingleCertificatePage'
 import SingleCertificateTributesPage from '@/src/pages/certificates/SingleCertificateTributesPage'
@@ -220,15 +219,6 @@ const AppRoutes = () => {
       element: (
         <ProtectedRoute allowedRoles={ALL_ROLES}>
           <SingleCertificatePage />
-        </ProtectedRoute>
-      ),
-    },
-
-    {
-      path: ROUTE_NAMES.newCerificate,
-      element: (
-        <ProtectedRoute allowedRoles={ALL_ROLES}>
-          <NewCertificatePage />
         </ProtectedRoute>
       ),
     },
