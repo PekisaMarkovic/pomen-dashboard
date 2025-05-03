@@ -7,9 +7,9 @@ export const mapToConvertLead = ({ lead, pricingOptions }: { lead: ILead; pricin
   return {
     firstName: lead.firstNameForCertificate,
     lastName: lead.lastNameForCertificate,
-    dateOfBirth: lead.dateOfBirth,
+    dateOfBirth: `${lead.dateOfBirth}`,
+    dateOfDeath: `${lead.dateOfDeath}`,
     placeOfBirth: '',
-    dateOfDeath: lead.dateOfDeath,
     placeOfDeath: '',
     biography: '',
     city: '',

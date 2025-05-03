@@ -61,7 +61,7 @@ const CertificateLifeDetails = () => {
             isRequired
             label={t('certificate:life.fields.biography')}
             placeholder={t('certificate:life.fields.biographyPlh')}
-            maxChar={480}
+            maxChar={5000}
           />
         </div>
       </div>

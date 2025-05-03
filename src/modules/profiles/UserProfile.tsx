@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { handleDisableSave, handleAllowSave } from '@/src/state/shared/behaviours'
 import UserApis from '@/src/api/user'
-import { formatDateYearMonthDay } from '@/src/utils/date'
+import { formatToIsoDate } from '@/src/utils/date'
 import { selectAuthUser, setUserProfileData } from '@/src/state/user/authSlice'
 
 const UserProfile = () => {
@@ -28,7 +28,7 @@ const UserProfile = () => {
 
       await api.patch(UserApis.patchUserProfile(email), {
         ...rest,
-        dateOfBirth: formatDateYearMonthDay(dateOfBirth),
+        dateOfBirth: formatToIsoDate(dateOfBirth),
       })
 
       if (profileImage?.fileId !== null && profileImage?.fileId !== undefined) {

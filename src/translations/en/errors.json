@@ -54,12 +54,17 @@
     "cemetery": "cemetery",
     "biography": "biography",
     "biographyMin": "biography, min lenght 250 characters",
+    "biographyMax": "biography, max lenght 5000 characters",
     "reservationTime": "reservation time",
     "text": "text, max lenght 820 characters",
     "isBold": "is text bolded",
     "blogContentImage": "image",
     "orderParag": "unique order value for each paragraph in content",
     "orderCont": "unique order value for each content in blog",
-    "pricingPlan": "pricing plan"
+    "pricingPlan": "pricing plan",
+    "emailNewUserType": "email",
+    "dateOfDeathMustBeAfterDateOfBirth": "date that isn't before date of birth",
+    "dateOfBirthCannotBeInFuture": "date that isn't in future",
+    "dateOfDeathCannotBeInFuture": "date that isn't in future"
   }
 }

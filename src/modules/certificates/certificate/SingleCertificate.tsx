@@ -1,26 +1,26 @@
-import { useCallback, useEffect } from 'react'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import CemeteriesApis from '@/src/api/cemeteries'
 import CertificatesApis from '@/src/api/certificates'
 import CitiesApis from '@/src/api/cities'
+import FileApis from '@/src/api/files'
 import customToast from '@/src/components/core/toast/CustomToast'
+import { FileTypeEnum, SaveDisabledEnums } from '@/src/enum'
 import { useApi } from '@/src/hooks/use-api'
+import { ICreateFile, IFile } from '@/src/interfaces'
 import GeneralLayout from '@/src/layouts/GeneralLayout'
-import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
-import { setCemeteryDropdownOptions } from '@/src/state/shared/cemeteries'
-import { selectCertificates } from '@/src/state/shared/certificates'
-import { setCityDropdownOptions } from '@/src/state/shared/cities'
-import { formatDateYearMonthDay } from '@/src/utils/date'
 import CertificateCemeteryDetails from '@/src/modules/certificates/certificate/partials/CertificateCemeteryDetails'
 import CertificateFiles from '@/src/modules/certificates/certificate/partials/CertificateFiles'
 import CertificateLifeDetails from '@/src/modules/certificates/certificate/partials/CertificateLifeDetails'
 import CertificateTabs from '@/src/modules/certificates/certificate/partials/CertificateTabs'
-import FileApis from '@/src/api/files'
-import { ICreateFile, IFile } from '@/src/interfaces'
-import { FileTypeEnum, SaveDisabledEnums } from '@/src/enum'
+import { useAppDispatch, useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { handleAllowSave, handleDisableSave } from '@/src/state/shared/behaviours'
+import { setCemeteryDropdownOptions } from '@/src/state/shared/cemeteries'
+import { selectCertificates } from '@/src/state/shared/certificates'
+import { setCityDropdownOptions } from '@/src/state/shared/cities'
+import { formatToIsoDate } from '@/src/utils/date'
+import { useCallback, useEffect } from 'react'
+import { FieldValues, SubmitHandler } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 const SingleCertificate = () => {
   const { toEditCertificate } = useAppSelector(selectCertificates)
@@ -67,8 +67,8 @@ const SingleCertificate = () => {
       await api.patch(CertificatesApis.patchCertificate(toEditCertificate!.certificateId), {
         cemeteryId: Number(cemetery.id),
         ...rest,
-        dateOfBirth: formatDateYearMonthDay(dateOfBirth),
-        dateOfDeath: formatDateYearMonthDay(dateOfDeath),
+        dateOfBirth: formatToIsoDate(dateOfBirth),
+        dateOfDeath: formatToIsoDate(dateOfDeath),
         ...(city ? { cityId: Number(city.id) } : {}),
       })
 

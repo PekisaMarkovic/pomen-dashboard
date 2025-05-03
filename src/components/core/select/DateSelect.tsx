@@ -79,7 +79,6 @@ const DateSelect = ({ label, placeholder, isRequired, name, isDisabled, dateForm
           style={{ width: '100%' }}
         />
 
-        {/* <ReactDatePicker selected={selected} placeholderText={placeholder} onChange={handleOnChange} open={open} dateFormat={dateFormat} /> */}
         <GeneralIcons type="SelectDropdown" className={`${open ? 'rotate-180' : ''}`} />
       </div>
       {open && (

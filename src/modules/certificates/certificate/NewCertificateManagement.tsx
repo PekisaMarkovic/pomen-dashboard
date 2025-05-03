@@ -6,7 +6,7 @@ import customToast from '@/src/components/core/toast/CustomToast'
 import { ROUTE_NAMES } from '@/src/constatns/a-routes'
 import { useApi } from '@/src/hooks/use-api'
 import GeneralLayout from '@/src/layouts/GeneralLayout'
-import { formatDateYearMonthDay } from '@/src/utils/date'
+import { formatToIsoDate } from '@/src/utils/date'
 import CertificateCemeteryDetails from '@/src/modules/certificates/certificate/partials/CertificateCemeteryDetails'
 import CertificateLifeDetails from '@/src/modules/certificates/certificate/partials/CertificateLifeDetails'
 import CertificateOrderDetails from '@/src/modules/certificates/certificate/partials/CertificateOrderDetails'
@@ -24,8 +24,8 @@ const NewCertificateManagement = () => {
         cemeteryId: Number(cemetery.id),
         pricingId: Number(pricingPlan.id),
         ...rest,
-        dateOfBirth: formatDateYearMonthDay(dateOfBirth),
-        dateOfDeath: formatDateYearMonthDay(dateOfDeath),
+        dateOfBirth: formatToIsoDate(dateOfBirth),
+        dateOfDeath: formatToIsoDate(dateOfDeath),
         ...(city ? { cityId: Number(city.id) } : {}),
       })
 

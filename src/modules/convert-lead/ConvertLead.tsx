@@ -1,19 +1,19 @@
+import CertificatesApis from '@/src/api/certificates'
+import LeadsApis from '@/src/api/leads'
+import customToast from '@/src/components/core/toast/CustomToast'
+import { ROUTE_NAMES } from '@/src/constatns/a-routes'
+import { LeadStatusEnums } from '@/src/enum'
+import { useApi } from '@/src/hooks/use-api'
+import GeneralLayout from '@/src/layouts/GeneralLayout'
 import CertificateCemeteryDetails from '@/src/modules/certificates/certificate/partials/CertificateCemeteryDetails'
 import CertificateLifeDetails from '@/src/modules/certificates/certificate/partials/CertificateLifeDetails'
 import CertificateOrderDetails from '@/src/modules/certificates/certificate/partials/CertificateOrderDetails'
-import customToast from '@/src/components/core/toast/CustomToast'
-import { useTranslation } from 'react-i18next'
-import { useApi } from '@/src/hooks/use-api'
-import { useNavigate } from 'react-router-dom'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
-import GeneralLayout from '@/src/layouts/GeneralLayout'
-import { ROUTE_NAMES } from '@/src/constatns/a-routes'
-import { formatDateYearMonthDay } from '@/src/utils/date'
-import CertificatesApis from '@/src/api/certificates'
-import LeadsApis from '@/src/api/leads'
-import { LeadStatusEnums } from '@/src/enum'
 import { useAppSelector } from '@/src/state/redux-hooks/reduxHooks'
 import { selectLeads } from '@/src/state/shared/leads'
+import { formatToIsoDate } from '@/src/utils/date'
+import { FieldValues, SubmitHandler } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 const ConvertLead = () => {
   const { t } = useTranslation(['g'])
@@ -30,8 +30,8 @@ const ConvertLead = () => {
         pricingId: Number(pricingPlan.id),
         leadId: toConvertLead!.leadId,
         ...rest,
-        dateOfBirth: formatDateYearMonthDay(dateOfBirth),
-        dateOfDeath: formatDateYearMonthDay(dateOfDeath),
+        dateOfBirth: formatToIsoDate(dateOfBirth),
+        dateOfDeath: formatToIsoDate(dateOfDeath),
         ...(city ? { cityId: Number(city.id) } : {}),
       })
       await api.patch(LeadsApis.patchLeadStatus(toConvertLead!.leadId), { status: LeadStatusEnums.CONVERTED })

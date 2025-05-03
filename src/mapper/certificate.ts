@@ -22,9 +22,9 @@ export const mapCertificateToEdit = ({
   return {
     firstName: certificate.firstName,
     lastName: certificate.lastName,
-    dateOfBirth: certificate.dateOfBirth,
+    dateOfBirth: `${certificate.dateOfBirth}`,
     placeOfBirth: certificate.placeOfBirth,
-    dateOfDeath: certificate.dateOfDeath,
+    dateOfDeath: `${certificate.dateOfDeath}`,
     placeOfDeath: certificate.placeOfDeath,
     biography: certificate.biography,
     city: foundCity ? mapSingleCityDropdownToSelectOptions(foundCity) : '',
